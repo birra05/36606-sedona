@@ -25,17 +25,108 @@
         <img src="img/img-background-photo.jpg" alt="Фон" width="320" height="512"/>
         <img src="img/icon-sedona.png" alt="Sedona" width="280" height="48"/>
       </section>
+      <!-- Форма отзыва -->
       <section class="review">
-        <h2>Оставьте свой отзыв</h2>
-        <p>Помогите нашим отелям стать лучше!
-        Оставьте отзыв о них, а также о посещенных вами достопримечательностях</p>
+        <!-- Вступительный текст к форме отзыва -->
+        <div class="review-intro">
+          <h1>Оставьте свой отзыв</h2>
+          <p>Помогите нашим отелям стать лучше!
+          Оставьте отзыв о них, а также о посещенных вами достопримечательностях</p>
+        </div>
+        <form action="/server" method="post" enctype="multipart/form-data">
+          <!-- Данные путешественника -->
+          <fieldset>
+            <legend>Представьтесь, пожалуйста</legend>
+            <label for="surname">Фамилия:</label>
+            <input type="text" name="surname" id="surname" value="Иванов" required>
+            <label for="name">Имя:</label>
+            <input type="text" name="name" id="name" value="Петр" required>
+            <label for="patronymic">Отчество:</label>
+            <input type="text" name="patronymic" id="patronymic" value="Александрович" required>
+          </fieldset>
+          <!-- Радиокнопки_Общее впечатление -->
+          <fieldset>
+            <legend>Ваше общее впечатление:</legend>
+            <label for="radio1">
+              <input type="radio" name="radio" id="radio1" checked>Скорее положительное
+            </label>
+            <label for="radio2">
+              <input type="radio" name="radio" id="radio2">Скорее отрицательное
+            </label>
+          </fieldset>
+          <!-- Даты поездки -->
+          <fieldset>
+            <legend>Даты вашей поездки:</legend>
+            <label for="date-arrival">Дата приезда:</label>
+            <input type="date" name="date-arrival" id="date-arrival" value="2015-07-04" required>
+            <label for="duration">Длительность пребывания</label>
+            <input type="button" name="reduce" value="-">
+            <input type="number" name="duration" id="duration" value="14" required>
+            <input type="button" name="increase" value="+">
+            <label for="date-departure">Дата выезда:</label>
+            <input type="date" name="date-departure" id="date-departure" value="2015-07-28" required>
+          </fieldset>
+          <!-- Анкета путешественников -->
+          <fieldset>
+            <legend>Кол-во путешественников:</legend>
+            <label for="quantity">Количество путешественников:</label>
+            <input type="button" name="reduce" value="-">
+            <input type="number" name="quantity" id="quantity" value="2" required>
+            <input type="button" name="increase" value="+">
+            <!-- Путешественник №1 -->
+            <label for="number-1">№</label>
+            <input type="number" name="number-1" id="number-1" value="1" required>
+            <label for="travel-surname-1">Фамилия:</label>
+            <input type="text" name="surname-1" id="travel-surname-1" value="Иванов" required>
+            <label for="travel-name">Имя:</label>
+            <input type="text" name="name-1" id="travel-name-1" value="Петр" required>
+            <label for="travel-patronymic">Отчество:</label>
+            <input type="text" name="patronymic-1" id="travel-patronymic-1" value="Александрович">
+            <!-- Путешественник №2 -->
+            <label for="number-2">№</label>
+            <input type="number" name="number-2" id="number-2" value="2" required>
+            <label for="travel-surname-2">Фамилия:</label>
+            <input type="text" name="surname-2" id="travel-surname-2" value="Иванов" required>
+            <label for="travel-name">Имя:</label>
+            <input type="text" name="name-2" id="travel-name-2" value="Петр" required>
+            <label for="travel-patronymic">Отчество:</label>
+            <input type="text" name="patronymic-2" id="travel-patronymic-2" value="Александрович">
+          </fieldset>
+          <!-- Чекбоксы_Посещенные достопримечательности -->
+          <fieldset>
+            <legend>Посещенные достопримечательности</legend>
+            <input type="checkbox" name="check1" id="check1">
+            <label for="check1">Мост Дьявола</label>
+            <input type="checkbox" name="check2" id="check2">
+            <label for="check2">Слайд-парк</label>
+            <input type="checkbox" name="check3" id="check3">
+            <label for="check3">Гора-Колокол</label>
+            <input type="checkbox" name="check4" id="check4">
+            <label for="check4">Красные скалы</label>
+          </fieldset>
+          <!-- Поле для загрузки фото -->
+          <fieldset>
+            <legend>Загрузите фотографии</legend>
+            <input type="file" name="review-img-upload">
+            <div class="preview-img">
+              <img src="img/img-preview-1.jpg" width="70" height="70"/>
+              <img src="img/img-preview-2.jpg" width="70" height="70"/>
+              <img src="img/img-preview-3.jpg" width="70" height="70"/>
+              <img src="img/img-preview-4.jpg" width="70" height="70"/>
+              <img src="img/img-preview-5.jpg" width="70" height="70"/>
+              <img src="img/img-preview-6.jpg" width="70" height="70"/>
+              <img src="img/img-preview-7.jpg" width="70" height="70"/>
+            </div>
+          </fieldset>
+          <input type="submit" value="Отправить отзыв">
+        </form>
       </section>
       <!-- Футер -->
       <section class="footer">
         <div class="footer-hash">#Visitsedona</div>
-        <a href="#" class="social-btn social-btn-twitter"></a>
-        <a href="#" class="social-btn social-btn-facebook"></a>
-        <a href="#" class="social-btn social-btn-vk"></a>
+        <a href="#" class="social-btn social-btn-twitter">Twitter</a>
+        <a href="#" class="social-btn social-btn-facebook">Facebook</a>
+        <a href="#" class="social-btn social-btn-vk">ВКонтакте</a>
       </section>
     </div>
     <!-- <script src="js/script.js"></script> -->
