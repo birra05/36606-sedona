@@ -7,24 +7,24 @@
   </head>
   <body>
     <div class="container">
-      <header>
+      <header class="page-header">
         <!-- Меню в хэдере -->
         <img src="img/icon-logo-header.png" alt="Sedona-logo" width="67" height="56"/>
-        <a href="#" class="header-tab-menu"></a>
+        <a class="page-header__tab-menu" href="#"></a>
         <nav class="header-nav">
-          <ul>
-            <li><a href="#">Карта штата</a></li>
-            <li><a href="#">Информация</a></li>
-            <li><a href="#">Фото</a></li>
-            <li><a href="#">Видео</a></li>
+          <ul class="header-nav__list">
+            <li class="header-nav__item"><a href="#">Карта штата</a></li>
+            <li class="header-nav__item"><a href="#">Информация</a></li>
+            <li class="header-nav__item"><a href="#">Фото</a></li>
+            <li class="header-nav__item"><a href="#">Видео</a></li>
           </ul>
         </nav>
       </header>
       <!-- Фоновое изображение с текстом после хэдера -->
-      <section class="intro-img">
+      <div class="intro-img">
         <img src="img/img-background-photo.jpg" alt="Фон" width="320" height="512"/>
         <img src="img/icon-sedona.png" alt="Sedona" width="280" height="48"/>
-      </section>
+      </div>
       <!-- Форма отзыва -->
       <section class="review">
         <!-- Вступительный текст к форме отзыва -->
@@ -122,12 +122,17 @@
         </form>
       </section>
       <!-- Футер -->
-      <section class="footer">
-        <div class="footer-hash">#Visitsedona</div>
-        <a href="#" class="social-btn social-btn-twitter">Twitter</a>
-        <a href="#" class="social-btn social-btn-facebook">Facebook</a>
-        <a href="#" class="social-btn social-btn-vk">ВКонтакте</a>
-      </section>
+      <footer class="page-footer">
+        <div class="page-footer__hash">#Visitsedona</div>
+        <div class="page-footer__social">
+          <a href="#" class="social-btn__twitter">Twitter</a>
+          <a href="#" class="social-btn__facebook">Facebook</a>
+          <a href="#" class="social-btn__vk">ВКонтакте</a>
+        </div>
+        <div class="page-footer__developer">
+          <span>Разработано</span>
+        </div>
+      </footer>
     </div>
     <!-- <script src="js/script.js"></script> -->
   </body>

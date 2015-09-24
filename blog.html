@@ -7,24 +7,25 @@
   </head>
   <body>
     <div class="container">
-      <header>
+      <header class="page-header">
         <!-- Меню в хэдере -->
         <img src="img/icon-logo-header.png" alt="Sedona-logo" width="67" height="56"/>
-        <a href="#" class="header-tab-menu"></a>
+        <a class="page-header__tab-menu" href="#"></a>
         <nav class="header-nav">
-          <ul>
-            <li><a href="#">Карта штата</a></li>
-            <li><a href="#">Информация</a></li>
-            <li><a href="#">Фото</a></li>
-            <li><a href="#">Видео</a></li>
+          <ul class="header-nav__list">
+            <li class="header-nav__item"><a href="#">Карта штата</a></li>
+            <li class="header-nav__item"><a href="#">Информация</a></li>
+            <li class="header-nav__item"><a href="#">Фото</a></li>
+            <li class="header-nav__item"><a href="#">Видео</a></li>
           </ul>
         </nav>
       </header>
       <!-- Фоновое изображение с текстом после хэдера -->
-      <section class="intro-img">
+      <div class="intro-img">
         <img src="img/img-background-photo.jpg" alt="Фон" width="320" height="512"/>
         <img src="img/icon-sedona.png" alt="Sedona" width="280" height="48"/>
-      </section>
+      </div>
+      <!-- Вступление к блогу -->
       <section class="blog">
         <h1 class="blog__title">Блог шерифа</h1>
         <p class="blog__text">
@@ -32,6 +33,7 @@
           Горы здесь красного цвета, а местный шериф ведет блог и общается на форумах.
         </p>
       </section>
+      <!-- Посты -->
       <section class="posts">
         <article class="post">
           <h2 class="post__title">Внимание! Сбежала моя домашняя анаконда</h2>
@@ -39,7 +41,7 @@
             Жители Седоны и гости города, будьте бдительны, сбежала моя домашняя змея.
             Увидевшему срочно звонить 911 и бежать от нее подальше.
           </p>
-          <time class="post__date">Позавчера</time>
+          <span class="post__date">Позавчера</span>
           <a class="post__tag" href="#">Происшествия</a>
         </article>
         <article class="post">
@@ -49,7 +51,7 @@
             и сигар в общественных местах
             города Седона категорически запрещено.
           </p>
-          <time class="post__date">2 дня назад</time>
+          <span class="post__date">2 дня назад</span>
           <a class="post__tag" href="#">Законы</a>
         </article>
         <article class="post">
@@ -59,7 +61,7 @@
             Задержан маньяк-эксгибиционист, державший в страхе весь город.
             Пострадавшим обращаться в 911.
           </p>
-          <time class="post__date">3 дня назад</time>
+          <span class="post__date">3 дня назад</span>
           <a class="post__tag" href="#">Происшествия</a>
         </article>
         <article class="post">
@@ -68,7 +70,7 @@
             Всем, кто планировал посещать водопад на этих выходных, придется изменить планы,
             на нем ведутся ремонтные работы по улучшению подачи воды.
           </p>
-          <time class="post__date">Неделю назад</time>
+          <span class="post__date">Неделю назад</span>
           <a class="post__tag" href="#">Интересное</a>
         </article>
         <article class="post">
@@ -77,7 +79,7 @@
             Лучшие стейки в Аризоне! Приемлемые цены и только самые лучшие продукты.
             Заходите попробовать! Действует акция: съешь два и получи третий!
           </p>
-          <time class="post__date">Месяц назад</time>
+          <span class="post__date">Месяц назад</span>
           <a class="post__tag" href="#">Еда</a>
         </article>
         <article class="post">
@@ -86,7 +88,7 @@
             Синоптики обещают, что будет ясно, безветренно и около 90 по Фаренгейту.
             Как в пустыне! Проверим их слова уже через пару дней.
           </p>
-          <time class="post__date">Год назад</time>
+          <span class="post__date">Год назад</span>
           <a class="post__tag" href="#">Погода</a>
         </article>
       </section>
@@ -98,15 +100,17 @@
         <li class="page-nav__page"><a href="#">5</a></li>
       </ul>
       <!-- Футер -->
-      <section class="footer">
-        <div class="footer-hash">#Visitsedona</div>
-        <a href="#" class="social-btn social-btn-twitter">Twitter</a>
-        <a href="#" class="social-btn social-btn-facebook">Facebook</a>
-        <a href="#" class="social-btn social-btn-vk">ВКонтакте</a>
-        <div class="footer-developer">
+      <footer class="page-footer">
+        <div class="page-footer__hash">#Visitsedona</div>
+        <div class="page-footer__social">
+          <a href="#" class="social-btn__twitter">Twitter</a>
+          <a href="#" class="social-btn__facebook">Facebook</a>
+          <a href="#" class="social-btn__vk">ВКонтакте</a>
+        </div>
+        <div class="page-footer__developer">
           <span>Разработано</span>
         </div>
-      </section>
+      </footer>
     </div>
     <!-- <script src="js/script.js"></script> -->
   </body>
