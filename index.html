@@ -7,89 +7,91 @@
   </head>
   <body>
     <div class="container">
-      <header>
+      <header class="page-header">
         <!-- Меню в хэдере -->
         <img src="img/icon-logo-header.png" alt="Sedona-logo" width="67" height="56"/>
-        <a href="#" class="header-tab-menu"></a>
+        <a class="page-header__tab-menu" href="#"></a>
         <nav class="header-nav">
-          <ul>
-            <li><a href="#">Карта штата</a></li>
-            <li><a href="#">Информация</a></li>
-            <li><a href="#">Фото</a></li>
-            <li><a href="#">Видео</a></li>
+          <ul class="header-nav__list">
+            <li class="header-nav__item"><a href="#">Карта штата</a></li>
+            <li class="header-nav__item"><a href="#">Информация</a></li>
+            <li class="header-nav__item"><a href="#">Фото</a></li>
+            <li class="header-nav__item"><a href="#">Видео</a></li>
           </ul>
         </nav>
       </header>
       <!-- Фоновое изображение с текстом после хэдера -->
-      <section class="intro-img">
+      <div class="intro-img">
         <img src="img/img-background-photo.jpg" alt="Фон" width="320" height="512"/>
         <img src="img/icon-welcome.png" alt="Welcome" width="196" height="66"/>
         <img src="img/icon-sedona.png" alt="Sedona" width="280" height="48"/>
         <img src="img/icon-because.png" alt="Because" width="197" height="54" />
-      </section>
+      </div>
       <!-- Заголовок в описании страницы-->
       <section class="intro-describe">
-        <h1>Седона — небольшой городок в Аризоне, заслуживающий большего!</h1>
-        <p>Рассмотрим 5 причин, по которым Седона круче, чем Гранд Каньон!</p>
+        <h1 class="intro-describe__title">Седона — небольшой городок в Аризоне, заслуживающий большего!</h1>
+        <p class="intro-describe__text">Рассмотрим 5 причин, по которым Седона круче, чем Гранд Каньон!</p>
       </section>
       <!-- Блок с причинами -->
       <section class="reasons-block">
         <div class="reason-1">
-          <h2>Настоящий городок</h2>
-          <p>— №1 —</p>
-          <p>Седона — не аттракцион для туристов, там течет своя жизнь</p>
+          <h2 class="reason__title">Настоящий городок</h2>
+          <p class="reason__number">— №1 —</p>
+          <p class="reason__text">Седона — не аттракцион для туристов, там течет своя жизнь</p>
           <img src="img/img-background-reason-1.jpg" alt="Причина №1" width="320" height="256"/>
         </div>
         <div class="reason-list">
-          <h3>Жилье</h3>
-          <p>Рекомендуем пожить в настоящем мотеле, все как в кино!</p>
-          <h3>Сувениры</h3>
-          <p>Не только китайского, но и местного производства!</p>
-          <h3>Еда</h3>
-          <p>Всегда заказывайте фирменный бургер, вы не разочаруетесь!</p>
+          <h3 class="reason-list__title">Жилье</h3>
+          <p class="reason-list__text">Рекомендуем пожить в настоящем мотеле, все как в кино!</p>
+          <h3 class="reason-list__title">Сувениры</h3>
+          <p class="reason-list__text">Не только китайского, но и местного производства!</p>
+          <h3 class="reason-list__title">Еда</h3>
+          <p class="reason-list__text">Всегда заказывайте фирменный бургер, вы не разочаруетесь!</p>
         </div>
         <div class="reason-2">
-          <h2>Там есть мост дьявола</h2>
-          <p>— №2 —</p>
-          <p>Да, по нему можно пройти! Если, конечно, вы осмелитесь</p>
-          <img src="img/img-background-reason-2.jpg" alt="Причина №2" width="320" height="256"/></figure>
+          <h2 class="reason__title">Там есть мост дьявола</h2>
+          <p class="reason__number">— №2 —</p>
+          <p class="reason__text">Да, по нему можно пройти! Если, конечно, вы осмелитесь</p>
+          <img src="img/img-background-reason-2.jpg" alt="Причина №2" width="320" height="256"/>
         </div>
         <div class="reason-3">
-          <h2>Небольшая площадь</h2>
-          <p>— №3 —</p>
-          <p>Все достопримечательности находятся очень близко</p>
+          <h2 class="reason__title">Небольшая площадь</h2>
+          <p class="reason__number">— №3 —</p>
+          <p class="reason__text">Все достопримечательности находятся очень близко</p>
         </div>
         <div class="reason-4">
-          <h2>Красивая дорога</h2>
-          <p>— №4 —</p>
-          <p>Ехать в Седону из Лас-вегаса совсем не скучно!</p>
+          <h2 class="reason__title">Красивая дорога</h2>
+          <p class="reason__number">— №4 —</p>
+          <p class="reason__text">Ехать в Седону из Лас-вегаса совсем не скучно!</p>
         </div>
         <div class="reason-5">
-          <h2>Мало туристов</h2>
-          <p>— №5 —</p>
-          <p>Большинство едет в Гранд-Каньон и толпится там</p>
+          <h2 class="reason__title">Мало туристов</h2>
+          <p class="reason__number">— №5 —</p>
+          <p class="reason__text">Большинство едет в Гранд-Каньон и толпится там</p>
         </div>
       </section>
       <!-- Блок с поиском гостиницы -->
-      <section class="interest-block">
-        <p class="interest-title">Заинтересовались?</p>
-        <p>Укажите предполагаемые даты поездки, и мы покажем вам лучшие предложения гостиниц в Cедоне</p>
-        <a href="#">Найти гостиницу</a>
-      </section>
+      <div class="interest">
+        <p class="interest__title">Заинтересовались?</p>
+        <p class="interest__text">Укажите предполагаемые даты поездки, и мы покажем вам лучшие предложения гостиниц в Cедоне</p>
+        <a class="interest__btn" href="#">Найти гостиницу</a>
+      </div>
       <!-- Карта -->
-      <section class="map">
+      <div class="map">
         <img src="img/img-map.jpg" alt="Карта" width="320" height="350"/>
-      </section>
+      </div>
       <!-- Футер -->
-      <section class="footer">
-        <div class="footer-hash">#Visitsedona</div>
-        <a href="#" class="social-btn social-btn-twitter">Twitter</a>
-        <a href="#" class="social-btn social-btn-facebook">Facebook</a>
-        <a href="#" class="social-btn social-btn-vk">ВКонтакте</a>
-        <div class="footer-developer">
+      <footer class="page-footer">
+        <div class="page-footer__hash">#Visitsedona</div>
+        <div class="page-footer__social">
+          <a href="#" class="social-btn__twitter">Twitter</a>
+          <a href="#" class="social-btn__facebook">Facebook</a>
+          <a href="#" class="social-btn__vk">ВКонтакте</a>
+        </div>
+        <div class="page-footer__developer">
           <span>Разработано</span>
         </div>
-      </section>
+      </footer>
     </div>
     <!-- <script src="js/script.js"></script> -->
   </body>
