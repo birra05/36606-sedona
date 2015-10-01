@@ -1,0 +1,366 @@
+// Переменные
+
+// Размеры
+
+@mobile-width: 320px;
+@wrapper-width: @mobile-width - 20px - 20px;
+
+// Шрифты
+
+@font-family: "PT Sans", Arial, sans-serif;
+@font: normal 14px/26px @font-family;
+@font-title: bold 18px/26px @font-family;
+
+// Цвета
+
+@blue: #81b3d2;
+@color-font-white: #fff;
+@color-font: #333;
+@color-font-title: #000;
+@light-gray-bg: #eee;
+@gray-line: #dbdbdb;
+
+// Папки
+
+@dir-img-sprite: "../img/icons-sprite.png";
+
+// Стили
+
+html {
+  box-sizing: border-box;
+}
+
+*, *:before, *:after {
+  box-sizing: inherit;
+}
+
+body {
+  text-align: center;
+  text-transform: uppercase;
+  font: @font;
+  font-family: @font-family;
+  color: @color-font;
+}
+
+.container {
+  width: @mobile-width;
+  margin: 0 auto;
+}
+
+.wrapper {
+  width: @wrapper-width;
+  margin: 0 auto;
+}
+
+// Хэдер
+
+.page-header {
+  margin-bottom: 55px;
+}
+
+.header-nav {
+  position: relative;
+
+  li {
+    background: @blue;
+    border-top: 1px solid #9ac2db;
+    border-bottom: 1px solid #678fa8;
+  }
+
+  &__tab-menu {
+    &:before {
+      content: "";
+      display: block;
+      background: url(@dir-img-sprite) no-repeat -145px -66px;
+      width: 23px;
+      height: 22px;
+      position: absolute;
+      top: 240px;
+      right: 20px;
+    }
+
+    &:after {
+      content: "";
+      display: block;
+      background: url(@dir-img-sprite) no-repeat -145px -41px;
+      width: 23px;
+      height: 22px;
+      position: absolute;
+      top: 16px;
+      right: 20px;
+    }
+  }
+
+  &__item {
+    display: inline-block;
+    vertical-align: baseline;
+    width: @mobile-width;
+    font: bold 18px/54px @font-family;
+    color: @color-font-white;
+    text-decoration: none;
+  }
+
+  &__logo {
+    position: absolute;
+    left: 90px;
+    z-index: 1000;
+  }
+
+}
+
+// Фоновое изображение + заголовок в начале страницы
+
+.intro {
+  position: relative;
+
+  &-img {
+    position: relative;
+    background: url("../img/img-bg-main.jpg") no-repeat;
+    width: @mobile-width;
+    height: 391px;
+    padding-top: 47px;
+    margin-bottom: 40px;
+
+    &:after {
+      content: url("../img/img-bg-white.png");
+      display: block;
+      position: absolute;
+      top: 391px - 25px;
+    }
+  }
+
+  &-describe {
+    position: relative;
+
+    &__title {
+      margin-bottom: 32px;
+      font: @font-title;
+      color: @color-font-title;
+    }
+
+    &__text {
+      margin-bottom: 30px;
+    }
+  }
+}
+
+// Блок с причинами
+
+.reasons-block {
+
+  .reason {
+    font: normal 14px/21px @font-family;
+
+    .wrapper {
+      width: @wrapper-width - 30px;
+    }
+
+    &__title {
+      font: @font-title;
+      margin-bottom: 9px;
+    }
+
+    &__number {
+      margin-bottom: 9px;
+    }
+  }
+
+  .reason-1 {
+    background: @blue;
+    position: relative;
+    padding-top: 60px;
+    margin-bottom: 30px;
+    color: @color-font-white;
+
+    &:before {
+      content: url("../img/img-bg-white-2.png");
+      display: block;
+      position: absolute;
+      top: 0;
+    }
+
+    .wrapper {
+      width: @wrapper-width - 20px;
+      margin-bottom: 40px;
+    }
+  }
+
+  .reason-list {
+    position: relative;
+    text-align: left;
+    margin-bottom: 38px;
+
+    .wrapper {
+      width: @wrapper-width - 70px;
+      margin-left: 50px;
+    }
+
+    &__item {
+      margin-left: 20px;
+    }
+
+    &__item-1:before {
+      content: "";
+      display: block;
+      background: url(@dir-img-sprite) no-repeat 0 -2px;
+      width: 38px;
+      height: 36px;
+      position: absolute;
+    }
+
+    &__item-2:before {
+      content: "";
+      display: block;
+      background: url(@dir-img-sprite) no-repeat -41px 0;
+      width: 32px;
+      height: 38px;
+      position: absolute;
+    }
+
+    &__item-3:before {
+      content: "";
+      display: block;
+      background: url(@dir-img-sprite) no-repeat -76px -2px;
+      width: 37px;
+      height: 35px;
+      position: absolute;
+    }
+  }
+
+  .reason-2 {
+    background: @blue;
+    padding-top: 40px;
+    color: @color-font-white;
+
+    .wrapper {
+      width: @wrapper-width - 40px;
+      margin-bottom: 40px;
+    }
+  }
+
+  .reason-3, .reason-4, .reason-5 {
+
+    background: @light-gray-bg;
+
+    .wrapper {
+      width: @wrapper-width;
+      padding: 30px 0;
+      border-bottom: 1px solid @gray-line;
+    }
+  }
+
+  .reason-5 {
+
+    .wrapper {
+      border-bottom: none;
+    }
+  }
+}
+
+.interest {
+
+  padding-top: 30px;
+  margin-bottom: 50px;
+
+  &__title {
+    font: bold 21px/26px @font-family;
+    margin-bottom: 14px;
+  }
+
+  &__text {
+    font: normal 14px/24px @font-family;
+    margin-bottom: 38px;
+  }
+
+  &__btn {
+    display: inline-block;
+    vertical-align: baseline;
+    width: @wrapper-width;
+    padding: (57px - 26px)/2;
+    font: bold 21px/26px @font-family;
+    color: @color-font-white;
+    text-decoration: none;
+    background: @blue;
+  }
+}
+
+.map {
+
+  position: relative;
+  margin-bottom: 38px;
+
+  &:before {
+    content: "";
+    display: block;
+    background: url(@dir-img-sprite) no-repeat -145px -6px;
+    width: 27px;
+    height: 27px;
+    position: absolute;
+    left: 145px;
+    top: 160px;
+  }
+}
+
+.page-footer {
+
+  width: 150px;
+  margin: 0 (@mobile-width - 150px)/2;
+
+  &__hash {
+    margin-bottom: 34px;
+    font: bold 21px/26px @font-family;
+    color: @color-font-title;
+  }
+
+  .social {
+
+    margin-bottom: 38px;
+
+    a {
+      display: inline-block;
+      vertical-align: baseline;
+    }
+
+    &__twitter:before {
+      content: "";
+      display: block;
+      background: url(@dir-img-sprite) no-repeat 0 -40px;
+      width: 46px;
+      height: 48px;
+    }
+
+    &__facebook:before {
+      content: "";
+      display: block;
+      background: url(@dir-img-sprite) no-repeat -48px -40px;
+      width: 47px;
+      height: 48px;
+    }
+
+    &__youtube:before {
+      content: "";
+      display: block;
+      background: url(@dir-img-sprite) no-repeat -97px -40px;
+      width: 46px;
+      height: 48px;
+    }
+  }
+
+  &__developer {
+
+    position: relative;
+    display: block;
+    text-align: left;
+    padding-left: 10px;
+
+    &:before {
+      content: "";
+      display: block;
+      background: url(@dir-img-sprite) no-repeat -116px -4px;
+      width: 27px;
+      height: 34px;
+      position: absolute;
+      left: 112px;
+    }
+  }
+}
