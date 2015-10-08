@@ -40,4 +40,5 @@ module.exports = function(grunt) {
   config = require('./.gosha')(grunt, config);
 
   grunt.initConfig(config);
+  
 };

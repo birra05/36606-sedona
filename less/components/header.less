@@ -1,0 +1,51 @@
+// Хэдер
+
+.page-header {
+  margin-bottom: 55px;
+  text-align: center;
+}
+
+.header-nav {
+  position: relative;
+
+  li {
+    background: @blue;
+    border-top: 1px solid #9ac2db;
+    border-bottom: 1px solid #678fa8;
+  }
+
+  &__tab-menu {
+    &:before {
+      .mixin_for-pseudo;
+      background: url(@dir-img-sprite) no-repeat -145px -66px;
+      width: 23px;
+      height: 22px;
+      top: 240px;
+      right: 20px;
+    }
+
+    &:after {
+      .mixin_for-pseudo;
+      background: url(@dir-img-sprite) no-repeat -145px -41px;
+      width: 23px;
+      height: 22px;
+      top: 16px;
+      right: 20px;
+    }
+  }
+
+  &__item {
+    display: inline-block;
+    vertical-align: baseline;
+    width: @mobile-width;
+    font: bold 18px/54px @font-family;
+    color: @color-font-white;
+    text-decoration: none;
+  }
+
+  &__logo {
+    position: absolute;
+    left: 90px;
+    z-index: 1000;
+  }
+}

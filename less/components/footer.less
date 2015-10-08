@@ -1,0 +1,77 @@
+// Футер
+
+.page-footer {
+  margin: 0 auto;
+  text-align: center;
+
+  &__hash {
+    margin-bottom: 34px;
+    font: bold 21px/26px @font-family;
+    color: @color-font-title;
+  }
+
+  .page-footer-social {
+    margin-bottom: 96px;
+
+    &--index {
+      margin-bottom: 38px;
+
+      a {
+        .mixin_inline-block;
+      }
+    }
+
+    a {
+      .mixin_inline-block;
+    }
+
+    &__twitter:before {
+      content: "";
+      display: block;
+      background: url(@dir-img-sprite) no-repeat 0 -40px;
+      width: 46px;
+      height: 48px;
+    }
+
+    &__facebook:before {
+      content: "";
+      display: block;
+      background: url(@dir-img-sprite) no-repeat -48px -40px;
+      width: 47px;
+      height: 48px;
+    }
+
+    &__youtube:before {
+      content: "";
+      display: block;
+      background: url(@dir-img-sprite) no-repeat -97px -40px;
+      width: 46px;
+      height: 48px;
+    }
+  }
+
+  &__developer {
+    display: none;
+
+    &--index {
+      position: relative;
+      width: 100%;
+      display: block;
+      text-align: center;
+      line-height: 34px;
+      margin-bottom: 22px;
+
+      p {
+        margin-left: -40px;
+      }
+
+      &:before {
+        .mixin_for-pseudo;
+        background: url(@dir-img-sprite) no-repeat -116px -4px;
+        width: 27px;
+        height: 34px;
+        left: 176px;
+      }
+    }
+  }
+}
