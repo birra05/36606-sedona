@@ -1,0 +1,110 @@
+// Блок с причинами
+
+.reasons-block {
+
+  .reason {
+    font: normal 14px/21px @font-family;
+    text-align: center;
+
+    .wrapper {
+      width: @wrapper-width - 30px;
+    }
+
+    &__title {
+      font: @font-title;
+      margin-bottom: 9px;
+    }
+
+    &__number {
+      margin-bottom: 9px;
+    }
+
+    img {
+      display: block;
+    }
+  }
+
+  .reason-1 {
+    position: relative;
+    padding-top: 60px;
+    margin-bottom: 30px;
+    background: @blue;
+    color: @color-font-white;
+
+    &:before {
+      content: url("../img/img-bg-white-2.png");
+      display: block;
+      position: absolute;
+      top: 0;
+    }
+
+    .wrapper {
+      width: @wrapper-width - 20px;
+      margin-bottom: 40px;
+    }
+  }
+
+  .reason-list {
+    position: relative;
+    text-align: left;
+    margin-bottom: 38px;
+
+    .wrapper {
+      width: @wrapper-width - 70px;
+      margin-left: 50px;
+    }
+
+    &__item {
+      margin-left: 20px;
+    }
+
+    &__item-1:before {
+      .mixin_for-pseudo;
+      background: url(@dir-img-sprite) no-repeat 0 -2px;
+      width: 38px;
+      height: 36px;
+    }
+
+    &__item-2:before {
+      .mixin_for-pseudo;
+      background: url(@dir-img-sprite) no-repeat -41px 0;
+      width: 32px;
+      height: 38px;
+    }
+
+    &__item-3:before {
+      .mixin_for-pseudo;
+      background: url(@dir-img-sprite) no-repeat -76px -2px;
+      width: 37px;
+      height: 35px;
+    }
+  }
+
+  .reason-2 {
+    background: @blue;
+    padding-top: 40px;
+    color: @color-font-white;
+
+    .wrapper {
+      width: @wrapper-width - 40px;
+      margin-bottom: 40px;
+    }
+  }
+
+  .reason-3, .reason-4, .reason-5 {
+
+    background: @light-gray-bg;
+
+    .wrapper {
+      padding: 30px 0;
+      border-bottom: 1px solid @gray-line;
+    }
+  }
+
+  .reason-5 {
+
+    .wrapper {
+      border-bottom: none;
+    }
+  }
+}

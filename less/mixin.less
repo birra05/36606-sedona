@@ -1,0 +1,34 @@
+// Примеси
+
+// Для корректного использования display: inline-block
+.mixin_inline-block {
+  display: inline-block;
+  vertical-align: baseline;
+}
+
+// Для псевдоэлементов
+.mixin_for-pseudo {
+  content: "";
+  display: block;
+  position: absolute;
+}
+
+// Оформление label:before радиокнопок и чекбоксов
+.mixin_for-radio-checkbox-label-before {
+  .mixin_for-pseudo;
+  top: 0;
+  left: -75px;
+  width: 56px;
+  height: 56px;
+  background: @light-gray-input;
+  cursor: pointer;
+}
+
+// Оформление больших кнопок Найти гостиницу и Отправить отзыв
+.mixin_for-big-btn {
+  width: 100%;
+  text-align: center;
+  background: @blue;
+  color: @color-font-white;
+  font: @font-btn;
+}

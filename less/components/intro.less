@@ -1,0 +1,53 @@
+// Фоновое изображение + заголовок в начале страницы
+
+.intro {
+  position: relative;
+  text-align: center;
+
+  &-img {
+    position: relative;
+    background: url("../img/img-bg-main.jpg") no-repeat;
+    width: @mobile-width;
+    height: 391px;
+    padding-top: 47px;
+    margin-bottom: 40px;
+
+    &:after {
+      content: url("../img/img-bg-white.png");
+      display: block;
+      position: absolute;
+      top: 391px - 25px;
+    }
+
+    &--form {
+      position: relative;
+      background: url("../img/img-bg-main.jpg") no-repeat;
+      background-position: 0px -142px;
+      width: @mobile-width;
+      height: 160px;
+      padding-top: 48px;
+      margin-bottom: 76px;
+
+      &:after {
+        content: url("../img/img-bg-white.png");
+        display: block;
+        position: absolute;
+        top: 160px - 25px;
+      }
+    }
+  }
+
+  &-describe {
+    position: relative;
+
+    &__title {
+      margin-bottom: 32px;
+      font: @font-title;
+      color: @color-font-title;
+    }
+
+    &__text {
+      margin-bottom: 30px;
+    }
+  }
+}
