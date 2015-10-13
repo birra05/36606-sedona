@@ -14,12 +14,33 @@ body {
   text-transform: uppercase;
 }
 
-.container {
-  width: @mobile-width;
-  margin: 0 auto;
+img {
+  max-width: 100%;
+  height: auto;
 }
 
-.wrapper {
-  width: @wrapper-width;
-  margin: 0 auto;
+@media (min-width: @mobile-width) {
+  .container {
+    width: @mobile-width;
+    margin: 0 auto;
+    overflow: hidden;
+  }
+
+  .wrapper {
+    width: @wrapper-mobile-width;
+    margin: 0 auto;
+  }
+}
+
+@media (min-width: @tablet-width) {
+  .container {
+    width: 768px;
+    margin: 0 auto;
+    overflow: hidden;
+  }
+
+  .wrapper {
+    width: @wrapper-tablet-width;
+    margin: 0 auto;
+  }
 }
