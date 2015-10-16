@@ -1,68 +1,66 @@
 // Хэдер
 
-@media (min-width: @mobile-width)   {
-  .page-header {
-    margin-bottom: 55px;
-    text-align: center;
+.page-header {
+  margin-bottom: 55px;
+  text-align: center;
+}
+
+.header-nav {
+  position: relative;
+
+  li {
+    background: @blue;
+    border-top: 1px solid #9ac2db;
+    border-bottom: 1px solid #678fa8;
+
+    &:nth-child(5), &:nth-child(6) {
+      display: none;
+    }
   }
 
-  .header-nav {
-    position: relative;
-
-    li {
-      background: @blue;
-      border-top: 1px solid #9ac2db;
-      border-bottom: 1px solid #678fa8;
-
-      &:nth-child(5), &:nth-child(6) {
-        display: none;
-      }
+  &__tab-menu {
+    &:before {
+      .mixin_for-pseudo;
+      background: url("../img/icon-menu.svg") no-repeat;
+      width: 23px;
+      height: 22px;
+      top: 240px;
+      right: 20px;
     }
 
-    &__tab-menu {
-      &:before {
-        .mixin_for-pseudo;
-        background: url(@dir-img-sprite) no-repeat -145px -66px;
-        width: 23px;
-        height: 22px;
-        top: 240px;
-        right: 20px;
-      }
-
-      &:after {
-        .mixin_for-pseudo;
-        background: url(@dir-img-sprite) no-repeat -145px -41px;
-        width: 23px;
-        height: 22px;
-        top: 16px;
-        right: 20px;
-      }
+    &:after {
+      .mixin_for-pseudo;
+      background: url("../img/icon-cross.svg") no-repeat;
+      width: 22px;
+      height: 22px;
+      top: 16px;
+      right: 20px;
     }
+  }
 
-    &__item {
-      display: inline-block;
-      vertical-align: baseline;
-      width: 100%;
-      font: bold 18px/54px @font-family;
-      color: @color-font-white;
-      text-decoration: none;
-    }
+  &__item {
+    display: inline-block;
+    vertical-align: baseline;
+    width: 100%;
+    font: bold 18px/54px @font-family;
+    color: @color-font-white;
+    text-decoration: none;
+  }
 
-    &__logo {
+  &__logo {
+    position: absolute;
+    left: (@mobile-width - 67px)/2;
+    z-index: 1000;
+
+    &:after {
+      content: url("../img/form-logo-triangle.svg");
+      display: block;
       position: absolute;
-      left: (@mobile-width - 67px)/2;
-      z-index: 1000;
-
-      &:after {
-        content: url("../img/form-logo-triangle.svg");
-        display: block;
-        position: absolute;
-        width: 137px;
-        height: 71px;
-        top: 0;
-        left: -(137px - 67px)/2;
-        z-index: -1000;
-      }
+      width: 137px;
+      height: 71px;
+      top: 0;
+      left: -(137px - 67px)/2;
+      z-index: -1000;
     }
   }
 }

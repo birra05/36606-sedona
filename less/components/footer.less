@@ -1,79 +1,77 @@
 // Футер
 
-@media (min-width: @mobile-width) {
-  .page-footer {
-    text-align: center;
-    padding: 0 (@mobile-width - 150px)/2;
+.page-footer {
+  text-align: center;
+  padding: 0 (@mobile-width - 150px)/2;
 
-    &__hash {
-      margin-bottom: 34px;
-      font: @font-title-tablet;
-      color: @color-font-title;
+  &__hash {
+    margin-bottom: 34px;
+    font: @font-title-tablet;
+    color: @color-font-title;
+  }
+
+  &-social {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 96px;
+
+    &--index {
+      margin-bottom: 38px;
     }
 
-    &-social {
-      display: flex;
-      justify-content: space-between;
-      margin-bottom: 96px;
-
-      &--index {
-        margin-bottom: 38px;
-      }
-
-      a {
-        position: relative;
-        display: block;
-        width: 46px;
-        height: 48px;
-        background: @blue;
-      }
-
-      &__twitter:before {
-        content: url("../img/icon-twitter.svg");
-        display: block;
-        position: absolute;
-        top: 16px;
-        left: 15px;
-      }
-
-      &__facebook:before {
-        content: url("../img/icon-facebook.svg");
-        display: block;
-        position: absolute;
-        top: 14px;
-        left: 20px;
-      }
-
-      &__youtube:before {
-        content: url("../img/icon-youtube.svg");
-        display: block;
-        position: absolute;
-        top: 15px;
-        left: 13px;
-      }
+    a {
+      position: relative;
+      display: block;
+      width: 46px;
+      height: 48px;
+      background: @blue;
     }
 
-    &__developer {
-      display: none;
+    &__twitter:before {
+      content: url("../img/icon-twitter.svg");
+      display: block;
+      position: absolute;
+      top: 16px;
+      left: 15px;
+    }
 
-      &--index {
-        position: relative;
-        line-height: 34px;
-        margin-bottom: 22px;
+    &__facebook:before {
+      content: url("../img/icon-facebook.svg");
+      display: block;
+      position: absolute;
+      top: 14px;
+      left: 20px;
+    }
 
-        p {
-          padding-left: 11px;
-          text-align: left;
-        }
+    &__youtube:before {
+      content: url("../img/icon-youtube.svg");
+      display: block;
+      position: absolute;
+      top: 15px;
+      left: 13px;
+    }
+  }
 
-        &:before {
-          content: url("../img/htmlacademy.svg");
-          display: block;
-          position: absolute;
-          width: 27px;
-          height: 34px;
-          left: 112px;
-        }
+  &__developer {
+    display: none;
+
+    &--index {
+      position: relative;
+      line-height: 34px;
+      margin-bottom: 22px;
+
+      p {
+        padding-left: 11px;
+        text-align: left;
+      }
+
+      &:before {
+        content: url("../img/htmlacademy.svg");
+        display: block;
+        position: absolute;
+        width: 27px;
+        height: 34px;
+        left: 112px;
       }
     }
   }
@@ -87,9 +85,11 @@
     justify-content: space-between;
     align-items: center;
     padding: 0;
+    margin-bottom: 36px;
 
     div {
       width: 30%;
+      margin-bottom: 0;
     }
 
     &-social {
@@ -97,16 +97,20 @@
     }
 
     &__developer {
-      &--index {
-        position: relative;
+      display: block;
+      position: relative;
 
-        p {
-          text-align: center;
-        }
+      p {
+        text-align: center;
+      }
 
-        &:before {
-          left: 112px*100%/150px;
-        }
+      &:before {
+        content: url("../img/htmlacademy.svg");
+        display: block;
+        position: absolute;
+        width: 27px;
+        height: 34px;
+        left: 112px*100%/150px;
       }
     }
   }

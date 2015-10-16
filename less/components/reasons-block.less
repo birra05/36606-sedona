@@ -1,132 +1,130 @@
 // Блок с причинами
 
-@media (min-width: @mobile-width) {
-  .reasons-block {
+.reasons-block {
 
-    .reason {
-      font: @font-reason;
-      text-align: center;
+  .reason {
+    font: @font-reason;
+    text-align: center;
 
-      &__describe {
-        padding: 0 ((20px*100%)/320px);
-        margin-bottom: 42px;
-      }
-
-      &__title {
-        font: @font-title;
-        margin-bottom: 9px;
-      }
-
-      &__number {
-        margin-bottom: 9px;
-      }
-
-      img {
-        display: block;
-      }
+    &__describe {
+      padding: 0 ((20px*100%)/320px);
+      margin-bottom: 42px;
     }
 
-    .reason-1, .reason-2 {
+    &__title {
+      font: @font-title;
+      margin-bottom: 9px;
+    }
+
+    &__number {
+      margin-bottom: 9px;
+    }
+
+    img {
+      display: block;
+    }
+  }
+
+  .reason-1, .reason-2 {
+    position: relative;
+    background: @blue;
+    color: @color-font-white;
+    overflow: hidden;
+
+    &__bg {
+      width: 100%;
+      height: 256px;
+    }
+  }
+
+  .reason-1 {
+    padding-top: 60px;
+
+    &__bg {
+      background: url("../img/photo-city@1x.jpg") no-repeat -100px 0;
+      background-size: cover;
+    }
+
+    &:before {
+      content: url("../img/img-bg-white-2.png");
+      display: block;
+      position: absolute;
+      top: 0;
+    }
+  }
+
+  .reason-list {
+    position: relative;
+    text-align: left;
+    padding-top: 42px;
+    margin-bottom: 38px;
+
+    .wrapper {
+      width: @wrapper-mobile-width - 70px;
+      margin-left: 50px;
+    }
+
+    &__item {
       position: relative;
-      background: @blue;
-      color: @color-font-white;
-      overflow: hidden;
-
-      &__bg {
-        width: 100%;
-        height: 256px;
-      }
+      margin-left: 20px;
+      margin-bottom: 34px;
     }
 
-    .reason-1 {
-      padding-top: 60px;
-
-      &__bg {
-        background: url("../img/photo-city@1x.jpg") no-repeat -100px 0;
-        background-size: cover;
-      }
-
-      &:before {
-        content: url("../img/img-bg-white-2.png");
-        display: block;
-        position: absolute;
-        top: 0;
-      }
+    &__item-1:before {
+      .mixin_for-pseudo;
+      background: url("../img/icon-house.svg") no-repeat;
+      background-size: cover;
+      width: 38px;
+      height: 37px;
+      top: -10px;
     }
 
-    .reason-list {
-      position: relative;
-      text-align: left;
-      padding-top: 42px;
-      margin-bottom: 38px;
-
-      .wrapper {
-        width: @wrapper-mobile-width - 70px;
-        margin-left: 50px;
-      }
-
-      &__item {
-        position: relative;
-        margin-left: 20px;
-        margin-bottom: 34px;
-      }
-
-      &__item-1:before {
-        .mixin_for-pseudo;
-        background: url("../img/icon-house.svg") no-repeat;
-        background-size: cover;
-        width: 38px;
-        height: 37px;
-        top: -10px;
-      }
-
-      &__item-2:before {
-        .mixin_for-pseudo;
-        background: url("../img/icon-gift.svg") no-repeat;
-        background-size: cover;
-        width: 32px;
-        height: 38px;
-        top: -10px;
-      }
-
-      &__item-3:before {
-        .mixin_for-pseudo;
-        background: url("../img/icon-burger.svg") no-repeat;
-        background-size: cover;
-        width: 40px;
-        height: 36px;
-        top: -10px;
-      }
-
-      &__title {
-        font: @font-title;
-        color: @color-font-title;
-        margin-bottom: 18px;
-      }
+    &__item-2:before {
+      .mixin_for-pseudo;
+      background: url("../img/icon-gift.svg") no-repeat;
+      background-size: cover;
+      width: 32px;
+      height: 38px;
+      top: -10px;
     }
 
-    .reason-2 {
-      padding-top: 40px;
-
-      &__bg {
-        background: url("../img/photo-bridge@1x.jpg") no-repeat -100px 0;
-        background-size: cover;
-      }
+    &__item-3:before {
+      .mixin_for-pseudo;
+      background: url("../img/icon-burger.svg") no-repeat;
+      background-size: cover;
+      width: 40px;
+      height: 36px;
+      top: -10px;
     }
 
-    .reason-3, .reason-4, .reason-5 {
-      background: @light-gray-bg;
-
-      .wrapper {
-        padding: 30px 0;
-        border-bottom: 1px solid @gray-line;
-      }
+    &__title {
+      font: @font-title;
+      color: @color-font-title;
+      margin-bottom: 18px;
     }
+  }
 
-    .reason-5 {
-      .wrapper {
-        border-bottom: none;
-      }
+  .reason-2 {
+    padding-top: 40px;
+
+    &__bg {
+      background: url("../img/photo-bridge@1x.jpg") no-repeat -100px 0;
+      background-size: cover;
+    }
+  }
+
+  .reason-3, .reason-4, .reason-5 {
+    background: @light-gray-bg;
+
+    .wrapper {
+      padding: 30px 0;
+      border-bottom: 1px solid @gray-line;
+    }
+  }
+
+  .reason-5 {
+    .wrapper {
+      border-bottom: none;
     }
   }
 }
@@ -233,7 +231,7 @@
       }
     }
 
-     .reason-2 {
+    .reason-2 {
       &__bg {
         order: -1;
         background: url("../img/photo-bridge@1x.jpg") no-repeat;
