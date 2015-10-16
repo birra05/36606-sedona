@@ -1,39 +1,80 @@
 // Заинтересовались + карта
 
-.interest {
+@media (min-width: @mobile-width) {
+  .interest {
+    padding-top: 30px;
+    margin-bottom: 50px;
+    text-align: center;
 
-  padding-top: 30px;
-  margin-bottom: 50px;
-  text-align: center;
+    &__title {
+      font: @font-title-tablet;
+      color: @color-font-title;
+      margin-bottom: 14px;
+    }
 
-  &__title {
-    font: bold 21px/26px @font-family;
-    margin-bottom: 14px;
+    &__text {
+      font: normal 14px/24px @font-family;
+      margin-bottom: 38px;
+    }
+
+    &__btn {
+      .mixin_inline-block;
+      .mixin_for-big-btn;
+      text-decoration: none;
+    }
   }
 
-  &__text {
-    font: normal 14px/24px @font-family;
+  .map {
+    position: relative;
     margin-bottom: 38px;
-  }
+    background: url("../img/img-map.jpg");
+    width: @mobile-width;
+    height: 350px;
 
-  &__btn {
-    .mixin_inline-block;
-    .mixin_for-big-btn;
-    text-decoration: none;
+    &:before {
+      .mixin_for-pseudo;
+      background: url("../img/map-marker.svg") no-repeat;
+      width: 27px;
+      height: 27px;
+      left: 145px;
+      top: 160px;
+    }
   }
 }
 
-.map {
+// Планшетная версия
 
-  position: relative;
-  margin-bottom: 38px;
+@media (min-width: @tablet-width) {
+  .interest {
+    padding-top: 52px;
+    margin-bottom: 58px;
 
-  &:before {
-    .mixin_for-pseudo;
-    background: url(@dir-img-sprite) no-repeat -145px -6px;
-    width: 27px;
-    height: 27px;
-    left: 145px;
-    top: 160px;
+    .wrapper {
+      width: @wrapper-tablet-btn-width;
+    }
+
+    &__title {
+      margin-bottom: 28px;
+      font: bold 30px/26px @font-family;
+      color: @color-font-title;
+    }
+
+    &__text {
+      margin-bottom: 45px;
+    }
+  }
+
+  .map {
+    background: url("../img/img-map-tablet.jpg");
+    width: @tablet-width;
+
+    &:before {
+      .mixin_for-pseudo;
+      background: url("../img/map-marker.svg") no-repeat;
+      width: 27px;
+      height: 27px;
+      left: (@tablet-width - 27px)/2;
+      top: (350px - 27px)/2;
+    }
   }
 }
