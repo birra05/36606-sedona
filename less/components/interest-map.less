@@ -1,46 +1,46 @@
 // Заинтересовались + карта
 
-@media (min-width: @mobile-width) {
-  .interest {
-    padding-top: 30px;
-    margin-bottom: 50px;
-    text-align: center;
+.interest {
+  padding-top: 30px;
+  margin-bottom: 50px;
+  text-align: center;
 
-    &__title {
-      font: @font-title-tablet;
-      color: @color-font-title;
-      margin-bottom: 14px;
-    }
-
-    &__text {
-      font: normal 14px/24px @font-family;
-      margin-bottom: 38px;
-    }
-
-    &__btn {
-      .mixin_inline-block;
-      .mixin_for-big-btn;
-      text-decoration: none;
-    }
+  &__title {
+    font: @font-title-tablet;
+    color: @color-font-title;
+    margin-bottom: 14px;
   }
 
-  .map {
-    position: relative;
+  &__text {
+    font: normal 14px/24px @font-family;
     margin-bottom: 38px;
-    background: url("../img/img-map.jpg");
-    width: @mobile-width;
-    height: 350px;
+  }
 
-    &:before {
-      .mixin_for-pseudo;
-      background: url("../img/map-marker.svg") no-repeat;
-      width: 27px;
-      height: 27px;
-      left: 145px;
-      top: 160px;
-    }
+  &__btn {
+    .mixin_inline-block;
+    .mixin_for-big-btn;
+    text-decoration: none;
   }
 }
+
+.map {
+  position: relative;
+  margin-bottom: 38px;
+  background: url("../img/img-map.jpg");
+  width: @mobile-width;
+  height: 350px;
+
+  &:before {
+    .mixin_for-pseudo;
+    background: url("../img/map-marker.svg") no-repeat;
+    width: 27px;
+    height: 27px;
+    left: 145px;
+    top: 160px;
+  }
+}
+
+// Планшетная версия
 
 @media (min-width: @tablet-width) {
   .interest {
