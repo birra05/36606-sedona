@@ -25,6 +25,14 @@
       width: 46px;
       height: 48px;
       background: @blue;
+
+      &:hover {
+        background: #669ec0;
+      }
+
+      &:active {
+        background: #5496bd;
+      }
     }
 
     &__twitter:before {
@@ -56,6 +64,7 @@
     display: none;
 
     &--index {
+      display: block;
       position: relative;
       line-height: 34px;
       margin-bottom: 22px;
@@ -64,15 +73,20 @@
         padding-left: 11px;
         text-align: left;
       }
+    }
+  }
 
-      &:before {
-        content: url("../img/htmlacademy.svg");
-        display: block;
-        position: absolute;
-        width: 27px;
-        height: 34px;
-        left: 112px;
-      }
+  &__logo {
+    display: none;
+
+    &--index {
+      display: block;
+      position: absolute;
+      background: transparent url("../img/htmlacademy.svg") no-repeat;
+      width: 27px;
+      height: 34px;
+      top: 0;
+      left: 112px;
     }
   }
 }
@@ -88,12 +102,12 @@
     margin-bottom: 36px;
 
     div {
-      width: 30%;
+      width: 33%;
       margin-bottom: 0;
     }
 
     &-social {
-      padding: 0 ((@tablet-width*30%/100% - 150px)/2);
+      padding: 0 ((@tablet-width/3 - 150px)/2);
     }
 
     &__developer {
@@ -103,14 +117,38 @@
       p {
         text-align: center;
       }
+    }
 
-      &:before {
-        content: url("../img/htmlacademy.svg");
-        display: block;
-        position: absolute;
-        width: 27px;
-        height: 34px;
+    &__logo {
+      display: block;
+
+      &--index {
         left: 112px*100%/150px;
+      }
+    }
+  }
+}
+
+// Десктопная версия
+
+@media (min-width: @desktop-width) {
+  .page-footer {
+    &-social {
+      padding: 0 ((@desktop-width/3 - 150px)/2);
+    }
+
+    &__developer {
+      p {
+        text-align: right;
+        padding-right: 82px;
+      }
+    }
+
+    &__logo {
+      display: block;
+
+      &--index {
+        left: @desktop-width/3 - 70px;
       }
     }
   }
