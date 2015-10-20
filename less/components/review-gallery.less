@@ -9,7 +9,16 @@
   .for-mobile-tablet {
     display: block;
     cursor: pointer;
-    opacity: 0.3;
+    .opacity-30;
+
+    &:hover {
+      background: @gray-hover;
+      .opacity-60;
+    }
+
+    &:active {
+      background: @gray-active;
+    }
   }
 
   .for-desktop {
@@ -63,24 +72,24 @@
       height: 12px;
       top: (30px - 12px)/2;
       left: (30px - 12px)/2;
-      opacity: 0.3;
+      .opacity-30;
       z-index: 1000;
     }
 
     &:hover:before {
-      opacity: 0.5;
+      .opacity-50;
     }
 
     &:active:before {
-      opacity: 0.1;
+      .opacity-10;
     }
 
     &:hover {
-      background: @gray-line-form;
+      background: @gray-hover;
     }
 
     &:active {
-      background: @gray-active-radio-checkbox;
+      background: @gray-active;
     }
   }
 
@@ -171,6 +180,7 @@
     }
 
     .for-desktop {
+      .blue-btn-hover-active;
       display: block;
     }
 

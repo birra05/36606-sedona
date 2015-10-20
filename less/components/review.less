@@ -70,9 +70,11 @@
         border: 0;
         text-transform: none;
 
+        // Преобразовать в миксин не получится
+
         &[type="text"] {
           &:hover {
-            background: @gray-line-form;
+            background: @gray-hover;
           }
 
           &:focus {
@@ -103,13 +105,7 @@
             border-radius: 50%;
           }
 
-          & + label:hover:before {
-            background: @gray-line-form;
-          }
-
-          & + label:active:before {
-            background: @gray-active-radio-checkbox;
-          }
+          .gray-radio-check-hover-active;
 
           &:checked {
             & + label:after {
@@ -124,7 +120,7 @@
             }
 
             & + label:active:after {
-              opacity: 0.3;
+              .opacity-30;
             }
           }
         }
@@ -135,13 +131,7 @@
             border-radius: 5px;
           }
 
-          & + label:hover:before {
-            background: @gray-line-form;
-          }
-
-          & + label:active:before {
-            background: @gray-active-radio-checkbox;
-          }
+          .gray-radio-check-hover-active;
 
           &:checked {
             & + label:after {
@@ -155,12 +145,12 @@
             }
 
             & + label:active:after {
-              opacity: 0.3;
+              .opacity-30;
             }
           }
         }
 
-        &--impress {
+        &-impress {
           margin-bottom: 12px;
         }
       }
@@ -174,11 +164,11 @@
       background: @light-gray-input;
 
       &:hover {
-        background: @gray-line-form;
+        background: @gray-hover;
       }
 
       &:active {
-        background: @gray-active-radio-checkbox;
+        background: @gray-active;
       }
 
       &__minus:before {
@@ -189,7 +179,7 @@
         height: 4px;
         top: 27px;
         left: 21px;
-        opacity: 0.3;
+        .opacity-30;
       }
 
       &__plus:before {
@@ -200,11 +190,15 @@
         height: 20px;
         top: 19px;
         left: 21px;
-        opacity: 0.3;
+        .opacity-30;
+      }
+
+      &__minus:hover:before, &__plus:hover:before {
+        .opacity-50;
       }
 
       &__minus:active:before, &__plus:active:before {
-        opacity: 0.1;
+        .opacity-10;
       }
     }
 
@@ -225,7 +219,7 @@
           top: (58px - 26px)/2;
           left: 93px;
           font: @font-title;
-          opacity: 0.3;
+          .opacity-30;
           text-transform: lowercase;
         }
       }
@@ -238,7 +232,7 @@
           top: (58px - 26px)/2;
           left: 100px;
           font: @font-title;
-          opacity: 0.3;
+          .opacity-30;
           text-transform: lowercase;
         }
       }
@@ -276,6 +270,7 @@
         & + label {
           display: block;
           cursor: pointer;
+          .blue-btn-hover-active;
         }
       }
     }
@@ -302,7 +297,7 @@
         display: flex;
         justify-content: space-between;
 
-        &--sight {
+        &-sight {
           width: @wrapper-tablet-btn-width;
           justify-content: flex-start;
           flex-wrap: wrap;
@@ -372,7 +367,7 @@
           margin-bottom: 0;
         }
 
-        &--impress {
+        &-impress {
           label {
             margin-bottom: 0;
           }
@@ -461,11 +456,11 @@
       }
 
       &-box {
-        &--impress {
+        &-impress {
           justify-content: center;
         }
 
-        &--sight {
+        &-sight {
           width: auto;
           justify-content: space-between;
         }
@@ -483,7 +478,7 @@
           width: @form-input-desktop-width;
         }
 
-        &--impress {
+        &-impress {
           margin-left: 50px;
         }
       }

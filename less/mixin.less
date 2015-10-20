@@ -1,4 +1,4 @@
-// Примеси
+/*Примеси*/
 
 // Для корректного использования display: inline-block
 .mixin_inline-block {
@@ -33,3 +33,54 @@
   font: @font-btn;
   text-decoration: none;
 }
+
+// Оформление различных состояний :hover, :active
+
+  // Прозрачность 10%
+  .opacity-10 {
+    opacity: 0.1;
+  }
+
+  // Прозрачность 30%
+  .opacity-30 {
+    opacity: 0.3;
+  }
+
+  // Прозрачность 50%
+  .opacity-50 {
+    opacity: 0.5;
+  }
+
+  // Прозрачность 60%
+  .opacity-60 {
+    opacity: 0.6;
+  }
+
+  // Для кнопок в модальных окнах, Найти гостиницу, Перетащить фотографии (десктоп), Отправить отзыв
+
+  .blue-btn-hover-active {
+    &:hover {
+      background: @blue-hover;
+    }
+
+    &:active {
+      background: @blue-active;
+      color: rgba(255, 255, 255, 0.3);
+    }
+
+    &:disabled {
+      background: @gray-hover;
+    }
+  }
+
+  // Для радиокнопок и чекбоксов в форме
+
+  .gray-radio-check-hover-active {
+    & + label:hover:before {
+      background: @gray-hover;
+    }
+
+    & + label:active:before {
+      background: @gray-active;
+    }
+  }
