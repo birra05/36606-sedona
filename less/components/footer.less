@@ -27,34 +27,33 @@
       background: @blue;
 
       &:hover {
-        background: #669ec0;
+        background: @blue-hover;
       }
 
       &:active {
-        background: #5496bd;
+        background: @blue-active;
+
+        svg {
+          fill-opacity: 0.3;
+        }
+      }
+
+      svg {
+        position: absolute;
       }
     }
 
-    &__twitter:before {
-      content: url("../img/icon-twitter.svg");
-      display: block;
-      position: absolute;
+    &__twitter {
       top: 16px;
       left: 15px;
     }
 
-    &__facebook:before {
-      content: url("../img/icon-facebook.svg");
-      display: block;
-      position: absolute;
+    &__facebook {
       top: 14px;
       left: 20px;
     }
 
-    &__youtube:before {
-      content: url("../img/icon-youtube.svg");
-      display: block;
-      position: absolute;
+    &__youtube {
       top: 15px;
       left: 13px;
     }
@@ -82,11 +81,18 @@
     &--index {
       display: block;
       position: absolute;
-      background: transparent url("../img/htmlacademy.svg") no-repeat;
       width: 27px;
       height: 34px;
       top: 0;
       left: 112px;
+
+      &:hover {
+        fill: @blue;
+      }
+
+      &:active {
+        fill-opacity: 0.3;
+      }
     }
   }
 }
