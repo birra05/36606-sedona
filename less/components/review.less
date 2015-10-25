@@ -23,6 +23,7 @@
       position: relative;
       margin: 0 auto;
       margin-bottom: 20px;
+      padding-bottom: 13px; // подогнано по макету
       border: none;
 
       &:after {
@@ -31,10 +32,11 @@
         height: 1px;
         background: @gray-line-form;
         left: -20px;
+        bottom: 0;
       }
 
       &:first-of-type {
-        padding-top: 22px;
+        padding-top: 15px; // подогнано по макету
 
         &:before {
           .mixin_for-pseudo;
@@ -45,12 +47,16 @@
           left: -20px;
         }
       }
+
+      &:nth-of-type(5) {
+        padding-bottom: 0;
+      }
     }
 
     &__title {
       font: @font-title;
       text-align: center;
-      margin-bottom: 26px;
+      margin-bottom: 23px; // подогнано по макету
     }
 
     &__item {
@@ -62,15 +68,13 @@
 
       input {
         width: 100%;
-        padding-left: 22px;
-        margin-bottom: 20px;
+        padding-left: 20px; // подогнано по макету
+        margin-bottom: 10px; // подогнано по макету
         font: @font-title;
         line-height: 58px;
         background: @light-gray-input;
         border: 0;
         text-transform: none;
-
-        // Преобразовать в миксин не получится
 
         &[type="text"] {
           &:hover {
@@ -90,7 +94,7 @@
           & + label {
             position: relative;
             margin-left: 75px;
-            margin-bottom: 22px;
+            // margin-bottom: 22px; по макету получается, что не нужно
             padding-left: 0;
             font: @font-title;
             line-height: 56px;
@@ -126,6 +130,10 @@
         }
 
         &[type="checkbox"] {
+          & + label {
+            margin-bottom: 24px; // подогнано по макету
+          }
+
           & + label:before {
             .mixin_for-radio-checkbox-label-before;
             border-radius: 5px;
@@ -138,7 +146,7 @@
               .mixin_for-pseudo;
               top: 18px;
               left: -60px;
-              background: url(@dir-img-sprite) no-repeat -188px -3px;
+              background: transparent url(@dir-img-sprite) no-repeat -188px -3px;
               width: 25px;
               height: 19px;
               z-index: 1000;
@@ -241,13 +249,13 @@
     // Анкета путешественников
 
     &-traveler {
-      &__info {
-        display: flex;
-        justify-content: space-between;
-      }
+      display: flex;
+      justify-content: space-between;
+      margin-top: 25px; // подогнано по макету
 
       &__number {
         width: 60px;
+        height: 58px;
 
         label, input {
           padding-left: 0;
@@ -257,6 +265,13 @@
 
       &__data {
         width: 210px;
+      }
+    }
+
+    &-box {
+      &-sight {
+        margin-top: -8px; // подогнано по макету
+        // margin-bottom: -13px; // подогнано по макету
       }
     }
 
@@ -298,15 +313,32 @@
         justify-content: space-between;
 
         &-sight {
-          width: @wrapper-tablet-btn-width;
           justify-content: flex-start;
           flex-wrap: wrap;
           margin: 0 auto;
+          margin-top: 42px; // подогнано по макету
+          padding-left: 95px; // подогнано по макету
 
-          input + label {
-            width: @wrapper-tablet-btn-width/2 - 75px;
+          input[type="checkbox"] + label {
+            width: 260px - 75px; // подогнано по макету
             padding-left: 0;
             margin-bottom: 32px;
+          }
+
+          div:nth-child(1) {
+            order: 1;
+          }
+
+          div:nth-child(2) {
+            order: 3;
+          }
+
+          div:nth-child(3) {
+            order: 2;
+          }
+
+          div:nth-child(4) {
+            order: 4;
           }
         }
       }
@@ -321,21 +353,24 @@
         }
 
         &:first-of-type {
+          padding-top: 20px;
+          padding-bottom: 63px;
+
           &:before {
             display: none;
           }
         }
 
-        &:first-of-type, &:nth-of-type(3) {
+        &:nth-of-type(2) {
+          padding-bottom: 50px; // подогнано по макету
+        }
+
+        &:nth-of-type(3) {
           padding-bottom: 67px;
         }
 
-        &:nth-of-type(2) {
-          padding-bottom: 54px - 22px;
-        }
-
         &:nth-of-type(4) {
-          padding-bottom: 66px;
+          padding-bottom: 62px; // подогнано по макету
         }
 
         &:nth-of-type(5) {
@@ -368,6 +403,7 @@
         }
 
         &-impress {
+          margin-top: 20px;
           label {
             margin-bottom: 0;
           }
@@ -457,12 +493,17 @@
 
       &-box {
         &-impress {
-          justify-content: center;
+          justify-content: flex-start; // подогнано по макету
+          padding-left: 170px; // подогнано по макету
         }
 
         &-sight {
-          width: auto;
           justify-content: space-between;
+          padding-left: 0;
+
+          input[type="checkbox"] + label {
+            width: auto;
+          }
         }
       }
 
@@ -479,7 +520,7 @@
         }
 
         &-impress {
-          margin-left: 50px;
+          width: 365px;
         }
       }
 
@@ -520,6 +561,10 @@
             }
           }
         }
+      }
+
+      &__send-btn {
+        margin-bottom: 102px;
       }
     }
   }

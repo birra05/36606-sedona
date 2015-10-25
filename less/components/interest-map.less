@@ -1,6 +1,8 @@
 // Заинтересовались + карта
 
 .interest {
+  width: @wrapper-mobile-width;
+  margin: 0 auto;
   padding-top: 30px;
   margin-bottom: 50px;
   text-align: center;
@@ -8,12 +10,12 @@
   &__title {
     font: @font-title-tablet;
     color: @color-font-title;
-    margin-bottom: 14px;
+    margin-bottom: 22px; // подогнано по макету
   }
 
   &__text {
     font: normal 14px/24px @font-family;
-    margin-bottom: 38px;
+    margin-bottom: 34px; // подогнано по макету
   }
 
   &__btn {
@@ -26,10 +28,10 @@
 
 .map {
   position: relative;
-  margin-bottom: 38px;
-  // background: url("../img/img-map.jpg");
+  background: @blue url("../img/img-map.jpg") no-repeat;
   width: @mobile-width;
-  max-height: 350px;
+  height: 350px;
+  margin-bottom: 35px; // подогнано по макету
 
   &:before {
     .mixin_for-pseudo;
@@ -45,12 +47,9 @@
 
 @media (min-width: @tablet-width) {
   .interest {
-    padding-top: 52px;
-    margin-bottom: 58px;
-
-    .wrapper {
-      width: @wrapper-tablet-btn-width;
-    }
+    width: @wrapper-tablet-btn-width; // подогнано по макету
+    padding-top: 54px;  // подогнано по макету
+    margin-bottom: 56px; // подогнано по макету
 
     &__title {
       margin-bottom: 28px;
@@ -59,14 +58,14 @@
     }
 
     &__text {
-      margin-bottom: 45px;
+      margin-bottom: 45px; // подогнано по макету
     }
   }
 
   .map {
-    // background: url("../img/img-map-tablet.jpg");
+    background: @blue url("../img/img-map-tablet.jpg");
     width: @tablet-width;
-
+    margin-bottom: 38px; // подогнано по макету
 
     &:before {
       left: (@tablet-width - 27px)/2;
@@ -78,8 +77,16 @@
 // Десктопная версия
 
 @media (min-width: @desktop-width) {
+  .interest {
+   margin-bottom: 65px; // подогнано по макету
+
+    &__text {
+      margin-bottom: 48px; // подогнано по макету
+    }
+  }
+
   .map {
-    // background: url("../img/img-map-desktop.jpg");
+    background: @blue url("../img/img-map-desktop.jpg") no-repeat;
     width: @desktop-width;
 
     &:before {

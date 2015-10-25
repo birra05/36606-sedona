@@ -34,7 +34,7 @@
   &__item {
     position: relative;
     margin-right: 35px;
-    margin-bottom: 35px;
+    margin-bottom: 28px; // подогнано по макету
 
     img {
       width: 70px;
@@ -49,7 +49,7 @@
     }
 
     &:last-child {
-      margin-bottom: 48px;
+      margin-bottom: 40px;
     }
   }
 
@@ -95,6 +95,7 @@
 
   &__upload-file {
     width: 100%;
+    margin-top: -7px; // подогнано по макету
     margin-bottom: 54px;
     text-align: center;
     background: @light-gray-input;
@@ -116,13 +117,14 @@
     &__upload-file {
       width: @wrapper-tablet-btn-width;
       margin: 0 auto;
+      margin-top: 55px;
       margin-bottom: 88px;
     }
 
     &__list {
       justify-content: center;
       padding-left: 35px;
-      padding-bottom: 60px - 35px;
+      padding-bottom: 22px; // подогнано по макету
     }
 
     &__item {
@@ -131,7 +133,7 @@
       img {
         width: 100%;
         height: auto;
-        margin-bottom: 18px;
+        margin-bottom: 10px; // подогнано по макету
       }
 
       p {
@@ -174,6 +176,7 @@
 @media (min-width: @desktop-width) {
   .review-gallery {
     width: @wrapper-desktop-width;
+    padding-top: 8px; // подогнано по макету
 
     .for-mobile-tablet {
       display: none;
@@ -186,14 +189,20 @@
 
     &__upload-file {
       .mixin_for-big-btn;
+      margin-top: 58px; // подогнано по макету
     }
 
     &__list {
       justify-content: flex-start;
       padding-left: 0;
+      padding-bottom: 34px;
     }
 
     &__item {
+      img {
+        margin-bottom: 5px;
+      }
+
       &:nth-child(5) {
         margin-right: 0;
       }

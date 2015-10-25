@@ -1,23 +1,36 @@
 // Блок с причинами
 
 .reasons-block {
+  // padding-top: 5px; // подогнано по макету
+
+  .for-mobile {
+    display: block;
+  }
+
+  .for-tablet-desktop {
+    display: none;
+  }
+
   .reason {
-    font: @font-reason;
     text-align: center;
 
     &__describe {
       padding: 0 20px;
-      margin-bottom: 42px;
+      margin-bottom: 40px; // подогнано по макету
     }
 
     &__title {
       margin: 0 auto;
-      margin-bottom: 9px;
+      margin-bottom: 6px;
       font: @font-title;
     }
 
     &__number {
-      margin-bottom: 9px;
+      margin-bottom: 12px; // подогнано по макету
+    }
+
+    &__text {
+      font: @font-reason;
     }
 
     img {
@@ -38,10 +51,10 @@
   }
 
   .reason-1 {
-    padding-top: 60px;
+    padding-top: 77px; // подогнано по макету
 
     &__bg {
-      background: url("../img/photo-city@1x.jpg") no-repeat -100px 0;
+      background: @blue url("../img/photo-city@1x.jpg") no-repeat -100px 0;
       background-size: cover;
     }
 
@@ -58,49 +71,55 @@
   .reason-list {
     position: relative;
     text-align: left;
-    padding-top: 42px;
+    padding-top: 40px; // подогнано по макету
     margin-bottom: 38px;
 
     &__item {
       position: relative;
       margin-left: 70px;
-      margin-bottom: 34px;
+      margin-bottom: 28px; // подогнано по макету
     }
 
     &__item-1:before {
       .mixin_for-pseudo;
-      background: url("../img/icon-house.svg") no-repeat;
+      background: transparent url("../img/icon-house.svg") no-repeat;
       background-size: cover;
       width: 38px;
       height: 37px;
       top: -10px;
-      left: -(70px + 38px)/2;
+      left: -47px; // подогнано по макету
     }
 
     &__item-2:before {
       .mixin_for-pseudo;
-      background: url("../img/icon-gift.svg") no-repeat;
+      background: transparent url("../img/icon-gift.svg") no-repeat;
       background-size: cover;
       width: 32px;
       height: 38px;
       top: -10px;
-      left: -(70px + 32px)/2;
+      left: -44px; // подогнано по макету
     }
 
     &__item-3:before {
       .mixin_for-pseudo;
-      background: url("../img/icon-burger.svg") no-repeat;
+      background: transparent url("../img/icon-burger.svg") no-repeat;
       background-size: cover;
-      width: 40px;
+      width: 41px;
       height: 37px;
-      top: -10px;
-      left: -(70px + 40px)/2;
+      top: -5px; // подогнано по макету
+      left: -51px; // подогнано по макету
     }
 
     &__title {
+      margin-bottom: 14px; // подогнано по макету
       font: @font-title;
       color: @color-font-title;
-      margin-bottom: 18px;
+    }
+
+    &__text {
+      // width: 230px;
+      padding-right: 20px; // подогнано по макету
+      font: @font-reason;
     }
   }
 
@@ -108,14 +127,14 @@
     padding-top: 40px;
 
     &__bg {
-      background: url("../img/photo-bridge@1x.jpg") no-repeat -100px 0;
+      background: @blue url("../img/photo-bridge@1x.jpg") no-repeat -100px 0;
       background-size: cover;
     }
   }
 
   .reason-3, .reason-4, .reason-5 {
     position: relative;
-    padding: 30px (@mobile-width - 250px)/2;
+    padding: 27px (@mobile-width - 250px)/2; // подогнано по макету
     background: @light-gray-bg;
 
     &:after {
@@ -139,22 +158,31 @@
 
 @media (min-width: @tablet-width) {
   .reasons-block {
+
+    .for-mobile {
+      display: none;
+    }
+
+    .for-tablet-desktop {
+      display: block;
+    }
+
     .reason {
       &__describe {
         width: 33%;
         margin-bottom: 0;
-        padding: 0 38px;
+        padding: 0 43px; // подогнано по макету
         padding-top: 46px;
       }
 
       &__title {
         width: 160px;
-        margin-bottom: 12px;
+        margin-bottom: 7px; // подогнано по макету
         font: @font-title-tablet;
       }
 
       &__number {
-        margin-bottom: 24px;
+        margin-bottom: 18px; // подогнано по макету
       }
     }
 
@@ -171,7 +199,7 @@
 
     .reason-1 {
       &__bg {
-        background: url("../img/photo-city@1x.jpg") no-repeat;
+        background: @blue url("../img/photo-city@1x.jpg") no-repeat;
         background-size: cover;
       }
 
@@ -192,20 +220,29 @@
         width: 33%;
         margin-left: 0;
         margin-bottom: 0;
-        padding: 0 (@tablet-width/3 - 170px)/2;
+        padding: 0 45px; // подогнано по макету
         padding-top: 160px;
         padding-bottom: 62px;
         font: @font-reason;
       }
 
+      &__title {
+        font: @font-title-tablet;
+        margin-bottom: 20px; // подогнано по макету
+      }
+
+      &__text {
+        padding-right: 0; // подогнано по макету
+      }
+
       &__item-1:before {
         .mixin_for-pseudo;
-        background: url("../img/icon-house.svg") no-repeat;
+        background: transparent url("../img/icon-house.svg") no-repeat;
         background-size: cover;
         width: 74px;
         height: 72px;
-        top: 56px;
-        left: (@tablet-width/3 - 74px)/2;
+        top: 60px; // подогнано по макету
+        left: 90px; // подогнано по макету
       }
 
       &__item-2 {
@@ -213,23 +250,23 @@
 
         &:before {
           .mixin_for-pseudo;
-          background: url("../img/icon-gift.svg") no-repeat;
+          background: transparent url("../img/icon-gift.svg") no-repeat;
           background-size: cover;
           width: 63px;
           height: 75px;
-          top: 56px;
-          left: (@tablet-width/3 - 63px)/2;
+          top: 58px; // подогнано по макету
+          left: 92px; // подогнано по макету
         }
       }
 
       &__item-3:before {
         .mixin_for-pseudo;
-        background: url("../img/icon-burger.svg") no-repeat;
+        background: transparent url("../img/icon-burger.svg") no-repeat;
         background-size: cover;
-        width: 76px;
+        width: 77px;
         height: 70px;
-        top: 60px;
-        left: (@tablet-width/3 - 76px)/2;
+        top: 64px; // подогнано по макету
+        left: 85px; // подогнано по макету
       }
 
       // .wrapper {
@@ -241,8 +278,12 @@
     .reason-2 {
       &__bg {
         order: -1;
-        background: url("../img/photo-bridge@1x.jpg") no-repeat;
+        background: @blue url("../img/photo-bridge@1x.jpg") no-repeat;
         background-size: cover;
+      }
+
+      &__describe {
+        padding: 0 40px;
       }
     }
 
@@ -263,8 +304,19 @@
   }
 }
 
+// Десктопная версия
+
 @media (min-width: @desktop-width) {
   .reasons-block {
+
+    .for-mobile {
+      display: none;
+    }
+
+    .for-tablet-desktop {
+      display: block;
+    }
+
     .reason {
       &__describe {
         padding: 0 70px;
@@ -303,13 +355,15 @@
   .reasons-block {
     .reason-1 {
       &__bg {
-        background: url("../img/photo-city@2x.jpg") no-repeat;
+        background: @blue url("../img/photo-city@2x.jpg") no-repeat;
+        background-size: cover;
       }
     }
 
     .reason-2 {
       &__bg {
-        background: url("../img/photo-bridge@2x.jpg") no-repeat;
+        background: @blue url("../img/photo-bridge@2x.jpg") no-repeat;
+        background-size: cover;
       }
     }
   }
