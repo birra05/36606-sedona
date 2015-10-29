@@ -1,0 +1,86 @@
+/*Примеси*/
+
+// Для корректного использования display: inline-block
+.mixin_inline-block {
+  display: inline-block;
+  vertical-align: baseline;
+}
+
+// Для псевдоэлементов test
+.mixin_for-pseudo {
+  content: "";
+  display: block;
+  position: absolute;
+}
+
+// Оформление label:before радиокнопок и чекбоксов
+.mixin_for-radio-checkbox-label-before {
+  .mixin_for-pseudo;
+  top: 0;
+  left: -75px;
+  width: 56px;
+  height: 56px;
+  background: @light-gray-input;
+  cursor: pointer;
+}
+
+// Оформление больших кнопок Найти гостиницу и Отправить отзыв
+.mixin_for-big-btn {
+  width: 100%;
+  text-align: center;
+  background: @blue;
+  color: @color-font-white;
+  font: @font-btn;
+  text-decoration: none;
+}
+
+// Оформление различных состояний :hover, :active
+
+  // Прозрачность 10%
+  .opacity-10 {
+    opacity: 0.1;
+  }
+
+  // Прозрачность 30%
+  .opacity-30 {
+    opacity: 0.3;
+  }
+
+  // Прозрачность 50%
+  .opacity-50 {
+    opacity: 0.5;
+  }
+
+  // Прозрачность 60%
+  .opacity-60 {
+    opacity: 0.6;
+  }
+
+  // Для кнопок в модальных окнах, Найти гостиницу, Перетащить фотографии (десктоп), Отправить отзыв
+
+  .blue-btn-hover-active {
+    &:hover {
+      background: @blue-hover;
+    }
+
+    &:active {
+      background: @blue-active;
+      color: rgba(255, 255, 255, 0.3);
+    }
+
+    &:disabled {
+      background: @gray-hover;
+    }
+  }
+
+  // Для радиокнопок и чекбоксов в форме
+
+  .gray-radio-check-hover-active {
+    & + label:hover:before {
+      background: @gray-hover;
+    }
+
+    & + label:active:before {
+      background: @gray-active;
+    }
+  }

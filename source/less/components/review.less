@@ -1,0 +1,572 @@
+// Страница формы
+
+.review {
+  margin: 0 auto;
+
+  .for-tablet {
+    display: none;
+  }
+
+  .for-mobile {
+    display: block;
+  }
+
+  &-form {
+    text-align: left;
+
+    sup {
+      color: #ff2b2b;
+    }
+
+    &__fieldset {
+      width: @wrapper-mobile-width;
+      position: relative;
+      margin: 0 auto;
+      margin-bottom: 20px;
+      padding-bottom: 13px; // подогнано по макету
+      border: none;
+
+      &:after {
+        .mixin_for-pseudo;
+        width: @mobile-width;
+        height: 1px;
+        background: @gray-line-form;
+        left: -20px;
+        bottom: 0;
+      }
+
+      &:first-of-type {
+        padding-top: 15px; // подогнано по макету
+
+        &:before {
+          .mixin_for-pseudo;
+          width: @mobile-width;
+          height: 1px;
+          background: @gray-line-form;
+          top: 0;
+          left: -20px;
+        }
+      }
+
+      &:nth-of-type(5) {
+        padding-bottom: 0;
+      }
+    }
+
+    &__title {
+      font: @font-title;
+      text-align: center;
+      margin-bottom: 23px; // подогнано по макету
+    }
+
+    &__item {
+      label {
+        display: block;
+        margin-bottom: 10px;
+        padding-left: 20px;
+      }
+
+      input {
+        width: 100%;
+        height: 58px; // костыль для IE
+        padding-left: 20px; // подогнано по макету
+        margin-bottom: 10px; // подогнано по макету
+        font: @font-title;
+        line-height: 58px;
+        background: @light-gray-input;
+        border: 0;
+        text-transform: none;
+
+        &[type="text"] {
+          &:hover {
+            background: @gray-hover;
+          }
+
+          &:focus {
+            background: @color-font-white;
+            box-shadow: inset 0 0 0 4px @gray-line-form;
+          }
+        }
+
+        &[type="radio"],
+        &[type="checkbox"] {
+          display: none;
+
+          & + label {
+            position: relative;
+            margin-left: 75px;
+            // margin-bottom: 22px; по макету получается, что не нужно
+            padding-left: 0;
+            font: @font-title;
+            line-height: 56px;
+            text-transform: none;
+            cursor: pointer;
+          }
+        }
+
+        &[type="radio"] {
+          & + label:before {
+            .mixin_for-radio-checkbox-label-before;
+            border-radius: 50%;
+          }
+
+          .gray-radio-check-hover-active;
+
+          &:checked {
+            & + label:after {
+              .mixin_for-pseudo;
+              top: (56px-22px)/2;
+              left: -58px;
+              width: 22px;
+              height: 22px;
+              background: @color-font;
+              border-radius: 50%;
+              z-index: 1000;
+            }
+
+            & + label:active:after {
+              .opacity-30;
+            }
+          }
+        }
+
+        &[type="checkbox"] {
+          & + label {
+            margin-bottom: 24px; // подогнано по макету
+          }
+
+          & + label:before {
+            .mixin_for-radio-checkbox-label-before;
+            border-radius: 5px;
+          }
+
+          .gray-radio-check-hover-active;
+
+          &:checked {
+            & + label:after {
+              .mixin_for-pseudo;
+              top: 18px;
+              left: -60px;
+              background: transparent url(@dir-img-sprite) no-repeat -188px -3px;
+              width: 25px;
+              height: 19px;
+              z-index: 1000;
+            }
+
+            & + label:active:after {
+              .opacity-30;
+            }
+          }
+        }
+
+        &-impress {
+          margin-bottom: 12px;
+        }
+      }
+    }
+
+    &-button {
+      .mixin_inline-block;
+      position: relative;
+      width: 60px;
+      height: 58px;
+      background: @light-gray-input;
+
+      &:hover {
+        background: @gray-hover;
+      }
+
+      &:active {
+        background: @gray-active;
+      }
+
+      &__minus:before {
+        .mixin_for-pseudo;
+        background: url("../img/icon-minus.svg") no-repeat;
+        background-size: cover;
+        width: 20px;
+        height: 4px;
+        top: 27px;
+        left: 21px;
+        .opacity-30;
+      }
+
+      &__plus:before {
+        .mixin_for-pseudo;
+        background: url("../img/icon-plus.svg") no-repeat;
+        background-size: cover;
+        width: 20px;
+        height: 20px;
+        top: 19px;
+        left: 21px;
+        .opacity-30;
+      }
+
+      &__minus:hover:before, &__plus:hover:before {
+        .opacity-50;
+      }
+
+      &__minus:active:before, &__plus:active:before {
+        .opacity-10;
+      }
+    }
+
+    &-quantity {
+      display: flex;
+      justify-content: space-between;
+
+      &__number, &__days {
+        position: relative;
+        width: 145px;
+      }
+
+      &__number {
+        &:before {
+          content: "чел.";
+          display: block;
+          position: absolute;
+          top: (58px - 26px)/2;
+          left: 93px;
+          font: @font-title;
+          .opacity-30;
+          text-transform: lowercase;
+        }
+      }
+
+      &__days {
+        &:before {
+          content: "дн.";
+          display: block;
+          position: absolute;
+          top: (58px - 26px)/2;
+          left: 100px;
+          font: @font-title;
+          .opacity-30;
+          text-transform: lowercase;
+        }
+      }
+    }
+
+    // Анкета путешественников
+
+    &-traveler {
+      display: flex;
+      justify-content: space-between;
+      margin-top: 25px; // подогнано по макету
+
+      &__number {
+        width: 60px;
+        height: 58px;
+
+        label, input {
+          padding-left: 0;
+          text-align: center;
+        }
+      }
+
+      &__data {
+        width: 210px;
+      }
+    }
+
+    &-box {
+      &-sight {
+        margin-top: -8px; // подогнано по макету
+        // margin-bottom: -13px; // подогнано по макету
+      }
+    }
+
+    &__send-btn {
+      .mixin_for-big-btn;
+      margin-bottom: 116px;
+
+      input[type="submit"] {
+        display: none;
+
+        & + label {
+          display: block;
+          cursor: pointer;
+          .blue-btn-hover-active;
+        }
+      }
+    }
+  }
+}
+
+// Планшетная версия
+
+@media (min-width: @tablet-width) {
+  .review {
+
+    .for-tablet {
+      display: block;
+      text-align: center;
+    }
+
+    .for-mobile {
+      display: none;
+    }
+
+    &-form {
+
+      &-box {
+        display: flex;
+        justify-content: space-between;
+
+        &-sight {
+          justify-content: flex-start;
+          flex-wrap: wrap;
+          margin: 0 auto;
+          margin-top: 42px; // подогнано по макету
+          padding-left: 95px; // подогнано по макету
+
+          input[type="checkbox"] + label {
+            width: 260px - 75px; // подогнано по макету
+            padding-left: 0;
+            margin-bottom: 32px;
+          }
+
+          div:nth-child(1) {
+            order: 1;
+          }
+
+          div:nth-child(2) {
+            order: 3;
+          }
+
+          div:nth-child(3) {
+            order: 2;
+          }
+
+          div:nth-child(4) {
+            order: 4;
+          }
+        }
+      }
+
+      &__fieldset {
+        width: @wrapper-tablet-form-width;
+        margin-bottom: 0;
+        padding-bottom: 0;
+
+        &:after {
+          display: none;
+        }
+
+        &:first-of-type {
+          padding-top: 20px;
+          padding-bottom: 63px;
+
+          &:before {
+            display: none;
+          }
+        }
+
+        &:nth-of-type(2) {
+          padding-bottom: 50px; // подогнано по макету
+        }
+
+        &:nth-of-type(3) {
+          padding-bottom: 67px;
+        }
+
+        &:nth-of-type(4) {
+          padding-bottom: 62px; // подогнано по макету
+        }
+
+        &:nth-of-type(5) {
+          padding-bottom: 58px - 32px;
+        }
+      }
+
+      &__title {
+        position: relative;
+        font: @font-title-tablet;
+
+        &:before, &:after {
+          .mixin_for-pseudo;
+          background: @gray-line;
+          width: 125px;
+          height: 1px;
+          top: 50%;
+        }
+
+        &:after {
+          right: 0;
+        }
+      }
+
+      &__item {
+
+        input {
+          width: 175px;
+          margin-bottom: 0;
+        }
+
+        &-impress {
+          margin-top: 20px;
+          label {
+            margin-bottom: 0;
+          }
+        }
+      }
+
+      &-quantity {
+        width: 175px;
+        justify-content: flex-start;
+        margin: 0 auto;
+
+        &__days, &__number {
+          width: auto;
+
+          &:before {
+            display: none;
+          }
+
+          input {
+            width: 175px - 60px - 60px;
+            padding-left: 0;
+            text-align: center;
+          }
+        }
+      }
+
+      &-traveler {
+
+        &__info {
+          padding-top: 32px;
+        }
+
+        &__data {
+          display: flex;
+          justify-content: space-between;
+          width: auto;
+
+          input {
+            width: 190px;
+            margin-right: 6px;
+          }
+
+          // Сброс margin-right у последнего input
+
+          div:last-child {
+            input {
+              margin-right: 0;
+            }
+          }
+        }
+
+        &__number {
+          margin-right: 6px;
+
+          input {
+            width: 60px;
+          }
+        }
+      }
+
+      &__send-btn {
+        width: @wrapper-tablet-btn-width;
+        margin: 0 auto;
+        margin-bottom: 140px;
+      }
+    }
+  }
+}
+
+// Десктопная версия
+
+@media (min-width: @desktop-width) {
+  .review {
+
+    .for-mobile {
+      display: block;
+    }
+
+    .for-tablet {
+      display: none;
+    }
+
+    &-form {
+      &__fieldset {
+        width: @wrapper-desktop-width;
+      }
+
+      &-box {
+        &-impress {
+          justify-content: flex-start; // подогнано по макету
+          padding-left: 170px; // подогнано по макету
+        }
+
+        &-sight {
+          justify-content: space-between;
+          padding-left: 0;
+
+          input[type="checkbox"] + label {
+            width: auto;
+          }
+        }
+      }
+
+      &__title {
+        &:before, &:after {
+          width: @form-input-desktop-width;
+        }
+      }
+
+      &__item {
+
+        input {
+          width: @form-input-desktop-width;
+        }
+
+        &-impress {
+          width: 365px;
+        }
+      }
+
+      &-quantity {
+        width: @form-input-desktop-width;
+        justify-content: space-between;
+        text-align: left;
+        margin: 0;
+
+        &__days, &__number {
+          input {
+            width: @form-input-desktop-width - 60px*2 - 6px*2;
+            text-align: left;
+            padding-left: 22px;
+          }
+
+          &:before {
+            display: block;
+          }
+        }
+      }
+
+      &-traveler {
+        &__number {
+          input {
+            width: 60px;
+          }
+        }
+
+        &__data {
+          input {
+            margin-right: (@wrapper-desktop-width - @form-input-desktop-width*3)/2;
+          }
+
+          &--desktop {
+            input {
+              width: @form-input-desktop-width - 60px - 5px;
+            }
+          }
+        }
+      }
+
+      &__send-btn {
+        margin-bottom: 102px;
+      }
+    }
+  }
+}

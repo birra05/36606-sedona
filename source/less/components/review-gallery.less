@@ -1,0 +1,211 @@
+
+// Галерея прикрепленных к отзыву фото
+
+.review-gallery {
+  width: @wrapper-mobile-width;
+  margin: 0 auto;
+  border: none;
+
+  .for-mobile-tablet {
+    display: block;
+    cursor: pointer;
+    .opacity-30;
+
+    &:hover {
+      background: @gray-hover;
+      .opacity-60;
+    }
+
+    &:active {
+      background: @gray-active;
+    }
+  }
+
+  .for-desktop {
+    display: none;
+    cursor: pointer;
+  }
+
+  &__list {
+    display: flex;
+    flex-wrap: wrap;
+  }
+
+  &__item {
+    position: relative;
+    margin-right: 35px;
+    margin-bottom: 28px; // подогнано по макету
+
+    img {
+      width: 70px;
+    }
+
+    p {
+      display: none;
+    }
+
+    &:nth-child(3n) {
+      margin-right: 0;
+    }
+
+    &:last-child {
+      margin-bottom: 40px;
+    }
+  }
+
+  &__delete-btn {
+    display: block;
+    position: absolute;
+    width: 30px;
+    height: 30px;
+    background: @light-gray-input;
+    background-size: cover;
+    top: -30px/2;
+    left: (70px - 30px)/2;
+    border-radius: 50%;
+
+    &:before {
+      .mixin_for-pseudo;
+      background: url("../img/icon-delete-img-gallery.png") no-repeat;
+      background-size: cover;
+      width: 12px;
+      height: 12px;
+      top: (30px - 12px)/2;
+      left: (30px - 12px)/2;
+      .opacity-30;
+      z-index: 1000;
+    }
+
+    &:hover:before {
+      .opacity-50;
+    }
+
+    &:active:before {
+      .opacity-10;
+    }
+
+    &:hover {
+      background: @gray-hover;
+    }
+
+    &:active {
+      background: @gray-active;
+    }
+  }
+
+  &__upload-file {
+    width: 100%;
+    margin-top: -7px; // подогнано по макету
+    margin-bottom: 54px;
+    text-align: center;
+    background: @light-gray-input;
+    font: @font-btn;
+    cursor: pointer;
+
+    input[type="file"] {
+      display: none;
+    }
+  }
+}
+
+// Планшетная версия
+
+@media (min-width: @tablet-width) {
+  .review-gallery {
+    width: @wrapper-tablet-form-width;
+
+    &__upload-file {
+      width: @wrapper-tablet-btn-width;
+      margin: 0 auto;
+      margin-top: 55px;
+      margin-bottom: 88px;
+    }
+
+    &__list {
+      justify-content: center;
+      padding-left: 35px;
+      padding-bottom: 22px; // подогнано по макету
+    }
+
+    &__item {
+      margin-right: 65px;
+
+      img {
+        width: 100%;
+        height: auto;
+        margin-bottom: 10px; // подогнано по макету
+      }
+
+      p {
+        display: block;
+      }
+
+      &:nth-child(3n) {
+        margin-right: 65px;
+      }
+
+      &:last-child {
+        margin-bottom: 0;
+      }
+
+      &:nth-child(7) {
+        display: none;
+      }
+    }
+
+    &__delete-btn {
+      display: block;
+      position: absolute;
+      width: 30px*2;
+      height: 30px*2;
+      top: -30px*2/2;
+      left: 140px - 60px/2;
+
+      &:before {
+        width: 23px;
+        height: 23px;
+        top: (30px*2 - 23px)/2;
+        left: (30px*2 - 23px)/2;
+      }
+    }
+  }
+}
+
+// Десктопная версия
+
+@media (min-width: @desktop-width) {
+  .review-gallery {
+    width: @wrapper-desktop-width;
+    padding-top: 8px; // подогнано по макету
+
+    .for-mobile-tablet {
+      display: none;
+    }
+
+    .for-desktop {
+      .blue-btn-hover-active;
+      display: block;
+    }
+
+    &__upload-file {
+      .mixin_for-big-btn;
+      margin-top: 58px; // подогнано по макету
+    }
+
+    &__list {
+      justify-content: flex-start;
+      padding-left: 0;
+      padding-bottom: 34px;
+    }
+
+    &__item {
+      img {
+        margin-bottom: 5px;
+      }
+
+      &:nth-child(5) {
+        margin-right: 0;
+      }
+    }
+  }
+}
