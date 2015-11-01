@@ -27,7 +27,7 @@
       border: none;
 
       &:after {
-        .mixin_for-pseudo;
+        .pseudo;
         width: @mobile-width;
         height: 1px;
         background: @gray-line-form;
@@ -39,7 +39,7 @@
         padding-top: 15px; // подогнано по макету
 
         &:before {
-          .mixin_for-pseudo;
+          .pseudo;
           width: @mobile-width;
           height: 1px;
           background: @gray-line-form;
@@ -114,7 +114,7 @@
 
           &:checked {
             & + label:after {
-              .mixin_for-pseudo;
+              .pseudo;
               top: (56px-22px)/2;
               left: -58px;
               width: 22px;
@@ -144,7 +144,7 @@
 
           &:checked {
             & + label:after {
-              .mixin_for-pseudo;
+              .pseudo;
               top: 18px;
               left: -60px;
               background: transparent url(@dir-img-sprite) no-repeat -188px -3px;
@@ -166,7 +166,7 @@
     }
 
     &-button {
-      .mixin_inline-block;
+      .inline-block;
       position: relative;
       width: 60px;
       height: 58px;
@@ -181,7 +181,7 @@
       }
 
       &__minus:before {
-        .mixin_for-pseudo;
+        .pseudo;
         background: url("../img/icon-minus.svg") no-repeat;
         background-size: cover;
         width: 20px;
@@ -192,7 +192,7 @@
       }
 
       &__plus:before {
-        .mixin_for-pseudo;
+        .pseudo;
         background: url("../img/icon-plus.svg") no-repeat;
         background-size: cover;
         width: 20px;
@@ -384,7 +384,7 @@
         font: @font-title-tablet;
 
         &:before, &:after {
-          .mixin_for-pseudo;
+          .pseudo;
           background: @gray-line;
           width: 125px;
           height: 1px;

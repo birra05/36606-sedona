@@ -1,13 +1,13 @@
 /*Примеси*/
 
 // Для корректного использования display: inline-block
-.mixin_inline-block {
+.inline-block {
   display: inline-block;
   vertical-align: baseline;
 }
 
-// Для псевдоэлементов test
-.mixin_for-pseudo {
+// Для псевдоэлементов 
+.pseudo {
   content: "";
   display: block;
   position: absolute;
@@ -15,7 +15,7 @@
 
 // Оформление label:before радиокнопок и чекбоксов
 .mixin_for-radio-checkbox-label-before {
-  .mixin_for-pseudo;
+  .pseudo;
   top: 0;
   left: -75px;
   width: 56px;
