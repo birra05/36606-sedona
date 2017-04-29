@@ -1,82 +1,92 @@
 <!DOCTYPE html>
 <html lang="ru">
-  <head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <meta name="google-site-verification" content="z4lcmL-z-okwUsrgJZBMzDBLZNeTJHXyt6cauR-weJ4" />
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="google-site-verification" content="z4lcmL-z-okwUsrgJZBMzDBLZNeTJHXyt6cauR-weJ4" />
 
-    <title>HTML Academy: Sedona</title>
-    <link rel="stylesheet" href="css/normalize.css">
-    <link rel="stylesheet" href="css/style.css">
-    <link href='https://fonts.googleapis.com/css?family=PT+Sans:400,400italic,700italic,700&subset=latin,cyrillic-ext' rel='stylesheet' type='text/css'>
-  </head>
-  <body>
-    <div class="container">
-      <header class="page-header">
-        <!-- Меню в хэдере -->
-        <img src="img/icon-logo-header.png" alt="Sedona-logo" width="67" height="56"/>
-        <a class="page-header__tab-menu" href="#"></a>
-        <nav class="header-nav">
-          <ul class="header-nav__list">
-            <li class="header-nav__item"><a href="#">Карта штата</a></li>
-            <li class="header-nav__item"><a href="#">Информация</a></li>
-            <li class="header-nav__item"><a href="#">Фото</a></li>
-            <li class="header-nav__item"><a href="#">Видео</a></li>
-          </ul>
-        </nav>
-      </header>
-      <!-- Фоновое изображение с текстом после хэдера -->
-      <div class="intro-img">
-        <img src="img/img-background-photo.jpg" alt="Фон" width="320" height="512"/>
-        <img src="img/icon-sedona.png" alt="Sedona" width="280" height="48"/>
-      </div>
-      <!-- Вступление к блогу -->
-      <section class="blog">
-        <h1 class="blog__title">Блог шерифа</h1>
-        <p class="blog__text">
-          Седона — удивительный город!
-          Горы здесь красного цвета, а местный шериф ведет блог и общается на форумах.
+  <title>HTML Academy: Sedona</title>
+  <link rel="stylesheet" href="css/normalize.css">
+  <link rel="stylesheet" href="css/style.css">
+  <link href='https://fonts.googleapis.com/css?family=PT+Sans:400,400italic,700italic,700&subset=latin,cyrillic-ext' rel='stylesheet' type='text/css'>
+
+  <script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+    (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+    m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+
+  ga('create', 'UA-98292459-1', 'auto');
+  ga('send', 'pageview');
+  </script>
+</head>
+<body>
+  <div class="container">
+    <header class="page-header">
+      <!-- Меню в хэдере -->
+      <img src="img/icon-logo-header.png" alt="Sedona-logo" width="67" height="56"/>
+      <a class="page-header__tab-menu" href="#"></a>
+      <nav class="header-nav">
+        <ul class="header-nav__list">
+          <li class="header-nav__item"><a href="#">Карта штата</a></li>
+          <li class="header-nav__item"><a href="#">Информация</a></li>
+          <li class="header-nav__item"><a href="#">Фото</a></li>
+          <li class="header-nav__item"><a href="#">Видео</a></li>
+        </ul>
+      </nav>
+    </header>
+    <!-- Фоновое изображение с текстом после хэдера -->
+    <div class="intro-img">
+      <img src="img/img-background-photo.jpg" alt="Фон" width="320" height="512"/>
+      <img src="img/icon-sedona.png" alt="Sedona" width="280" height="48"/>
+    </div>
+    <!-- Вступление к блогу -->
+    <section class="blog">
+      <h1 class="blog__title">Блог шерифа</h1>
+      <p class="blog__text">
+        Седона — удивительный город!
+        Горы здесь красного цвета, а местный шериф ведет блог и общается на форумах.
+      </p>
+    </section>
+    <!-- Пост -->
+    <article class="post">
+      <!-- Превью к посту -->
+      <div class="post-preview">
+        <span class="post__date">Позавчера</span>
+        <a class="post__tag" href="#">Происшествия</a>
+        <p class="post-preview__title">Внимание! Сбежала моя домашняя анаконда</p>
+        <p class="post-preview__text">
+          Жители Седоны и гости города, будьте бдительны, сбежала моя домашняя змея.
+          Увидевшему срочно звонить 911 и бежать от нее подальше.
         </p>
-      </section>
-      <!-- Пост -->
-      <article class="post">
-        <!-- Превью к посту -->
-        <div class="post-preview">
-          <span class="post__date">Позавчера</span>
-          <a class="post__tag" href="#">Происшествия</a>
-          <p class="post-preview__title">Внимание! Сбежала моя домашняя анаконда</p>
-          <p class="post-preview__text">
-            Жители Седоны и гости города, будьте бдительны, сбежала моя домашняя змея.
-            Увидевшему срочно звонить 911 и бежать от нее подальше.
-          </p>
-        </div>
-        <!-- Текст поста -->
-        <div class="post-full">
-          <h2 class="post-full__paragraph">Предыстория</h2>
-          <p class="post-full__text">
-            В далеком 85-ом я подобрал эту змею на трассе.
-            Ее переехал грузовик, и она валялась на обочине.
-            Мне стало жаль ее, и я решил взять ее с собой.
-            Кинул в багажник пикапа и подумал  тогда: «Если доедет до Седоны живой, так и быть, оставлю ее себе»
-          </p>
-          <h2 class="post-full__paragraph">Пропажа</h2>
-          <p class="post-full__text">
-            Неделю назад я вернулся из Канзаса и не нашел Анаконду дома.
-            Обошел все 200 гектаров своего участка, но ее нигде нет.
-            Решил сообщить в полицию, но вовремя вспомнил, что я и есть полиция, поэтому отправился на поиски сам.
-            Особые приметы змеи:
-          </p>
-          <ul class="post-full__list">
-            <li class="post-full__item">Длина: 5 метров</li>
-            <li class="post-full__item">Масса: 85 кг</li>
-            <li class="post-full__item">Окраска: серовато-зеленая</li>
-          </ul>
-          <p class="post-full__text">Если вы увидите эту змею, сразу звоните 911 и бегите со всех ног от нее!</p>
-          <h2 class="post-full__paragraph">Предостережение</h2>
-          <p class="post-full__text">
-            Не пытайтесь убить змею, если увидите!
-            Помните, что она тоже живое существо, хоть и выглядит не очень приятно.
-            Вот цитата, которая мне очень нравится:</p>
+      </div>
+      <!-- Текст поста -->
+      <div class="post-full">
+        <h2 class="post-full__paragraph">Предыстория</h2>
+        <p class="post-full__text">
+          В далеком 85-ом я подобрал эту змею на трассе.
+          Ее переехал грузовик, и она валялась на обочине.
+          Мне стало жаль ее, и я решил взять ее с собой.
+          Кинул в багажник пикапа и подумал  тогда: «Если доедет до Седоны живой, так и быть, оставлю ее себе»
+        </p>
+        <h2 class="post-full__paragraph">Пропажа</h2>
+        <p class="post-full__text">
+          Неделю назад я вернулся из Канзаса и не нашел Анаконду дома.
+          Обошел все 200 гектаров своего участка, но ее нигде нет.
+          Решил сообщить в полицию, но вовремя вспомнил, что я и есть полиция, поэтому отправился на поиски сам.
+          Особые приметы змеи:
+        </p>
+        <ul class="post-full__list">
+          <li class="post-full__item">Длина: 5 метров</li>
+          <li class="post-full__item">Масса: 85 кг</li>
+          <li class="post-full__item">Окраска: серовато-зеленая</li>
+        </ul>
+        <p class="post-full__text">Если вы увидите эту змею, сразу звоните 911 и бегите со всех ног от нее!</p>
+        <h2 class="post-full__paragraph">Предостережение</h2>
+        <p class="post-full__text">
+          Не пытайтесь убить змею, если увидите!
+          Помните, что она тоже живое существо, хоть и выглядит не очень приятно.
+          Вот цитата, которая мне очень нравится:</p>
           <blockquote class="post-full__quote">
             Самый свирепый из зверей — теперь мы знаем — это человек, он убивает, даже если не голоден.
             <p class="post-full__quote-author">Адриано Челентано</p>
@@ -105,4 +115,4 @@
     </div>
     <!-- <script src="js/script.js"></script> -->
   </body>
-</html>
+  </html>
