@@ -8,9 +8,8 @@
 .header-nav {
   position: relative;
 
-  li {
+  &__item {
     background: @blue;
-    // background: red;
 
     &:nth-child(4) {
       box-shadow:
@@ -38,8 +37,8 @@
     }
   }
 
-  &__item {
-    .inline-block; 
+  &__link {
+    .inline-block;
     width: 100%;
     font: bold 18px/56px @font-family;
     color: @color-font-white;
@@ -97,7 +96,7 @@
       justify-content: space-between;
     }
 
-    li {
+    &__item {
       width: 20%;
       background: none;
 
@@ -120,7 +119,7 @@
       }
     }
 
-    &__item {
+    &__link {
       font: bold 14px/56px @font-family;
       color: @color-font-title;
       box-shadow: none;
