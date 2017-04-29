@@ -1,16 +1,16 @@
-"use strict";
+'use strict';
 
 module.exports = function(grunt) {
-  require("load-grunt-tasks")(grunt);
+  require('load-grunt-tasks')(grunt);
 
   var config = {
-    pkg: grunt.file.readJSON("package.json"),
+    pkg: grunt.file.readJSON('package.json'),
 
     less: {
       style: {
         files: {
-          "build/css/style.css": "source/less/style.less",
-          "source/css/style.css": "source/less/style.less"
+          'build/css/style.css': 'docs/less/style.less',
+          'docs/css/style.css': 'docs/less/style.less'
         }
       }
     },
@@ -18,19 +18,19 @@ module.exports = function(grunt) {
     postcss: {
       options: {
         processors: [
-          require("autoprefixer")({browsers: "last 2 versions"})
+          require('autoprefixer')({browsers: 'last 2 versions'})
         ]
       },
       style: {
-        src: "build/css/*.css",
-        src: "source/css/*.css"
+        src: 'build/css/*.css',
+        src: 'docs/css/*.css'
       }
     },
 
     watch: {
       style: {
-        files: ["source/less/**/*.less"],
-        tasks: ["less", "postcss", "cssmin"],
+        files: ['docs/less/**/*.less'],
+        tasks: ['less', 'postcss', 'cssmin'],
         options: {
           spawn: false,
           livereload: true
@@ -41,12 +41,12 @@ module.exports = function(grunt) {
     cssmin: {
       options: {
         keepSpecialComments: 0,
-        report: "gzip"
+        report: 'gzip'
       },
       style: {
         files: {
-          "build/css/style.min.css": "build/css/style.css",
-          "source/css/style.min.css": "source/css/style.css"
+          'build/css/style.min.css': 'build/css/style.css',
+          'docs/css/style.min.css': 'docs/css/style.css'
         }
       }
     },
@@ -58,7 +58,7 @@ module.exports = function(grunt) {
         },
         files: [{
           expand: true,
-          src: "source/img/**/*.{png,jpg,gif,svg}"
+          src: 'docs/img/**/*.{png,jpg,gif,svg}'
         }]
       }
     },
@@ -67,28 +67,28 @@ module.exports = function(grunt) {
       build: {
         files: [{
           expand: true,
-          cwd: "source",
-          src: ["img/**","js/**","*.html"],
-          dest: "build"
+          cwd: 'docs',
+          src: ['img/**','js/**','*.html'],
+          dest: 'build'
         }]
       }
     },
 
     clean: {
-      build: ["build"]
+      build: ['build']
     }
   };
 
-  config = require("./.gosha")(grunt, config);
+  // config = require('./.gosha')(grunt, config);
 
   grunt.initConfig(config);
 
-  grunt.registerTask("build", [
-    "clean",
-    "copy",
-    "less",
-    "postcss",
-    "cssmin",
-    "imagemin"
+  grunt.registerTask('build', [
+    'clean',
+    'copy',
+    'less',
+    'postcss',
+    'cssmin',
+    'imagemin'
   ]);
 };
