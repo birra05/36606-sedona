@@ -6,6 +6,21 @@ module.exports = function(grunt) {
   var config = {
     pkg: grunt.file.readJSON('package.json'),
 
+    pug: {
+      compile: {
+        options: {
+          pretty: true
+        },
+        files: [{
+          expand: true,
+          cwd: 'docs/pug',
+          src: ['*.pug'],
+          dest: 'docs',
+          ext: '.html'
+        }]
+      }
+    },
+
     less: {
       style: {
         files: {
@@ -29,8 +44,8 @@ module.exports = function(grunt) {
 
     watch: {
       style: {
-        files: ['docs/less/**/*.less'],
-        tasks: ['less', 'postcss', 'cssmin'],
+        files: ['docs/less/**/*.less', 'docs/pug/**/*.pug'],
+        tasks: ['pug', 'less', 'postcss', 'cssmin'],
         options: {
           spawn: false,
           livereload: true
@@ -86,6 +101,7 @@ module.exports = function(grunt) {
   grunt.registerTask('build', [
     'clean',
     'copy',
+    'pug',
     'less',
     'postcss',
     'cssmin',

@@ -1,0 +1,77 @@
+
+- 
+  var blog = true;
+  
+  var title = 'Блог';
+  
+  var blogPosts = [
+    { 
+      title: 'Внимание! Сбежала моя домашняя анаконда',
+      text: 'Жители Седоны и гости города, будьте бдительны, сбежала моя домашняя змея. Увидевшему срочно звонить 911 и бежать от нее подальше.',
+      date: 'Позавчера',
+      tag: 'Происшествия'
+    }, 
+    { 
+      title: 'Принят антитабачный закон штата', 
+      text: 'Уважаемые туристы, пожалуйста, не забывайте, что курение сигарет и сигар в общественных местах города Седона категорически запрещено.',
+      date: '2 дня назад',
+      tag: 'Законы'
+    },
+    { 
+      title: 'Маньяк задержан, дает показания', 
+      text: 'Жители Седоны могут спать спокойно. Задержан маньяк-эксгибиционист, державший в страхе весь город. Пострадавшим обращаться в 911.',
+      date: '3 дня назад', 
+      tag: 'Происшествия'
+    },
+    { 
+      title: 'Водопад закрыт на реконструкцию', 
+      text: 'Всем, кто планировал посещать водопад на этих выходных, придется изменить планы, на нем ведутся ремонтные работы по улучшению подачи воды.',
+      date: 'Неделю назад', 
+      tag: 'Интересное'
+    },
+    { 
+      title: 'Открылся новый стейк-хаус «Горный бык»', 
+      text: 'Лучшие стейки в Аризоне! Приемлемые цены и только самые лучшие продукты. Заходите попробовать! Действует акция: съешь два и получи третий!',
+      date: 'Месяц назад', 
+      tag: 'Еда'
+    },
+    { 
+      title: 'Прогноз погоды на ближайшие выходные. Прогноз погоды на ближайшие выходные', 
+      text: 'Синоптики обещают, что будет ясно, безветренно и около 90 по Фаренгейту. Как в пустыне! Проверим их слова уже через пару дней. Синоптики обещают, что будет ясно, безветренно и около 90 по Фаренгейту. Как в пустыне! Проверим их слова уже через пару дней.',
+      date: 'Год назад', 
+      tag: 'Погода'
+    }
+  ];
+
+  var pagingItems = [
+    {number: '1', active: true}, 
+    {number: '2', active: false}, 
+    {number: '3', active: false}, 
+    {number: '4', active: false}, 
+    {number: '5', active: false}
+  ]; 
+
+mixin blog-post(blog)
+  article.blog-post
+    h2.blog-post__title= blog.title
+    p.blog-post__text= blog.text
+    span.blog-post__date= blog.date
+    a.blog-post__tag(href="#")= blog.tag
+
+doctype html
+html(lang='ru')
+  include includes/head.pug
+  body
+    .container 
+      include includes/page-header.pug
+      include includes/intro.pug
+      section.blog-posts
+        for blog in blogPosts
+          +blog-post(blog)
+      section.page-nav
+        p.page-nav__text Страница: 
+        ul.page-nav__list
+          each page in pagingItems
+            li.page-nav__item
+              a(href='#' class=page.active ? 'page-nav__link page-nav__link--active' : 'page-nav__link')= page.number
+      include includes/page-footer.pug

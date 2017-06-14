@@ -1,0 +1,33 @@
+  
+if index  
+  section.intro
+    .intro-img.intro-img--index
+      img.intro-img__welcome(src='img/text-welcome.svg', alt='Welcome', width='188', height='45')
+      |  
+      img.intro-img__tothegorgeous(src='img/text-tothegorgeous.svg', alt='To the gorgeous', width='256', height='29')
+      |  
+      img.intro-img__sedona.intro-img__sedona--index(src='img/text-sedona.svg', alt='Sedona', width='460', height='80')
+      |  
+      img.intro-img__because(src='img/text-becausecanyon.svg', alt='Because', width='294', height='80')
+    .intro-describe.intro-describe--index
+      h1.intro-describe__title Седона — небольшой городок в Аризоне, заслуживающий большего!
+      p.intro-describe__text.intro-describe__text--index Рассмотрим 5 причин, по которым Седона круче, чем Гранд Каньон!
+else if blog 
+  section.intro.intro--blog
+    .intro-img
+      img.intro-img__sedona(src='img/text-sedona.svg', alt='Sedona')
+    .intro-describe
+      h1.intro-describe__title Блог шерифа
+      p.intro-describe__text
+        | Седона — удивительный город!
+        | Горы здесь красного цвета, а местный шериф ведет блог и общается на форумах.
+else 
+  section.intro
+    .intro-img
+      img.intro-img__sedona(src='img/text-sedona.svg', alt='Sedona')
+    if form
+      .intro-describe
+        h1.intro-describe__title Оставьте свой отзыв
+        p.intro-describe__text
+          | Помогите нашим отелям стать лучше! Оставьте отзыв о них, а также о посещенных вами достопримечательностях
+      

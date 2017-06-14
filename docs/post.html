@@ -24,15 +24,26 @@
   <div class="container">
     <header class="page-header">
       <!-- Меню в хэдере -->
-      <img src="img/icon-logo-header.png" alt="Sedona-logo" width="67" height="56"/>
-      <a class="page-header__tab-menu" href="#"></a>
       <nav class="header-nav">
+        <a class="header-nav__tab-menu" href="#"></a>
         <ul class="header-nav__list">
-          <li class="header-nav__item"><a href="#">Карта штата</a></li>
-          <li class="header-nav__item"><a href="#">Информация</a></li>
-          <li class="header-nav__item"><a href="#">Фото</a></li>
-          <li class="header-nav__item"><a href="#">Видео</a></li>
+          <li class="header-nav__item">
+            <a class="header-nav__link" href="#">Карта штата</a>
+          </li>
+          <li class="header-nav__item">
+            <a class="header-nav__link header-nav__link--current" href="#">Информация</a>
+          </li>
+          <li class="header-nav__item">
+            <a class="header-nav__link" href="#">Фото и видео</a>
+          </li>
+          <li class="header-nav__item">
+            <a class="header-nav__link" href="#">Гостиницы</a>
+          </li>
         </ul>
+        <a class="header-nav__logo" href="#">
+          <img src="img/logo-sedona@1x.png" alt="Sedona-logo" width="67" height="56"
+          srcset="img/logo-sedona@2x.png 2x, img/logo-sedona@3x.png 3x"/>
+        </a>
       </nav>
     </header>
     <!-- Фоновое изображение с текстом после хэдера -->

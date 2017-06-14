@@ -1,27 +1,44 @@
 // Блог
 .blog {
-  width: @wrapper-mobile-width;
-  margin: 0 auto; 
-  padding-top: 50px;
-  padding-bottom: 30px;
-  text-align: center;
-  border-bottom: 2px solid @gray-line;
+  &-posts {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    // outline: 2px solid yellow;
+    // background: yellow;
 
-  &__title {
-    margin-bottom: 28px;
-    font: @font-title-tablet-big;
-  }
-  &__text {
-    font: @font-intro;
+    @media (min-width: @tablet-width) {
+      flex-direction: row;
+      justify-content: space-around;
+      flex-wrap: wrap;
+      position: relative;
+
+      &:before, &:after {
+        .pseudo;
+        width: 2px;
+        height: 100%;
+        background: @gray-line;
+        left: 50%;
+      }
+    }
+    @media (min-width: @desktop-width) {
+      justify-content: space-between;
+      &:before {
+        left: 33%;
+      }
+      &:after {
+        left: 67%;
+      }
+    }
   }
 
   &-post {
     width: @wrapper-mobile-width;
-    margin: 0 auto;
-    padding-top: 34px;
-    padding-bottom: 24px;
-    border-bottom: 2px solid @gray-line;
+    padding-top: 40px;
+    padding-bottom: 40px;
+    border-top: 2px solid @gray-line;
     font-size: 0;
+    // outline: 2px solid red;
 
     &:last-child {
       border-bottom: none;
@@ -31,25 +48,29 @@
       text-align: center;
       margin-bottom: 20px;
       font: @font-title-tablet;
+      .overflow-y(@height: 50px);
     }
 
     &__text {
       text-align: center;
-      margin-bottom: 22px;
+      margin-bottom: 45px;
       font: @font-reason;
+      //Overlow
+      .overflow-y(@height: 85px);
     }
 
     &__date, &__tag {
       .inline-block;
       position: relative;
-      padding-left: 18px;
+      padding-left: 20px;
       font: @font-date-tag-blog;
       color: @color-font-gray;
+      .overflow-x(@width: 125px);
     }
 
     &__date {
-      margin-left: 4px;
-      margin-right: 9%;
+      margin-left: 5px;
+      margin-right: 10%;
 
       &:before {
         .pseudo;
@@ -73,59 +94,32 @@
         left: 0;
       }
     }
-  }
-}
 
-// Планшетная версия
+    @media (min-width: @tablet-width) {
+      width: (@tablet-width - 45px*4)/2; //Based on the layout
 
-@media (min-width: @tablet-width) {
-  br {
-    display: none;
-  }
-
-  .blog {
-    width: @tablet-width;
-    width: 100%;
-    padding-top: 75px;
-    margin-bottom: 22px;
-    border-bottom: none;
-
-    &__text {
-      width: 430px;
-      margin: 0 auto;
-    }
-
-    &-posts {
-      display: flex;
-      flex-wrap: wrap;
-      position: relative;
-
-      &:before {
-        .pseudo;
-        width: 2px;
-        height: 100%;
-        background: @gray-line;
-        left: 50%;
-      }
-    }
-
-    &-post {
-      width: (@tablet-width - 43px*4)/2;
-      margin-left: 43px;
-      margin-right: 43px;
-      padding-bottom: 26px;
-
-      &:nth-child(1), &:nth-child(2)  {
-        border-top: 2px solid @gray-line;
-      }
-
-      &:last-child {
+       &:nth-child(5), &:last-child {
         border-bottom: 2px solid @gray-line;
       }
 
       &__date {
-        margin-left: 16px;
+        margin-left: 10px;
       }
     }
+    @media (min-width: @desktop-width) {
+      margin: 0 50px; //Based on the maket
+
+      &:nth-child(4) {
+        border-bottom: 2px solid @gray-line;
+      }
+    }
+  }
+}
+
+// Tablet
+
+@media (min-width: @tablet-width) {
+  br {
+    display: none;
   }
 }

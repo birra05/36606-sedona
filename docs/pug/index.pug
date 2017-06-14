@@ -1,0 +1,64 @@
+- 
+  var index = true;
+  
+  var title = 'Главная';
+  
+  
+
+doctype html
+html(lang='ru')
+  include includes/head.pug
+  body
+    .container
+      include includes/page-header.pug
+      include includes/intro.pug
+      section.reasons-block
+        .reason.reason--1
+          .reason__describe
+            h2.reason__title Настоящий городок
+            p.reason__number — №1 —
+            p.reason__text Седона не аттракцион для туристов, там течет своя жизнь
+          .reason--1__bg
+        .reason-list
+          .reason-list__item.reason-list__item--1
+            h3.reason-list__title Жилье
+            p.reason-list__text Рекомендуем пожить в настоящем мотеле, все как в кино!
+          .reason-list__item.reason-list__item--2
+            h3.reason-list__title Сувениры
+            p.reason-list__text Не только китайского, но и местного производства!
+          .reason-list__item.reason-list__item--3
+            h3.reason-list__title Еда
+            p.reason-list__text Всегда заказывайте фирменный бургер, вы не разочаруетесь!
+        .reason.reason--2
+          .reason__describe
+            h2.reason__title Там есть мост дьявола
+            p.reason__number — №2 —
+            p.reason__text Да, по нему можно пройти! Если, конечно, вы осмелитесь
+          .reason--2__bg
+        .reasons-block__other-reasons
+          .reason.reason-3
+            h2.reason__title Небольшая площадь
+            p.reason__number — №3 —
+            p.reason__text
+              span.for-mobile Все достопримечательности находятся очень близко
+              |  
+              span.for-tablet-desktop
+                | Все достопримеча-<br>
+                br
+                | тельности находятся очень близко
+          .reason.reason-4
+            h2.reason__title Красивая дорога
+            p.reason__number — №4 —
+            p.reason__text Ехать в Седону из Лас-вегаса совсем не скучно!
+          .reason.reason-5
+            h2.reason__title Мало туристов
+            p.reason__number — №5 —
+            p.reason__text Большинство едет в Гранд-Каньон и толпится там
+      .interest
+        p.interest__title Заинтересовались?
+        p.interest__text
+          | Укажите предполагаемые даты поездки, и мы покажем вам лучшие предложения гостиниц в Cедоне
+        |  
+        a.interest__btn(href='#') Найти гостиницу
+      .map
+      include includes/page-footer.pug

@@ -37,6 +37,7 @@
   "devDependencies": {
     "grunt-contrib-cssmin": "^0.14.0",
     "grunt-contrib-htmlmin": "^0.5.0",
-    "grunt-contrib-imagemin": "^0.9.4"
+    "grunt-contrib-imagemin": "^0.9.4",
+    "grunt-contrib-pug": "^1.0.0"
   }
 }

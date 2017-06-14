@@ -1,0 +1,211 @@
+- 
+  var form = true;
+  
+  var title = 'Отзыв';
+
+doctype html
+html(lang='ru')
+  include includes/head.pug
+  body
+    .container
+      include includes/page-header.pug
+      include includes/intro.pug
+      section.review
+        //Review's form
+        form.review-form(action='/server', method='post', enctype='multipart/form-data')
+          // Traveler's data
+          fieldset.review-form__fieldset
+            h2.review-form__title Представьтесь, пожалуйста
+            .review-form-box
+              .review-form__item
+                label(for='surname')
+                  | Фамилия:
+                  sup *
+                |  
+                input#surname(type='text', name='surname', value='Иванов', autofocus='', required='')
+              .review-form__item
+                label(for='name')
+                  | Имя:
+                  sup *
+                |  
+                input#name(type='text', name='name', value='Петр', required='')
+              .review-form__item
+                label(for='patronymic')
+                  | Отчество:
+                  sup *
+                |  
+                input#patronymic(type='text', name='patronymic', value='Александрович', required='')
+          //Radiobuttons_General impression
+          fieldset.review-form__fieldset
+            h2.review-form__title Ваше впечатление:
+            .review-form-box.review-form-box-impress
+              .review-form__item.review-form__item-impress
+                input#radio-positive(type='radio', name='radio', checked='')
+                |  
+                label(for='radio-positive') Скорее положительное
+              .review-form__item.review-form__item-impress
+                input#radio-negative(type='radio', name='radio')
+                |  
+                label(for='radio-negative') Скорее отрицательное
+          // Travelling's dates
+          fieldset.review-form__fieldset
+            h2.review-form__title Даты вашей поездки:
+            .review-form-box
+              .review-form__item
+                label(for='date-arrival')
+                  | Дата приезда:
+                  sup *
+                |  
+                input#date-arrival(type='text', name='date-arrival', value='4 июля 2015', required='')
+              .review-form__item
+                label.for-mobile(for='duration')
+                  | Длительность пребывания:
+                  sup *
+                |  
+                label.for-tablet(for='duration')
+                  | Дней пребывания:
+                  sup *
+                .review-form-quantity.spinner
+                  a.review-form-button.review-form-button__minus.spinner__minus(href='#')
+                  .review-form-quantity__days
+                    input#duration.input(type='text', name='duration', value='14', required='')
+                  a.review-form-button.review-form-button__plus.spinner__plus(href='#')
+              .review-form__item
+                label(for='date-departure')
+                  | Дата отъезда:
+                  sup *
+                |  
+                input#date-departure(type='text', name='date-departure', value='28 июля 2015', required='')
+          // Traveller's questionnaire
+          fieldset.review-form__fieldset
+            h2.review-form__title Кол-во путешественников:
+            .review-form__item
+              label.for-mobile(for='quantity')
+                | Количество путешественников:
+                sup *
+              |  
+              label.for-tablet(for='quantity')
+                | Кол-во путешественников:
+                sup *
+              .review-form-quantity
+                a.review-form-button.review-form-button__minus(href='#')
+                .review-form-quantity__number
+                  input#quantity(type='text', name='quantity', value='2', required='')
+                a.review-form-button.review-form-button__plus(href='#')
+            // Traveller 1
+            .review-form-traveler
+              .review-form__item.review-form-traveler__number
+                label(for='traveler-1') №;
+                |  
+                input#traveler-1(type='text', name='traveler-1', value='1', readonly='', disabled='')
+              .review-form-traveler__data
+                .review-form__item.review-form-traveler__data--desktop
+                  label(for='travel-surname-1')
+                    | Фамилия:
+                    sup *
+                  |  
+                  input#travel-surname-1(type='text', name='surname-1', value='Иванов', required='')
+                .review-form__item
+                  label(for='travel-name-1')
+                    | Имя:
+                    sup *
+                  |  
+                  input#travel-name-1(type='text', name='name-1', value='Петр', required='')
+                .review-form__item
+                  label(for='travel-patronymic-1')
+                    | Отчество:
+                    sup * 
+                  |  
+                  input#travel-patronymic-1(type='text', name='patronymic-1', value='Александрович')
+            // Traveller 2
+            .review-form-traveler
+              .review-form__item.review-form-traveler__number
+                label(for='traveler-2') №;
+                |  
+                input#traveler-2(type='text', name='traveler-2', value='2', readonly='', disabled='')
+              .review-form-traveler__data
+                .review-form__item.review-form-traveler__data--desktop
+                  label(for='travel-surname-2')
+                    | Фамилия:
+                    sup *
+                  |  
+                  input#travel-surname-2(type='text', name='surname-2', value='Иванов', required='')
+                .review-form__item
+                  label(for='travel-name-2')
+                    | Имя:
+                    sup *
+                  |  
+                  input#travel-name-2(type='text', name='name-2', value='Петр', required='')
+                .review-form__item
+                  label(for='travel-patronymic-2')
+                    | Отчество:
+                    sup *
+                  |  
+                  input#travel-patronymic-2(type='text', name='patronymic-2', value='Александрович')
+          // Checkboxes_Visited sights
+          fieldset.review-form__fieldset
+            h2.review-form__title
+              | Посещенные
+              br
+              | достопримечательности
+            .review-form-box.review-form-box-sight
+              .review-form__item
+                input#check1(type='checkbox', name='check1', checked='')
+                |  
+                label(for='check1') Мост Дьявола
+              .review-form__item
+                input#check2(type='checkbox', name='check2')
+                |  
+                label(for='check2') Слайд-парк
+              .review-form__item
+                input#check3(type='checkbox', name='check3', checked='')
+                |  
+                label(for='check3') Гора-Колокол
+              .review-form__item
+                input#check4(type='checkbox', name='check4', checked='')
+                |  
+                label(for='check4') Красные скалы
+          // Uploading photos
+          fieldset.review-gallery
+            h2.review-form__title Загрузите фотографии
+            .review-gallery__upload-file
+              input#review-img-upload(type='file', name='upload')
+              |  
+              label.for-mobile-tablet(for='review-img-upload') Выбрать фотографии
+              |  
+              label.for-desktop(for='review-img-upload') Перетащите фотографии сюда
+            // Preview
+            ul.review-gallery__list
+              li.review-gallery__item
+                img(src='img/img-tablet-preview-1.jpg', alt='preview-1', width='140', height='140')
+                a.review-gallery__delete-btn(href='')
+                p img-686.jpg
+              li.review-gallery__item
+                img(src='img/img-tablet-preview-2.jpg', alt='preview-2', width='140', height='140')
+                a.review-gallery__delete-btn(href='')
+                p img-687.jpg
+              li.review-gallery__item
+                img(src='img/img-tablet-preview-3.jpg', alt='preview-3', width='140', height='140')
+                a.review-gallery__delete-btn(href='')
+                p img-688.jpg
+              li.review-gallery__item
+                img(src='img/img-tablet-preview-4.jpg', alt='preview-4', width='140', height='140')
+                a.review-gallery__delete-btn(href='')
+                p img-689.jpg
+              li.review-gallery__item
+                img(src='img/img-tablet-preview-5.jpg', alt='preview-5', width='140', height='140')
+                a.review-gallery__delete-btn(href='')
+                p img-690.jpg
+              li.review-gallery__item
+                img(src='img/img-tablet-preview-6.jpg', alt='preview-6', width='140', height='140')
+                a.review-gallery__delete-btn(href='')
+                p img-691.jpg
+              li.review-gallery__item
+                img(src='img/img-preview-7.jpg', alt='preview-7', width='70', height='70')
+                a.review-gallery__delete-btn(href='')
+            .review-form__send-btn
+              input#review-form-send(type='submit', value='Отправить отзыв', disabled='')
+              |  
+              label.blue-btn(for='review-form-send') Отправить отзыв
+      include includes/page-footer.pug
+      include includes/modal.pug

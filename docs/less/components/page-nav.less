@@ -2,40 +2,70 @@
 
 .page-nav {
   display: flex;
-  flex-wrap: wrap;
-  position: relative;
-  width: @wrapper-mobile-width;
-  margin: 0 auto;
-  padding-top: 45px;
-  padding-bottom: 30px;
-  margin-bottom: 28px;
-
-  &:before, &:after {
-    .pseudo;
-    width: @mobile-width;
-    height: 2px;
-    background: @gray-line;
-    left: -20px;
+  justify-content: center;
+  padding: 45px 0;
+  // background: red;
+  border-top: 2px solid @gray-line;
+  border-bottom: 2px solid @gray-line;
+  @media (min-width: @tablet-width) {
+    // outline: 2px solid green;
+    border: 0;
+  }
+  @media (min-width: @desktop-width) {
+    & > * {
+      flex-basis: 100 / 3%;
+    }
+    &:after {
+      .pseudo;
+      position: static;
+      flex-basis: 100 / 3%;
+    }
   }
 
-  &:before {
-    top: 0;
-  }
+  &__list {
+    position: relative;
+    display: flex;
+    flex-wrap: wrap;
+    position: relative;
+    width: @wrapper-mobile-width;
+    margin: 0 auto;
+    // outline: 2px solid blue;
 
-  &:after {
-    bottom: 0;
-  }
+    @media (min-width: @tablet-width) {
+      flex-basis: 71%;
+      margin: 0;
+      padding-top: 0;
+      padding-bottom: 0;
 
-  li {
-    margin-right: 16px;
-    margin-bottom: 16px;
-
-    &:nth-child(4n) {
-      margin-right: 0;
+      &:before, &:after {
+        display: none;
+      }
+    }
+    @media (min-width: @desktop-width) {
+      flex-basis: 100 / 3%;
+      justify-content: center;
     }
   }
 
   &__item {
+    margin-right: 16px;
+    margin-bottom: 16px;
+
+    &:nth-child(4n), &:last-child {
+      margin-right: 0;
+    }
+
+    @media (min-width: @tablet-width) {
+      margin-right: 8px;
+      margin-bottom: 0;
+
+      &:nth-child(4n) {
+        margin-right: 8px;
+      }
+    }
+  }
+
+  &__link {
     display: block;
     width: 58px;
     height: 58px;
@@ -54,48 +84,16 @@
 
   &__text {
     display: none;
-  }
-}
 
-// Планшетная версия
-
-@media (min-width: @tablet-width) {
-  .blog-nav {
-    display: flex;
-    justify-content: flex-start;
-    // justify-content: center;
-    padding-top: 45px;
-    padding-bottom: 50px;
-  }
-
-  .page-nav {
-    flex-grow: 3;
-    width: auto;
-    margin: 0;
-    padding-top: 0;
-    padding-bottom: 0;
-
-    &:before, &:after {
-      display: none;
-    }
-
-    &__text {
-      flex-grow: 1;
+    @media (min-width: @tablet-width) {
+      flex-basis: 29%;
       .inline-block;
-      margin-left: 43px;
       font: @font-title-tablet;
       line-height: 58px;
+      text-align: center;
     }
-
-    li {
-      margin-right: 8px;
-      margin-bottom: 0;
-
-      &:nth-child(4n) {
-        margin-right: 8px;
-      }
+    @media(min-width: @desktop-width) {
+      flex-basis: 100 / 3%;
     }
   }
 }
-
-// test

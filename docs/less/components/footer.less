@@ -1,22 +1,43 @@
 // Футер
 
 .page-footer {
-  text-align: center;
-  padding: 0 (@mobile-width - 150px)/2;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 30px 0;
+
+  @media (min-width: @tablet-width) {
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+  }
+
+  & > * {
+    width: 150px;
+    text-align: center;
+    &:not(:last-child) {
+      margin-bottom: 40px; // Based on the layout
+    }
+
+    @media (min-width: @tablet-width) {
+      width: 33%;
+      &:not(:last-child) {
+        margin-bottom: 0;
+      }
+    }
+  }
 
   &__hash {
-    margin-bottom: 36px; // подогнано по макету
     font: @font-title-tablet;
     color: @color-font-title;
   }
 
-  &-social {
+  &__social {
     display: flex;
     justify-content: space-between;
-    margin-bottom: 96px;
 
-    &--index {
-      margin-bottom: 38px;
+    @media (min-width: @tablet-width) {
+      justify-content: center;
     }
 
     a {
@@ -41,122 +62,50 @@
       svg {
         position: absolute;
       }
+      @media (min-width: @tablet-width) {
+        &:not(:last-child) {
+          margin-right: (150px - 46px*3)/2;
+        }
+      }
     }
 
-    &__twitter {
+    &--twitter {
       top: 16px;
       left: 15px;
     }
 
-    &__facebook {
+    &--facebook {
       top: 14px;
       left: 20px;
     }
 
-    &__youtube {
+    &--youtube {
       top: 15px;
       left: 13px;
     }
   }
 
   &__developer {
-    display: none;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 
-    &--index {
-      display: block;
-      position: relative;
-      line-height: 34px;
-      margin-bottom: 22px;
-
-      p {
-        padding-left: 11px;
-        text-align: left;
-      }
+    &-text {
+      margin-right: 10px;
+    }
+    @media (min-width: @tablet-width) {
+      justify-content: flex-end;
+      padding-right: 40px;
     }
   }
 
   &__logo {
-    display: none;
-
-    &--index {
-      display: block;
-      position: absolute;
-      width: 27px;
-      height: 34px;
-      top: 0;
-      left: 112px;
-
-      &:hover {
-        fill: @blue;
-      }
-
-      &:active {
-        fill-opacity: 0.3;
-      }
-    }
-  }
-}
-
-// Планшетная версия
-
-@media (min-width: @tablet-width) {
-  .page-footer {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding: 0;
-    margin-bottom: 36px;
-
-    div {
-      width: 33%;
-      margin-bottom: 0;
+    &:hover {
+      fill: @blue;
     }
 
-    &-social {
-      padding: 0 51px; // подогнано по макету
-    }
-
-    &__developer {
-      display: block;
-      position: relative;
-
-      p {
-        text-align: center;
-        padding-left: 0;
-      }
-    }
-
-    &__logo {
-      display: block;
-
-      &--index {
-        left: 186px; // подогнано по макету
-      }
-    }
-  }
-}
-
-// Десктопная версия
-
-@media (min-width: @desktop-width) {
-  .page-footer {
-    &-social {
-      padding: 0 ((@desktop-width/3 - 150px)/2);
-    }
-
-    &__developer {
-      p {
-        text-align: right;
-        padding-right: 82px;
-      }
-    }
-
-    &__logo {
-      display: block;
-
-      &--index {
-        left: @desktop-width/3 - 70px;
-      }
+    &:active {
+      fill-opacity: 0.3;
     }
   }
 }
