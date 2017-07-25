@@ -1,13 +1,13 @@
 //Header
 header.page-header
   nav.header-nav 
-    a.header-nav__tab-menu(href='#')
-    |
-    ul.header-nav__list
+    button.header-nav__tab-menu#button-menu(href='#' type="button")
+    | 
+    ul.header-nav__list#menu-list
       - var list = ["Карта штата", "Информация", "Фото и видео", "Гостиницы"]
         for item in list
           li.header-nav__item 
-            a.header-nav__link(href='#')= item  
+            a.header-nav__link(href='#')= item
     |  
     a.header-nav__logo(href='index.html')
       img(src='img/logo-sedona@1x.png', alt='Sedona-logo', width='67', height='56', srcset='img/logo-sedona@2x.png 2x, img/logo-sedona@3x.png 3x')

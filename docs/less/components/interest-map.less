@@ -7,22 +7,39 @@
   margin-bottom: 50px;
   text-align: center;
 
+  @media (min-width: @tablet-width) {
+    width: @wrapper-tablet-btn-width; // подогнано по макету
+    padding-top: 54px;  // подогнано по макету
+    margin-bottom: 56px; // подогнано по макету
+  }
+
+  @media (min-width: @desktop-width) {
+    margin-bottom: 65px; // подогнано по макету
+  }
+
   &__title {
     font: @font-title-tablet;
     color: @color-font-title;
     margin-bottom: 22px; // подогнано по макету
+
+    @media (min-width: @tablet-width)  {
+      margin-bottom: 28px;
+      font: bold 30px/26px @font-family;
+      color: @color-font-title;
+    }
   }
 
   &__text {
     font: normal 14px/24px @font-family;
     margin-bottom: 34px; // подогнано по макету
-  }
 
-  &__btn {
-    .inline-block;
-    .mixin_for-big-btn;
-    .blue-btn-hover-active;
-    text-decoration: none;
+    @media (min-width: @tablet-width) {
+      margin-bottom: 45px; // подогнано по макету
+    }
+
+    @media (min-width: @desktop-width) {
+      margin-bottom: 48px; // подогнано по макету
+    }
   }
 }
 
@@ -33,6 +50,17 @@
   height: 350px;
   margin-bottom: 35px; // подогнано по макету
 
+  @media (min-width: @tablet-width) {
+    background: @blue url("../img/img-map-tablet.jpg");
+    width: @tablet-width;
+    margin-bottom: 38px; // подогнано по макету
+  }
+
+  @media (min-width: @desktop-width) {
+    background: @blue url("../img/img-map-desktop.jpg") no-repeat;
+    width: @desktop-width;
+  }
+
   &:before {
     .pseudo;
     background: url("../img/map-marker.svg") no-repeat;
@@ -40,56 +68,13 @@
     height: 27px;
     left: 145px;
     top: 160px;
-  }
-}
 
-// Планшетная версия
-
-@media (min-width: @tablet-width) {
-  .interest {
-    width: @wrapper-tablet-btn-width; // подогнано по макету
-    padding-top: 54px;  // подогнано по макету
-    margin-bottom: 56px; // подогнано по макету
-
-    &__title {
-      margin-bottom: 28px;
-      font: bold 30px/26px @font-family;
-      color: @color-font-title;
-    }
-
-    &__text {
-      margin-bottom: 45px; // подогнано по макету
-    }
-  }
-
-  .map {
-    background: @blue url("../img/img-map-tablet.jpg");
-    width: @tablet-width;
-    margin-bottom: 38px; // подогнано по макету
-
-    &:before {
+    @media (min-width: @tablet-width) {
       left: (@tablet-width - 27px)/2;
       top: (350px - 27px)/2;
     }
-  }
-}
 
-// Десктопная версия
-
-@media (min-width: @desktop-width) {
-  .interest {
-   margin-bottom: 65px; // подогнано по макету
-
-    &__text {
-      margin-bottom: 48px; // подогнано по макету
-    }
-  }
-
-  .map {
-    background: @blue url("../img/img-map-desktop.jpg") no-repeat;
-    width: @desktop-width;
-
-    &:before {
+    @media (min-width: @desktop-width) {
       left: (@desktop-width - 27px)/2;
     }
   }

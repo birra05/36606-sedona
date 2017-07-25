@@ -36,7 +36,7 @@ html(lang='ru')
                 |  
                 input#patronymic(type='text', name='patronymic', value='Александрович', required='')
           //Radiobuttons_General impression
-          fieldset.review-form__fieldset
+          fieldset.review-form__fieldset 
             h2.review-form__title Ваше впечатление:
             .review-form-box.review-form-box-impress
               .review-form__item.review-form__item-impress
@@ -65,11 +65,11 @@ html(lang='ru')
                 label.for-tablet(for='duration')
                   | Дней пребывания:
                   sup *
-                .review-form-quantity.spinner
-                  a.review-form-button.review-form-button__minus.spinner__minus(href='#')
+                .review-form-quantity
+                  a.review-form-button.review-form-button__minus(href='#')
                   .review-form-quantity__days
-                    input#duration.input(type='text', name='duration', value='14', required='')
-                  a.review-form-button.review-form-button__plus.spinner__plus(href='#')
+                    input#duration(type='text', name='duration', value='14', required='')
+                  a.review-form-button.review-form-button__plus(href='#')
               .review-form__item
                 label(for='date-departure')
                   | Дата отъезда:
@@ -95,13 +95,13 @@ html(lang='ru')
             // Traveller 1
             .review-form-traveler
               .review-form__item.review-form-traveler__number
-                label(for='traveler-1') №;
+                label(for='traveler-1') №
                 |  
                 input#traveler-1(type='text', name='traveler-1', value='1', readonly='', disabled='')
               .review-form-traveler__data
-                .review-form__item.review-form-traveler__data--desktop
+                .review-form__item 
                   label(for='travel-surname-1')
-                    | Фамилия:
+                    | Фамилия: 
                     sup *
                   |  
                   input#travel-surname-1(type='text', name='surname-1', value='Иванов', required='')
@@ -120,11 +120,11 @@ html(lang='ru')
             // Traveller 2
             .review-form-traveler
               .review-form__item.review-form-traveler__number
-                label(for='traveler-2') №;
+                label(for='traveler-2') №
                 |  
                 input#traveler-2(type='text', name='traveler-2', value='2', readonly='', disabled='')
               .review-form-traveler__data
-                .review-form__item.review-form-traveler__data--desktop
+                .review-form__item
                   label(for='travel-surname-2')
                     | Фамилия:
                     sup *
@@ -169,13 +169,13 @@ html(lang='ru')
           fieldset.review-gallery
             h2.review-form__title Загрузите фотографии
             .review-gallery__upload-file
-              input#review-img-upload(type='file', name='upload')
+              input#review-img-upload(type='file', name='upload-pictures', multiple) 
               |  
-              label.for-mobile-tablet(for='review-img-upload') Выбрать фотографии
+              label.btn.for-mobile-tablet(for='review-img-upload') Выбрать фотографии
               |  
-              label.for-desktop(for='review-img-upload') Перетащите фотографии сюда
+              label.btn.btn--blue.for-desktop(for='review-img-upload') Перетащите фотографии сюда
             // Preview
-            ul.review-gallery__list
+            ul.review-gallery__list#review-gallery
               li.review-gallery__item
                 img(src='img/img-tablet-preview-1.jpg', alt='preview-1', width='140', height='140')
                 a.review-gallery__delete-btn(href='')
@@ -203,9 +203,13 @@ html(lang='ru')
               li.review-gallery__item
                 img(src='img/img-preview-7.jpg', alt='preview-7', width='70', height='70')
                 a.review-gallery__delete-btn(href='')
-            .review-form__send-btn
-              input#review-form-send(type='submit', value='Отправить отзыв', disabled='')
-              |  
-              label.blue-btn(for='review-form-send') Отправить отзыв
+          button.btn.btn--blue.review-form__send-btn(type="submit") Отправить отзыв
       include includes/page-footer.pug
       include includes/modal.pug
+    script(type='text/html', id='image-template')
+      img(src='{{image}}', alt='{{name}}', width='140', height='140')
+      a.review-gallery__delete-btn(href='')
+      p {{name}}
+    script(src='../bower_components/mustache.js/mustache.min.js')
+    script(src='docs/../js/script.js')
+    

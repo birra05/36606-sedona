@@ -10,32 +10,69 @@
   background: @color-font-white;
   box-shadow: 0 7px 15px 0 rgba(0, 1, 1, 0.15);
 
+  @media (min-width: @tablet-width) {
+    width: 400px;
+  }
+
   .wrapper {
     width: 220px;
     margin: 0 auto;
+
+    @media (min-width: @tablet-width) {
+      width: @wrapper-mobile-width;
+    }
 
     &-btn {
       width: 100%;
       background: @light-gray-input;
       padding: 20px;
+      @media (min-width: @tablet-width) {
+        padding: 45px 0;
+      }
+    }
+    &-success {
+      @media (min-width: @tablet-width) {
+        width: 430px;
+      }
     }
   }
 
   &-failure {
     position: absolute;
     bottom: 602px;
+    @media (min-width: @tablet-width)  {
+      padding: 58px 0 48px;
+      left: (@tablet-width - 400px)/2;
+    }
+    @media (min-width: @desktop-width) {
+      left: (@desktop-width - 400px)/2;
+    }
   }
 
   &-success {
     position: absolute;
     bottom: 230px;
     padding-bottom: 0;
+    @media (min-width: @tablet-width)  {
+      width: 640px;
+      left: (@tablet-width - 640px)/2;
+    }
+    @media (min-width: @desktop-width) {
+      left: (@desktop-width - 640px)/2;
+    }
   }
 
   &__title {
     font: @font-title;
     margin: 0 auto;
     margin-bottom: 33px;
+    @media (min-width: @tablet-width) {
+      font: bold 30px/40px @font-family;
+
+      &-failure {
+        width: 220px;
+      }
+    }
   }
 
   &__text {
@@ -43,72 +80,20 @@
   }
 
   &__btn {
-    .mixin_for-big-btn;
-    .blue-btn-hover-active;
+    // .mixin_for-big-btn;
+    // .blue-btn-hover-active;
     display: block;
     width: @wrapper-mobile-width;
     margin: 0 auto;
+    @media (min-width: @tablet-width) {
+      width: @wrapper-tablet-btn-width;
+    }
 
     &-failure {
       width: 180px;
-    }
-  }
-}
-
-// Планшетная версия
-
-@media (min-width: @tablet-width) {
-  .modal {
-    width: 400px;
-
-    .wrapper {
-      width: @wrapper-mobile-width;
-
-      &-btn {
-        padding: 45px 0;
-      }
-
-      &-success {
-        width: 430px;
-      }
-    }
-
-    &-failure {
-      padding: 58px 0 48px;
-      left: (@tablet-width - 400px)/2;
-    }
-
-    &-success {
-      width: 640px;
-      left: (@tablet-width - 640px)/2;
-    }
-
-    &__title {
-      font: bold 30px/40px @font-family;
-
-      &-failure {
-        width: 220px;
-      }
-    }
-
-    &__btn {
-      width: @wrapper-tablet-btn-width;
-
-      &-failure {
+      @media (min-width: @tablet-width) {
         width: 270px;
       }
-    }
-  }
-}
-
-@media (min-width: @desktop-width) {
-  .modal {
-    &-failure {
-      left: (@desktop-width - 400px)/2;
-    }
-
-    &-success {
-      left: (@desktop-width - 640px)/2;
     }
   }
 }

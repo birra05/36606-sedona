@@ -3,8 +3,6 @@
   
   var title = 'Главная';
   
-  
-
 doctype html
 html(lang='ru')
   include includes/head.pug
@@ -36,7 +34,7 @@ html(lang='ru')
             p.reason__text Да, по нему можно пройти! Если, конечно, вы осмелитесь
           .reason--2__bg
         .reasons-block__other-reasons
-          .reason.reason-3
+          .reason.reason--3
             h2.reason__title Небольшая площадь
             p.reason__number — №3 —
             p.reason__text
@@ -46,11 +44,11 @@ html(lang='ru')
                 | Все достопримеча-<br>
                 br
                 | тельности находятся очень близко
-          .reason.reason-4
+          .reason.reason--4
             h2.reason__title Красивая дорога
             p.reason__number — №4 —
             p.reason__text Ехать в Седону из Лас-вегаса совсем не скучно!
-          .reason.reason-5
+          .reason.reason--5
             h2.reason__title Мало туристов
             p.reason__number — №5 —
             p.reason__text Большинство едет в Гранд-Каньон и толпится там
@@ -59,6 +57,8 @@ html(lang='ru')
         p.interest__text
           | Укажите предполагаемые даты поездки, и мы покажем вам лучшие предложения гостиниц в Cедоне
         |  
-        a.interest__btn(href='#') Найти гостиницу
-      .map
+        a.btn.btn--blue(href='#') Найти гостиницу
+      .map#map
       include includes/page-footer.pug
+    script(src='docs/../js/script.js') 
+    script(async defer src='https://maps.googleapis.com/maps/api/js?key=AIzaSyD-M1pjJNXXvMQEdTIXsdV9HdJJzFLDeeo&callback=initMap')

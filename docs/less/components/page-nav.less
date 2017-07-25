@@ -7,10 +7,12 @@
   // background: red;
   border-top: 2px solid @gray-line;
   border-bottom: 2px solid @gray-line;
+
   @media (min-width: @tablet-width) {
     // outline: 2px solid green;
     border: 0;
   }
+  
   @media (min-width: @desktop-width) {
     & > * {
       flex-basis: 100 / 3%;
@@ -75,10 +77,18 @@
     background: @blue;
     color: @color-font-white;
     text-decoration: none;
+    transition: all ease 1s;
 
+    &:hover {
+      background: @blue-hover;
+    }
     &--active {
       background: @gray-line-form;
       color: @color-font-title;
+      &:hover {
+        background: @gray-line-form;
+        color: @color-font-title;
+      }
     }
   }
 

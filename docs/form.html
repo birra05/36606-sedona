@@ -20,15 +20,17 @@
     <div class="container">
       <!--Header-->
       <header class="page-header">
-        <nav class="header-nav"> <a class="header-nav__tab-menu" href="#"></a>
-          <ul class="header-nav__list">
+        <nav class="header-nav"> 
+          <button class="header-nav__tab-menu" id="button-menu" href="#" type="button"></button> 
+          <ul class="header-nav__list" id="menu-list">
             <li class="header-nav__item"> <a class="header-nav__link" href="#">Карта штата</a></li>
             <li class="header-nav__item"> <a class="header-nav__link" href="#">Информация</a></li>
             <li class="header-nav__item"> <a class="header-nav__link" href="#">Фото и видео</a></li>
             <li class="header-nav__item"> <a class="header-nav__link" href="#">Гостиницы</a></li>
           </ul> <a class="header-nav__logo" href="index.html"><img src="img/logo-sedona@1x.png" alt="Sedona-logo" width="67" height="56" srcset="img/logo-sedona@2x.png 2x, img/logo-sedona@3x.png 3x"></a>
         </nav>
-      </header> 
+      </header>
+      <!--Intro  -->
       <section class="intro">
         <div class="intro-img"><img class="intro-img__sedona" src="img/text-sedona.svg" alt="Sedona"></div>
         <div class="intro-describe">
@@ -58,7 +60,7 @@
             </div>
           </fieldset>
           <!--Radiobuttons_General impression-->
-          <fieldset class="review-form__fieldset">
+          <fieldset class="review-form__fieldset"> 
             <h2 class="review-form__title">Ваше впечатление:</h2>
             <div class="review-form-box review-form-box-impress">
               <div class="review-form__item review-form__item-impress">
@@ -82,10 +84,10 @@
               <div class="review-form__item">
                 <label class="for-mobile" for="duration">Длительность пребывания:<sup>*</sup></label> 
                 <label class="for-tablet" for="duration">Дней пребывания:<sup>*</sup></label>
-                <div class="review-form-quantity spinner"><a class="review-form-button review-form-button__minus spinner__minus" href="#"></a>
+                <div class="review-form-quantity"><a class="review-form-button review-form-button__minus" href="#"></a>
                   <div class="review-form-quantity__days">
-                    <input class="input" id="duration" type="text" name="duration" value="14" required="">
-                  </div><a class="review-form-button review-form-button__plus spinner__plus" href="#"></a>
+                    <input id="duration" type="text" name="duration" value="14" required="">
+                  </div><a class="review-form-button review-form-button__plus" href="#"></a>
                 </div>
               </div>
               <div class="review-form__item">
@@ -109,12 +111,12 @@
             <!-- Traveller 1-->
             <div class="review-form-traveler">
               <div class="review-form__item review-form-traveler__number">
-                <label for="traveler-1">№;</label> 
+                <label for="traveler-1">№</label> 
                 <input id="traveler-1" type="text" name="traveler-1" value="1" readonly="" disabled="">
               </div>
               <div class="review-form-traveler__data">
-                <div class="review-form__item review-form-traveler__data--desktop">
-                  <label for="travel-surname-1">Фамилия:<sup>*</sup></label> 
+                <div class="review-form__item"> 
+                  <label for="travel-surname-1">Фамилия: <sup>*</sup></label> 
                   <input id="travel-surname-1" type="text" name="surname-1" value="Иванов" required="">
                 </div>
                 <div class="review-form__item">
@@ -130,11 +132,11 @@
             <!-- Traveller 2-->
             <div class="review-form-traveler">
               <div class="review-form__item review-form-traveler__number">
-                <label for="traveler-2">№;</label> 
+                <label for="traveler-2">№</label> 
                 <input id="traveler-2" type="text" name="traveler-2" value="2" readonly="" disabled="">
               </div>
               <div class="review-form-traveler__data">
-                <div class="review-form__item review-form-traveler__data--desktop">
+                <div class="review-form__item">
                   <label for="travel-surname-2">Фамилия:<sup>*</sup></label> 
                   <input id="travel-surname-2" type="text" name="surname-2" value="Иванов" required="">
                 </div>
@@ -175,12 +177,12 @@
           <fieldset class="review-gallery">
             <h2 class="review-form__title">Загрузите фотографии</h2>
             <div class="review-gallery__upload-file">
-              <input id="review-img-upload" type="file" name="upload"> 
-              <label class="for-mobile-tablet" for="review-img-upload">Выбрать фотографии</label> 
-              <label class="for-desktop" for="review-img-upload">Перетащите фотографии сюда</label>
+              <input id="review-img-upload" type="file" name="upload-pictures" multiple> 
+              <label class="btn for-mobile-tablet" for="review-img-upload">Выбрать фотографии</label> 
+              <label class="btn btn--blue for-desktop" for="review-img-upload">Перетащите фотографии сюда</label>
             </div>
             <!-- Preview-->
-            <ul class="review-gallery__list">
+            <ul class="review-gallery__list" id="review-gallery">
               <li class="review-gallery__item"><img src="img/img-tablet-preview-1.jpg" alt="preview-1" width="140" height="140"><a class="review-gallery__delete-btn" href=""></a>
                 <p>img-686.jpg</p>
               </li>
@@ -201,11 +203,8 @@
               </li>
               <li class="review-gallery__item"><img src="img/img-preview-7.jpg" alt="preview-7" width="70" height="70"><a class="review-gallery__delete-btn" href=""></a></li>
             </ul>
-            <div class="review-form__send-btn">
-              <input id="review-form-send" type="submit" value="Отправить отзыв" disabled=""> 
-              <label class="blue-btn" for="review-form-send">Отправить отзыв</label>
-            </div>
           </fieldset>
+          <button class="btn btn--blue review-form__send-btn" type="submit">Отправить отзыв</button>
         </form>
       </section>
       <!--Footer-->
@@ -253,5 +252,10 @@
         <div class="wrapper-btn"><a class="modal__btn modal__btn-success" href="">Закрыть окно</a></div>
       </div>
     </div>
+    <script type="text/html" id="image-template"><img src="{{image}}" alt="{{name}}" width="140" height="140"><a class="review-gallery__delete-btn" href=""></a>
+      <p>{{name}}</p>
+    </script>
+    <script src="../bower_components/mustache.js/mustache.min.js"></script>
+    <script src="docs/../js/script.js"></script>
   </body>
 </html>

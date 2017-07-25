@@ -6,10 +6,23 @@
   margin: 0 auto;
   border: none;
 
+  @media (min-width: @tablet-width) {
+    width: @wrapper-tablet-form-width;
+  }
+
+  @media (min-width: @desktop-width) {
+    width: @wrapper-desktop-width;
+    padding-top: 8px; // подогнано по макету
+  }
+
   .for-mobile-tablet {
     display: block;
     cursor: pointer;
     .opacity-30;
+
+    @media (min-width: @desktop-width) {
+      display: none;
+    }
 
     &:hover {
       background: @gray-hover;
@@ -24,11 +37,28 @@
   .for-desktop {
     display: none;
     cursor: pointer;
+
+    @media (min-width: @desktop-width) {
+      .blue-btn-hover-active;
+      display: block;
+    }
   }
 
   &__list {
     display: flex;
     flex-wrap: wrap;
+
+    @media (min-width: @tablet-width) {
+      // justify-content: center;
+      padding-left: 35px;
+      padding-bottom: 22px; // подогнано по макету
+    }
+
+    @media (min-width: @desktop-width) {
+      // justify-content: flex-start;
+      padding-left: 0;
+      padding-bottom: 34px;
+    }
   }
 
   &__item {
@@ -36,21 +66,65 @@
     margin-right: 35px;
     margin-bottom: 28px; // подогнано по макету
 
+    @media (min-width: @tablet-width) {
+      width: 140px;
+      margin-right: 65px;
+    }
+
     img {
       width: 70px;
+
+      @media (min-width: @tablet-width) {
+        width: 100%;
+        height: auto;
+        margin-bottom: 10px; // подогнано по макету
+      }
+
+      @media (min-width: @desktop-width) {
+        margin-bottom: 5px;
+      }
     }
 
     p {
       display: none;
+
+      @media (min-width: @tablet-width) {
+        display: block;
+      }
     }
 
     &:nth-child(3n) {
       margin-right: 0;
+
+      @media (min-width: @tablet-width) {
+        margin-right: 65px;
+      }
+    }
+
+    &:nth-child(5n) {
+      @media (min-width: @desktop-width) {
+        margin-right: 0;
+      }
     }
 
     &:last-child {
+      // margin-right: 0;
       margin-bottom: 40px;
+
+      @media (min-width: @tablet-width) {
+        margin-bottom: 0;
+      }
+
+      @media(min-width: @desktop-width) {
+        margin-right: 0;
+      }
     }
+
+    // &:nth-child(7) {
+    //   @media (min-width: @tablet-width) {
+    //     display: none;
+    //   }
+    // }
   }
 
   &__delete-btn {
@@ -64,6 +138,15 @@
     left: (70px - 30px)/2;
     border-radius: 50%;
 
+    @media (min-width: @tablet-width) {
+      display: block;
+      position: absolute;
+      width: 30px*2;
+      height: 30px*2;
+      top: -30px*2/2;
+      left: 140px - 60px/2;
+    }
+
     &:before {
       .pseudo;
       background: url("../img/icon-delete-img-gallery.png") no-repeat;
@@ -74,6 +157,13 @@
       left: (30px - 12px)/2;
       .opacity-30;
       z-index: 1000;
+
+      @media (min-width: @tablet-width) {
+        width: 23px;
+        height: 23px;
+        top: (30px*2 - 23px)/2;
+        left: (30px*2 - 23px)/2;
+      }
     }
 
     &:hover:before {
@@ -102,110 +192,20 @@
     font: @font-btn;
     cursor: pointer;
 
-    input[type="file"] {
-      display: none;
-    }
-  }
-}
-
-// Планшетная версия
-
-@media (min-width: @tablet-width) {
-  .review-gallery {
-    width: @wrapper-tablet-form-width;
-
-    &__upload-file {
+    @media (min-width: @tablet-width) {
       width: @wrapper-tablet-btn-width;
       margin: 0 auto;
       margin-top: 55px;
       margin-bottom: 88px;
     }
 
-    &__list {
-      justify-content: center;
-      padding-left: 35px;
-      padding-bottom: 22px; // подогнано по макету
-    }
-
-    &__item {
-      margin-right: 65px;
-
-      img {
-        width: 100%;
-        height: auto;
-        margin-bottom: 10px; // подогнано по макету
-      }
-
-      p {
-        display: block;
-      }
-
-      &:nth-child(3n) {
-        margin-right: 65px;
-      }
-
-      &:last-child {
-        margin-bottom: 0;
-      }
-
-      &:nth-child(7) {
-        display: none;
-      }
-    }
-
-    &__delete-btn {
-      display: block;
-      position: absolute;
-      width: 30px*2;
-      height: 30px*2;
-      top: -30px*2/2;
-      left: 140px - 60px/2;
-
-      &:before {
-        width: 23px;
-        height: 23px;
-        top: (30px*2 - 23px)/2;
-        left: (30px*2 - 23px)/2;
-      }
-    }
-  }
-}
-
-// Десктопная версия
-
-@media (min-width: @desktop-width) {
-  .review-gallery {
-    width: @wrapper-desktop-width;
-    padding-top: 8px; // подогнано по макету
-
-    .for-mobile-tablet {
-      display: none;
-    }
-
-    .for-desktop {
-      .blue-btn-hover-active;
-      display: block;
-    }
-
-    &__upload-file {
-      .mixin_for-big-btn;
+    @media (min-width: @desktop-width) {
+      width: 100%;
       margin-top: 58px; // подогнано по макету
     }
 
-    &__list {
-      justify-content: flex-start;
-      padding-left: 0;
-      padding-bottom: 34px;
-    }
-
-    &__item {
-      img {
-        margin-bottom: 5px;
-      }
-
-      &:nth-child(5) {
-        margin-right: 0;
-      }
+    input[type="file"] {
+      display: none;
     }
   }
 }

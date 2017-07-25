@@ -5,10 +5,16 @@
 
   .for-mobile {
     display: block;
+    @media (min-width: @tablet-width) {
+      display: none;
+    }
   }
 
   .for-tablet-desktop {
     display: none;
+    @media (min-width: @tablet-width) {
+      display: block;
+    }
   }
 
   .reason {
@@ -17,16 +23,34 @@
     &__describe {
       padding: 0 20px;
       margin-bottom: 40px; // подогнано по макету
+      @media (min-width: @tablet-width) {
+        width: 33%;
+        margin-bottom: 0;
+        padding: 0 43px; // подогнано по макету
+        padding-top: 46px;
+      }
+      @media (min-width: @desktop-width) {
+        padding: 0 70px;
+        padding-top: 54px;
+      }
     }
 
     &__title {
       margin: 0 auto;
       margin-bottom: 6px;
       font: @font-title;
+      @media (min-width: @tablet-width) {
+        width: 160px;
+        margin-bottom: 7px; // подогнано по макету
+        font: @font-title-tablet;
+      }
     }
 
     &__number {
       margin-bottom: 12px; // подогнано по макету
+      @media (min-width: @tablet-width) {
+        margin-bottom: 18px; // подогнано по макету
+      }
     }
 
     &__text {
@@ -36,13 +60,47 @@
     img {
       display: block;
     }
+    &--1, &--2 {
+      position: relative;
+      background: @blue;
+      color: @color-font-white;
+      overflow: hidden;
+
+      @media (min-width: @tablet-width)  {
+        display: flex;
+        justify-content: space-between;
+        padding-top: 0;
+      }
+
+      &__bg {
+        width: 100%;
+        height: 256px;
+
+        @media (min-width: @tablet-width)  {
+          width: 67%;
+          height: 256px;
+        }
+      }
+    }
     &--1 {
-      padding-top: 77px; // подогнано по макету
-      margin-top: 5px; // подогнано по макету
+      @media (max-width: @tablet-width) {
+        padding-top: 77px; // подогнано по макету
+        margin-top: 5px; // подогнано по макету
+      }
 
       &__bg {
         background: @blue url("../img/photo-city@1x.jpg") no-repeat -100px 0;
         background-size: cover;
+
+        @media (min-width: @tablet-width) {
+          background: @blue url("../img/photo-city@1x.jpg") no-repeat;
+          // background-size: cover;
+        }
+
+        @media (min-resolution: 144dpi), (min-resolution: 1.5dppx) {
+          background: @blue url("../img/photo-city@2x.jpg") no-repeat;
+          // background-size: cover;
+        }
       }
 
       &:before {
@@ -50,38 +108,72 @@
         display: block;
         position: absolute;
         top: 0;
+        @media (min-width: @tablet-width) {
+          display: none;
+        }
+      }
+    }
+
+    &--2 {
+      @media (max-width: @tablet-width) {
+        padding-top: 40px;
+      }
+
+      &__bg {
+        background: @blue url("../img/photo-bridge@1x.jpg") no-repeat -100px 0;
+        background-size: cover;
+
+        @media (min-width: @tablet-width) {
+          order: -1;
+          background: @blue url("../img/photo-bridge@1x.jpg") no-repeat;
+          // background-size: cover;
+        }
+
+        @media (min-resolution: 144dpi), (min-resolution: 1.5dppx) {
+          background: @blue url("../img/photo-bridge@2x.jpg") no-repeat;
+        }
+      }
+
+      &__describe {
+        @media (min-width: @tablet-width) {
+          padding: 0 40px;
+        }
+      }
+    }
+
+    &--3, &--4, &--5 {
+      position: relative;
+      padding: 27px (@mobile-width - 250px)/2; // подогнано по макету
+      background: @light-gray-bg;
+
+      @media (min-width: @tablet-width) {
+        width: 33%;
+        padding: 46px (@tablet-width/3 - 160px)/2;
+      }
+
+      @media (min-width: @desktop-width) {
+        padding: 46px (@desktop-width/3 - 270px)/2 67px;
+      }
+
+      &:after {
+        .pseudo;
+        width: @wrapper-mobile-width;
+        height: 1px;
+        background: @gray-line;
+        bottom: 0px;
+        left: 20px;
+
+        @media (min-width: @tablet-width) {
+          display: none;
+        }
+      }
+    }
+    &--5 {
+      &:after {
+        display: none;
       }
     }
   }
-
-  .reason--1, .reason--2 {
-    position: relative;
-    background: @blue;
-    color: @color-font-white;
-    overflow: hidden;
-
-    &__bg {
-      width: 100%;
-      height: 256px;
-    }
-  }
-
-  // .reason-1 {
-  //   padding-top: 77px; // подогнано по макету
-  //   margin-top: 5px; // подогнано по макету
-  //
-  //   &__bg {
-  //     background: @blue url("../img/photo-city@1x.jpg") no-repeat -100px 0;
-  //     background-size: cover;
-  //   }
-  //
-  //   &:before {
-  //     content: url("../img/img-bg-white-2.png");
-  //     display: block;
-  //     position: absolute;
-  //     top: 0;
-  //   }
-  // }
 
  // Блок с дополнительными причинами
 
@@ -91,148 +183,20 @@
     padding-top: 40px; // подогнано по макету
     margin-bottom: 38px;
 
-    &__item {
-      position: relative;
-      margin-left: 70px;
-      margin-bottom: 28px; // подогнано по макету
-    }
-
-    &__item--1:before {
-      .pseudo;
-      background: transparent url("../img/icon-house.svg") no-repeat;
-      background-size: cover;
-      width: 38px;
-      height: 37px;
-      top: -10px;
-      left: -47px; // подогнано по макету
-    }
-
-    &__item--2:before {
-      .pseudo;
-      background: transparent url("../img/icon-gift.svg") no-repeat;
-      background-size: cover;
-      width: 32px;
-      height: 38px;
-      top: -10px;
-      left: -44px; // подогнано по макету
-    }
-
-    &__item--3:before {
-      .pseudo;
-      background: transparent url("../img/icon-burger.svg") no-repeat;
-      background-size: cover;
-      width: 41px;
-      height: 37px;
-      top: -5px; // подогнано по макету
-      left: -51px; // подогнано по макету
-    }
-
-    &__title {
-      margin-bottom: 14px; // подогнано по макету
-      font: @font-title;
-      color: @color-font-title;
-    }
-
-    &__text {
-      // width: 230px;
-      padding-right: 20px; // подогнано по макету
-      font: @font-reason;
-    }
-  }
-
-  .reason--2 {
-    padding-top: 40px;
-
-    &__bg {
-      background: @blue url("../img/photo-bridge@1x.jpg") no-repeat -100px 0;
-      background-size: cover;
-    }
-  }
-
-  .reason-3, .reason-4, .reason-5 {
-    position: relative;
-    padding: 27px (@mobile-width - 250px)/2; // подогнано по макету
-    background: @light-gray-bg;
-
-    &:after {
-      .pseudo;
-      width: @wrapper-mobile-width;
-      height: 1px;
-      background: @gray-line;
-      bottom: 0px;
-      left: 20px;
-    }
-  }
-
-  .reason-5 {
-    &:after {
-      display: none;
-    }
-  }
-}
-
-// Планшетная версия
-
-@media (min-width: @tablet-width) {
-  .reasons-block {
-
-    .for-mobile {
-      display: none;
-    }
-
-    .for-tablet-desktop {
-      display: block;
-    }
-
-    .reason {
-      &__describe {
-        width: 33%;
-        margin-bottom: 0;
-        padding: 0 43px; // подогнано по макету
-        padding-top: 46px;
-      }
-
-      &__title {
-        width: 160px;
-        margin-bottom: 7px; // подогнано по макету
-        font: @font-title-tablet;
-      }
-
-      &__number {
-        margin-bottom: 18px; // подогнано по макету
-      }
-    }
-
-    .reason--1, .reason--2 {
-      display: flex;
-      justify-content: space-between;
-      padding-top: 0;
-
-      &__bg {
-        width: 67%;
-        height: 256px;
-      }
-    }
-
-    .reason--1 {
-      &__bg {
-        background: @blue url("../img/photo-city@1x.jpg") no-repeat;
-        background-size: cover;
-      }
-
-      &:before {
-        display: none;
-      }
-    }
-
-    .reason-list {
+    @media (min-width: @tablet-width) {
       display: flex;
       justify-content: space-between;
       text-align: center;
       padding-top: 0;
       margin-bottom: 0;
+    }
 
-      &__item {
+    &__item {
+      position: relative;
+      margin-left: 70px;
+      margin-bottom: 28px; // подогнано по макету
+
+      @media (min-width: @tablet-width) {
         position: relative;
         width: 33%;
         margin-left: 0;
@@ -243,140 +207,118 @@
         font: @font-reason;
       }
 
-      &__title {
-        font: @font-title-tablet;
-        margin-bottom: 20px; // подогнано по макету
+      @media (min-width: @desktop-width) {
+        padding: 0 (@desktop-width/3 - 270px)/2;
+        padding-top: 160px;
+        padding-bottom: 85px;
       }
+    }
 
-      &__text {
-        padding-right: 0; // подогнано по макету
-      }
+    &__item--1:before {
+      .pseudo;
+      background: transparent url("../img/icon-house.svg") no-repeat;
+      background-size: cover;
+      width: 38px;
+      height: 37px;
+      top: -10px;
+      left: -47px; // подогнано по макету
 
-      &__item--1:before {
-        .pseudo;
-        background: transparent url("../img/icon-house.svg") no-repeat;
-        background-size: cover;
+      @media (min-width: @tablet-width) {
+        // .pseudo;
+        // background: transparent url("../img/icon-house.svg") no-repeat;
+        // background-size: cover;
         width: 74px;
         height: 72px;
         top: 60px; // подогнано по макету
         left: 90px; // подогнано по макету
       }
 
-      &__item--2 {
-        order: 3;
+      @media (min-width: @desktop-width) {
+        left: (@desktop-width/3 - 74px)/2;
+      }
+    }
 
-        &:before {
-          .pseudo;
-          background: transparent url("../img/icon-gift.svg") no-repeat;
-          background-size: cover;
+    &__item--2 {
+      @media (min-width: @tablet-width)  {
+        order: 3;
+      }
+
+      &:before {
+        .pseudo;
+        background: transparent url("../img/icon-gift.svg") no-repeat;
+        background-size: cover;
+        width: 32px;
+        height: 38px;
+        top: -10px;
+        left: -44px; // подогнано по макету
+
+        @media (min-width: @tablet-width)  {
+          // .pseudo;
+          // background: transparent url("../img/icon-gift.svg") no-repeat;
+          // background-size: cover;
           width: 63px;
           height: 75px;
           top: 58px; // подогнано по макету
           left: 92px; // подогнано по макету
         }
-      }
 
-      &__item--3:before {
-        .pseudo;
-        background: transparent url("../img/icon-burger.svg") no-repeat;
-        background-size: cover;
+        @media (min-width: @desktop-width) {
+          left: (@desktop-width/3 - 63px)/2;
+        }
+      }
+    }
+
+    &__item--3:before {
+      .pseudo;
+      background: transparent url("../img/icon-burger.svg") no-repeat;
+      background-size: cover;
+      width: 41px;
+      height: 37px;
+      top: -5px; // подогнано по макету
+      left: -51px; // подогнано по макету
+
+      @media (min-width: @tablet-width) {
+        // .pseudo;
+        // background: transparent url("../img/icon-burger.svg") no-repeat;
+        // background-size: cover;
         width: 77px;
         height: 70px;
         top: 64px; // подогнано по макету
         left: 85px; // подогнано по макету
       }
-    }
 
-    .reason--2 {
-      &__bg {
-        order: -1;
-        background: @blue url("../img/photo-bridge@1x.jpg") no-repeat;
-        background-size: cover;
-      }
-
-      &__describe {
-        padding: 0 40px;
-      }
-    }
-
-    &__other-reasons {
-      display: flex;
-      justify-content: space-between;
-      background: @light-gray-bg;
-    }
-
-    .reason-3, .reason-4, .reason-5 {
-      width: 33%;
-      padding: 46px (@tablet-width/3 - 160px)/2;
-
-      &:after {
-        display: none;
-      }
-    }
-  }
-}
-
-// Десктопная версия
-
-@media (min-width: @desktop-width) {
-  .reasons-block {
-
-    .for-mobile {
-      display: none;
-    }
-
-    .for-tablet-desktop {
-      display: block;
-    }
-
-    .reason {
-      &__describe {
-        padding: 0 70px;
-        padding-top: 54px;
-      }
-    }
-
-    .reason-list {
-      &__item {
-        padding: 0 (@desktop-width/3 - 270px)/2;
-        padding-top: 160px;
-        padding-bottom: 85px;
-      }
-
-      &__item--1:before {
-        left: (@desktop-width/3 - 74px)/2;
-      }
-
-      &__item--2:before {
-        left: (@desktop-width/3 - 63px)/2;
-      }
-
-      &__item--3:before {
+      @media (min-width: @desktop-width) {
         left: (@desktop-width/3 - 76px)/2;
       }
     }
 
-    .reason-3, .reason-4, .reason-5 {
-      padding: 46px (@desktop-width/3 - 270px)/2 67px;
+    &__title {
+      margin-bottom: 14px; // подогнано по макету
+      font: @font-title;
+      color: @color-font-title;
+
+      @media (min-width: @tablet-width) {
+        font: @font-title-tablet;
+        margin-bottom: 20px; // подогнано по макету
+      }
+    }
+
+    &__text {
+      // width: 230px;
+      padding-right: 20px; // подогнано по макету
+      font: @font-reason;
+
+      @media (min-width: @tablet-width) {
+        padding-right: 0; // подогнано по макету
+      }
     }
   }
-}
 
-@media (min-resolution: 144dpi),
-(min-resolution: 1.5dppx) {
-  .reasons-block {
-    .reason--1 {
-      &__bg {
-        background: @blue url("../img/photo-city@2x.jpg") no-repeat;
-        background-size: cover;
-      }
-    }
-
-    .reason--2 {
-      &__bg {
-        background: @blue url("../img/photo-bridge@2x.jpg") no-repeat;
-        background-size: cover;
-      }
+  &__other-reasons {
+    @media (min-width: @tablet-width) {
+      display: flex;
+      justify-content: space-between;
+      background: @light-gray-bg;
     }
   }
 }

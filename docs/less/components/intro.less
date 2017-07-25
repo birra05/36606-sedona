@@ -3,7 +3,15 @@
 .intro {
   position: relative;
   text-align: center;
-  padding-top: 55px;
+
+  @media (min-width: @tablet-width) {
+    padding-top: 0;
+    box-shadow: none;
+  }
+
+  @media (min-width: @desktop-width) {
+
+  }
 
   &-img {
     position: relative;
@@ -14,6 +22,26 @@
     padding-top: 48px;
     overflow: hidden;
 
+    @media (min-width: @tablet-width) {
+      position: relative;
+      background: @blue url("../img/photo-background@1x.jpg") no-repeat 0 -180px;
+      background-size: cover;
+      height: 290px;
+      padding-top: 102px;
+      // margin-bottom: 75px; // подогнано по макету
+      overflow: hidden;
+    }
+
+    @media (min-width: @desktop-width) {
+      height: 300px; // подогнано по макету
+      margin-bottom: 113px; // подогнано по макету
+    }
+
+    @media (min-resolution: 144dpi), (min-resolution: 1.5dppx) {
+      background: @blue url("../img/photo-background@2x.jpg");
+      background-size: cover;
+    }
+
     &__welcome, &__tothegorgeous,
     &__sedona, &__because {
       display: block;
@@ -23,6 +51,11 @@
     &__welcome {
       width: 144px;
       margin-bottom: 8px;
+
+      @media (min-width: @tablet-width) {
+        width: 190px;
+        margin-bottom: 10px;
+      }
     }
 
     &__tothegorgeous, &__because {
@@ -31,6 +64,11 @@
 
     &__tothegorgeous {
       margin-bottom: 60px;
+
+      @media (min-width: @tablet-width) {
+        width: 256px;
+        margin-bottom: 52px;
+      }
     }
 
     &__sedona {
@@ -39,6 +77,17 @@
 
       &--index {
         width: @wrapper-mobile-width;
+      }
+
+      @media (min-width: @tablet-width) {
+        width: @wrapper-tablet-btn-width;
+        margin-bottom: 56px; // подогнано по макету
+      }
+    }
+
+    &__because {
+      @media (min-width: @tablet-width) {
+        width: 296px;
       }
     }
 
@@ -50,6 +99,21 @@
       height: 57px;
       top: 157 - 56px;
       left: -(1202px/2 - @mobile-width/2);
+
+      @media (min-width: @tablet-width) {
+        .pseudo;
+        background: url("../img/intro-triangle.svg") no-repeat;
+        background-size: cover;
+        width: 100%;
+        height: 37px;
+        top: 290px - 36px;
+        left: 0;
+      }
+
+      @media (min-width: @desktop-width) {
+        height: 57px;
+        top: 243px; // подогнано по макету
+      }
     }
 
     &--index {
@@ -59,13 +123,38 @@
       padding-top: 47px;
       // margin-bottom: 38px;
 
+      @media (min-width: @tablet-width) {
+        background: @blue url("../img/photo-background@1x.jpg") no-repeat 0 28%;
+        background-size: cover;
+        height: 512px;
+        padding-top: 76px;
+        margin-bottom: 55px; // подогнано по макету
+      }
+
+      @media (min-width: @desktop-width) {
+        height: 512px;
+        margin-bottom: 55px;
+      }
+
       &__sedona {
         // width: @wrapper-mobile-width;
         margin-bottom: 67px;
+
+        @media (min-width: @tablet-width) {
+          margin-bottom: 56px;
+        }
       }
 
       &:after {
         top: 390px - 56px;
+
+        @media (min-width: @tablet-width) {
+          top: 512px - 36px;
+        }
+
+        @media (min-width: @desktop-width) {
+          top: 512px - 57px;
+        }
       }
     }
   }
@@ -76,10 +165,19 @@
     margin: 0 auto 20px;
     padding-top: 74px;
 
+    @media (min-width: @tablet-width) {
+      width: 440px; // подогнано по макету
+      margin-bottom: 63px - 22px; // от отступа intro надо отнять padding первого fieldset
+    }
+
     &__title {
       margin-bottom: 27px;
       font: @font-title;
       color: @color-font-title;
+
+      @media (min-width: @tablet-width) {
+        font: @font-title-tablet-big;
+      }
     }
 
     &__text {
@@ -88,112 +186,25 @@
       &--index {
         font: @font;
       }
+
+      @media (min-width: @tablet-width) {
+        font: 14px/24px @font-family;
+      }
+    }
+
+    &__title, &__text {
+      .overflow-y(@height: 100px);
+      @media (min-width: @tablet-width) {
+        .overflow-y(@height: 50px);
+      }
     }
 
     &--index {
       width: @wrapper-mobile-width - 20px;
       margin: 0 auto;
       padding-top: 38px;
-    }
 
-  }
-
-  &--blog {
-    .intro-describe {
-      padding-top: 48px;
-      margin-bottom: 30px;
-      &__title {
-        margin-bottom: 40px;
-        font-size: 30px;
-      }
       @media (min-width: @tablet-width) {
-        margin-bottom: 50px;
-      }
-    }
-  }
-}
-
-// Планшетная версия
-
-@media (min-width: @tablet-width) {
-  .intro {
-    padding-top: 0;
-    box-shadow: none;
-
-    &-img {
-      position: relative;
-      background: @blue url("../img/photo-background@1x.jpg") no-repeat 0 -180px;
-      background-size: cover;
-      height: 290px;
-      padding-top: 102px;
-      // margin-bottom: 75px; // подогнано по макету
-      overflow: hidden;
-
-      &__welcome, &__tothegorgeous,
-      &__sedona, &__because {
-        display: block;
-        margin: 0 auto;
-      }
-
-      &__welcome {
-        width: 190px;
-        margin-bottom: 10px;
-      }
-
-      &__tothegorgeous {
-        width: 256px;
-        margin-bottom: 52px;
-      }
-
-      &__sedona {
-        width: @wrapper-tablet-btn-width;
-        margin-bottom: 56px; // подогнано по макету
-      }
-
-      &__because {
-        width: 296px;
-      }
-
-      &:after {
-        .pseudo;
-        background: url("../img/intro-triangle.svg") no-repeat;
-        background-size: cover;
-        width: 100%;
-        height: 37px;
-        top: 290px - 36px;
-        left: 0;
-      }
-
-      &--index {
-        background: @blue url("../img/photo-background@1x.jpg") no-repeat 0 28%;
-        background-size: cover;
-        height: 512px;
-        padding-top: 76px;
-        margin-bottom: 55px; // подогнано по макету
-
-        &__sedona {
-          margin-bottom: 56px;
-        }
-
-        &:after {
-          top: 512px - 36px;
-        }
-      }
-    }
-
-    &-describe {
-      width: 440px; // подогнано по макету
-      margin-bottom: 63px - 22px; // от отступа intro надо отнять padding первого fieldset
-
-      &__title {
-        font: @font-title-tablet-big;
-      }
-
-      &__text {
-        font: 14px/24px @font-family;
-      }
-
-      &--index {
         width: 500px;
         margin-bottom: 50px; // подогнано по макету
 
@@ -207,39 +218,18 @@
       }
     }
   }
-}
 
-// Десктопная версия
-
-@media (min-width: @desktop-width) {
-  .intro {
-    &-img {
-      height: 300px; // подогнано по макету
-      margin-bottom: 113px; // подогнано по макету
-
-      &:after {
-        height: 57px;
-        top: 243px; // подогнано по макету
+  &--blog {
+    .intro-describe {
+      padding-top: 48px;
+      margin-bottom: 30px;
+      &__title {
+        margin-bottom: 40px;
+        font-size: 30px;
       }
-
-      &--index {
-        height: 512px;
-        margin-bottom: 55px;
-
-        &:after {
-          top: 512px - 57px;
-        }
+      @media (min-width: @tablet-width) {
+        margin-bottom: 50px;
       }
-    }
-  }
-}
-
-@media (min-resolution: 144dpi),
-(min-resolution: 1.5dppx) {
-  .intro {
-    &-img {
-      background: @blue url("../img/photo-background@2x.jpg");
-      background-size: cover;
     }
   }
 }

@@ -6,6 +6,13 @@ module.exports = function(grunt) {
   var config = {
     pkg: grunt.file.readJSON('package.json'),
 
+    concat: {
+      dist: {
+        src: ['docs/js/src/**'],
+        dest: 'docs/js/script.js'
+      }
+    },
+
     pug: {
       compile: {
         options: {
@@ -44,8 +51,8 @@ module.exports = function(grunt) {
 
     watch: {
       style: {
-        files: ['docs/less/**/*.less', 'docs/pug/**/*.pug'],
-        tasks: ['pug', 'less', 'postcss', 'cssmin'],
+        files: ['docs/less/**/*.less', 'docs/pug/**/*.pug', 'docs/js/**/*.js'],
+        tasks: ['concat', 'pug', 'less', 'postcss', 'cssmin'],
         options: {
           spawn: false,
           livereload: true
@@ -78,12 +85,23 @@ module.exports = function(grunt) {
       }
     },
 
+    // requirejs: {
+    //   compile: {
+    //     options: {
+    //       baseUrl: 'docs/js/src',
+    //       mainConfigFile: 'docs/js/src/main.js',
+    //       include: 'main.js',
+    //       out: 'docs/js/script.js'
+    //     }
+    //   }
+    // },
+
     copy: {
       build: {
         files: [{
           expand: true,
           cwd: 'docs',
-          src: ['img/**','js/**','*.html'],
+          src: ['img/**','js/script.js','*.html'],
           dest: 'build'
         }]
       }
@@ -101,6 +119,7 @@ module.exports = function(grunt) {
   grunt.registerTask('build', [
     'clean',
     'copy',
+    'concat',
     'pug',
     'less',
     'postcss',

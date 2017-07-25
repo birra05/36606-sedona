@@ -1,0 +1,23 @@
+//Styles for the all buttons
+
+.btn {
+  // .inline-block;
+  display: block;
+  width: 100%;
+  font: @font-btn;
+  text-align: center;
+  text-decoration: none;
+  text-transform: uppercase;
+
+  &--blue {
+    background: @blue;
+    color: @color-font-white;
+    &:hover {
+      background: @blue-hover;
+    }
+    &:active {
+      background: @blue-active;
+      color: rgba(255, 255, 255, 0.3);
+    }
+  }
+}

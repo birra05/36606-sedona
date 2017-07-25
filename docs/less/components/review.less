@@ -2,13 +2,29 @@
 
 .review {
   margin: 0 auto;
+  margin-bottom: 110px - 30px;
 
   .for-tablet {
     display: none;
+
+    @media (min-width: @tablet-width) {
+      display: block;
+      text-align: center;
+    }
+    @media (min-width: @desktop-width) {
+      display: none;
+    }
   }
 
   .for-mobile {
     display: block;
+
+    @media (min-width: @tablet-width) {
+      display: none;
+    }
+    @media (min-width: @desktop-width) {
+      display: block;
+    }
   }
 
   &-form {
@@ -22,9 +38,22 @@
       width: @wrapper-mobile-width;
       position: relative;
       margin: 0 auto;
-      margin-bottom: 20px;
-      padding-bottom: 13px; // подогнано по макету
       border: none;
+
+      @media (max-width: @tablet-width) {
+        margin-bottom: 20px;
+        padding-bottom: 13px; // подогнано по макету
+      }
+
+      @media (min-width: @tablet-width) {
+        width: @wrapper-tablet-form-width;
+        // margin-bottom: 0;
+        // padding-bottom: 0;
+      }
+
+      @media (min-width: @desktop-width) {
+        width: @wrapper-desktop-width;
+      }
 
       &:after {
         .pseudo;
@@ -33,10 +62,19 @@
         background: @gray-line-form;
         left: -20px;
         bottom: 0;
+
+        @media (min-width: @tablet-width) {
+          display: none;
+        }
       }
 
       &:first-of-type {
         padding-top: 15px; // подогнано по макету
+
+        @media (min-width: @tablet-width) {
+          padding-top: 20px;
+          padding-bottom: 63px;
+        }
 
         &:before {
           .pseudo;
@@ -45,11 +83,37 @@
           background: @gray-line-form;
           top: 0;
           left: -20px;
+
+          @media (min-width: @tablet-width) {
+            display: none;
+          }
+        }
+      }
+
+      &:nth-of-type(2) {
+        @media (min-width: @tablet-width) {
+          padding-bottom: 50px; // подогнано по макету
+        }
+      }
+
+      &:nth-of-type(3) {
+        @media (min-width: @tablet-width) {
+          padding-bottom: 67px;
+        }
+      }
+
+      &:nth-of-type(4) {
+        @media (min-width: @tablet-width) {
+          padding-bottom: 62px; // подогнано по макету
         }
       }
 
       &:nth-of-type(5) {
         padding-bottom: 0;
+
+        @media (min-width: @tablet-width) {
+          padding-bottom: 58px - 32px;
+        }
       }
     }
 
@@ -57,9 +121,31 @@
       font: @font-title;
       text-align: center;
       margin-bottom: 23px; // подогнано по макету
+
+      @media (min-width: @tablet-width) {
+        position: relative;
+        font: @font-title-tablet;
+
+        &:before, &:after {
+          .pseudo;
+          background: @gray-line;
+          width: 125px;
+          height: 1px;
+          top: 50%;
+
+          @media (min-width: @desktop-width) {
+            width: @form-input-desktop-width;
+          }
+        }
+
+        &:after {
+          right: 0;
+        }
+      }
     }
 
     &__item {
+
       label {
         display: block;
         margin-bottom: 10px;
@@ -69,13 +155,22 @@
       input {
         width: 100%;
         height: 58px; // костыль для IE
-        padding-left: 20px; // подогнано по макету
+        padding: 0 20px; // подогнано по макету
         margin-bottom: 10px; // подогнано по макету
         font: @font-title;
         line-height: 58px;
         background: @light-gray-input;
         border: 0;
         text-transform: none;
+
+        @media (min-width: @tablet-width) {
+          width: 175px;
+          margin-bottom: 0;
+        }
+
+        @media (min-width: @desktop-width) {
+          width: @form-input-desktop-width;
+        }
 
         &[type="text"] {
           &:hover {
@@ -95,7 +190,6 @@
           & + label {
             position: relative;
             margin-left: 75px;
-            // margin-bottom: 22px; по макету получается, что не нужно
             padding-left: 0;
             font: @font-title;
             line-height: 56px;
@@ -159,8 +253,19 @@
           }
         }
 
-        &-impress {
-          margin-bottom: 12px;
+      }
+      &-impress {
+        margin-bottom: 12px;
+
+        @media (min-width: @tablet-width) {
+          margin-top: 20px;
+          label {
+            margin-bottom: 0;
+          }
+        }
+
+        @media (min-width: @desktop-width) {
+          width: 365px;
         }
       }
     }
@@ -215,9 +320,17 @@
       display: flex;
       justify-content: space-between;
 
-      &__number, &__days {
-        position: relative;
-        width: 145px;
+      @media (min-width: @tablet-width) {
+        width: 175px;
+        justify-content: flex-start;
+        margin: 0 auto;
+      }
+
+      @media (min-width: @desktop-width) {
+        width: @form-input-desktop-width;
+        justify-content: space-between;
+        text-align: left;
+        margin: 0;
       }
 
       &__number {
@@ -245,6 +358,37 @@
           text-transform: lowercase;
         }
       }
+
+      &__number, &__days {
+        position: relative;
+        width: 145px;
+
+        @media (min-width: @tablet-width) {
+          width: auto;
+        }
+
+        &:before {
+          @media (min-width: @tablet-width) {
+            display: none;
+          }
+          @media (min-width: @desktop-width) {
+            display: block;
+          }
+        }
+
+        input {
+          @media (min-width: @tablet-width) {
+            width: 175px - 60px - 60px;
+            padding: 0;
+            text-align: center;
+          }
+          @media (min-width: @desktop-width) {
+            width: @form-input-desktop-width - 60px*2 - 6px*2;
+            text-align: left;
+            padding-left: 22px;
+          }
+        }
+      }
     }
 
     // Анкета путешественников
@@ -258,62 +402,65 @@
         width: 60px;
         height: 58px;
 
+        @media (min-width: @tablet-width) {
+          margin-right: 6px;
+        }
+
+        input {
+          @media (min-width: @tablet-width) {
+            width: 60px;
+          }
+        }
+
         label, input {
-          padding-left: 0;
+          padding: 0;
           text-align: center;
         }
       }
 
       &__data {
         width: 210px;
+
+        @media (min-width: @tablet-width) {
+          display: flex;
+          justify-content: space-between;
+          width: 100%;
+        }
+
+        @media (min-width: @desktop-width) {
+          .review-form__item:first-child {
+            input {
+              width: 210px;
+            }
+          }
+        }
+
+        input {
+          @media (min-width: @tablet-width) {
+            width: 190px;
+          }
+          @media (min-width: @desktop-width) {
+            width: 280px;
+          }
+        }
       }
     }
 
     &-box {
-      &-sight {
-        margin-top: -8px; // подогнано по макету
-        // margin-bottom: -13px; // подогнано по макету
-      }
-    }
-
-    &__send-btn {
-      .mixin_for-big-btn;
-      margin-bottom: 116px;
-
-      input[type="submit"] {
-        display: none;
-
-        & + label {
-          display: block;
-          cursor: pointer;
-          .blue-btn-hover-active;
-        }
-      }
-    }
-  }
-}
-
-// Планшетная версия
-
-@media (min-width: @tablet-width) {
-  .review {
-
-    .for-tablet {
-      display: block;
-      text-align: center;
-    }
-
-    .for-mobile {
-      display: none;
-    }
-
-    &-form {
-
-      &-box {
+      @media (min-width: @tablet-width) {
         display: flex;
         justify-content: space-between;
+      }
+      &-impress {
+        @media (min-width: @desktop-width) {
+          justify-content: flex-start; // подогнано по макету
+          padding-left: 170px; // подогнано по макету
+        }
+      }
+      &-sight {
+        margin-top: -8px; // подогнано по макету
 
-        &-sight {
+        @media (min-width: @tablet-width) {
           justify-content: flex-start;
           flex-wrap: wrap;
           margin: 0 auto;
@@ -342,163 +489,7 @@
             order: 4;
           }
         }
-      }
-
-      &__fieldset {
-        width: @wrapper-tablet-form-width;
-        margin-bottom: 0;
-        padding-bottom: 0;
-
-        &:after {
-          display: none;
-        }
-
-        &:first-of-type {
-          padding-top: 20px;
-          padding-bottom: 63px;
-
-          &:before {
-            display: none;
-          }
-        }
-
-        &:nth-of-type(2) {
-          padding-bottom: 50px; // подогнано по макету
-        }
-
-        &:nth-of-type(3) {
-          padding-bottom: 67px;
-        }
-
-        &:nth-of-type(4) {
-          padding-bottom: 62px; // подогнано по макету
-        }
-
-        &:nth-of-type(5) {
-          padding-bottom: 58px - 32px;
-        }
-      }
-
-      &__title {
-        position: relative;
-        font: @font-title-tablet;
-
-        &:before, &:after {
-          .pseudo;
-          background: @gray-line;
-          width: 125px;
-          height: 1px;
-          top: 50%;
-        }
-
-        &:after {
-          right: 0;
-        }
-      }
-
-      &__item {
-
-        input {
-          width: 175px;
-          margin-bottom: 0;
-        }
-
-        &-impress {
-          margin-top: 20px;
-          label {
-            margin-bottom: 0;
-          }
-        }
-      }
-
-      &-quantity {
-        width: 175px;
-        justify-content: flex-start;
-        margin: 0 auto;
-
-        &__days, &__number {
-          width: auto;
-
-          &:before {
-            display: none;
-          }
-
-          input {
-            width: 175px - 60px - 60px;
-            padding-left: 0;
-            text-align: center;
-          }
-        }
-      }
-
-      &-traveler {
-
-        &__info {
-          padding-top: 32px;
-        }
-
-        &__data {
-          display: flex;
-          justify-content: space-between;
-          width: auto;
-
-          input {
-            width: 190px;
-            margin-right: 6px;
-          }
-
-          // Сброс margin-right у последнего input
-
-          div:last-child {
-            input {
-              margin-right: 0;
-            }
-          }
-        }
-
-        &__number {
-          margin-right: 6px;
-
-          input {
-            width: 60px;
-          }
-        }
-      }
-
-      &__send-btn {
-        width: @wrapper-tablet-btn-width;
-        margin: 0 auto;
-        margin-bottom: 140px;
-      }
-    }
-  }
-}
-
-// Десктопная версия
-
-@media (min-width: @desktop-width) {
-  .review {
-
-    .for-mobile {
-      display: block;
-    }
-
-    .for-tablet {
-      display: none;
-    }
-
-    &-form {
-      &__fieldset {
-        width: @wrapper-desktop-width;
-      }
-
-      &-box {
-        &-impress {
-          justify-content: flex-start; // подогнано по макету
-          padding-left: 170px; // подогнано по макету
-        }
-
-        &-sight {
+        @media (min-width: @desktop-width) {
           justify-content: space-between;
           padding-left: 0;
 
@@ -507,65 +498,32 @@
           }
         }
       }
+    }
 
-      &__title {
-        &:before, &:after {
-          width: @form-input-desktop-width;
-        }
+    &__send-btn {
+      width: @wrapper-mobile-width;
+      margin: 0 auto;
+      // .mixin_for-big-btn;
+      // margin-bottom: 116px;
+
+      @media (min-width: @tablet-width) {
+        width: @wrapper-tablet-btn-width;
+        margin-bottom: 140px - 30px;
       }
 
-      &__item {
-
-        input {
-          width: @form-input-desktop-width;
-        }
-
-        &-impress {
-          width: 365px;
-        }
+      @media (min-width: @desktop-width) {
+        width: @wrapper-tablet-btn-width;
+        margin-bottom: 105px - 30px;
       }
 
-      &-quantity {
-        width: @form-input-desktop-width;
-        justify-content: space-between;
-        text-align: left;
-        margin: 0;
+      input[type="submit"] {
+        display: none;
 
-        &__days, &__number {
-          input {
-            width: @form-input-desktop-width - 60px*2 - 6px*2;
-            text-align: left;
-            padding-left: 22px;
-          }
-
-          &:before {
-            display: block;
-          }
+        & + label {
+          display: block;
+          cursor: pointer;
+          .blue-btn-hover-active;
         }
-      }
-
-      &-traveler {
-        &__number {
-          input {
-            width: 60px;
-          }
-        }
-
-        &__data {
-          input {
-            margin-right: (@wrapper-desktop-width - @form-input-desktop-width*3)/2;
-          }
-
-          &--desktop {
-            input {
-              width: @form-input-desktop-width - 60px - 5px;
-            }
-          }
-        }
-      }
-
-      &__send-btn {
-        margin-bottom: 102px;
       }
     }
   }
