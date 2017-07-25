@@ -125,12 +125,12 @@
     <script src="docs/../js/script.js"> </script>
     <script>
       function initMap() {
-        var map = new google.maps.Map(document.getElementById('map'), {
+        var map = new google.maps.Map(document.querySelector('#map'), {
           zoom: 6,
           center: {lat: 34, lng: -111}
         });
       
-        var image = '../img/map-marker.svg';
+        var image = 'img/map-marker.svg';
         var beachMarker = new google.maps.Marker({
           position: {lat: 34.8697395, lng: -111.7609896},
           map: map,
