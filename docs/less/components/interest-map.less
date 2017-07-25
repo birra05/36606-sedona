@@ -45,37 +45,37 @@
 
 .map {
   position: relative;
-  background: @blue url("../img/img-map.jpg") no-repeat;
+  // background: @blue url("../img/img-map.jpg") no-repeat;
   width: @mobile-width;
   height: 350px;
   margin-bottom: 35px; // подогнано по макету
 
   @media (min-width: @tablet-width) {
-    background: @blue url("../img/img-map-tablet.jpg");
+    // background: @blue url("../img/img-map-tablet.jpg");
     width: @tablet-width;
     margin-bottom: 38px; // подогнано по макету
   }
 
   @media (min-width: @desktop-width) {
-    background: @blue url("../img/img-map-desktop.jpg") no-repeat;
+    // background: @blue url("../img/img-map-desktop.jpg") no-repeat;
     width: @desktop-width;
   }
 
-  &:before {
-    .pseudo;
-    background: url("../img/map-marker.svg") no-repeat;
-    width: 27px;
-    height: 27px;
-    left: 145px;
-    top: 160px;
-
-    @media (min-width: @tablet-width) {
-      left: (@tablet-width - 27px)/2;
-      top: (350px - 27px)/2;
-    }
-
-    @media (min-width: @desktop-width) {
-      left: (@desktop-width - 27px)/2;
-    }
-  }
+  // &:before {
+  //   .pseudo;
+  //   background: url("../img/map-marker.svg") no-repeat;
+  //   width: 27px;
+  //   height: 27px;
+  //   left: 145px;
+  //   top: 160px;
+  //
+  //   @media (min-width: @tablet-width) {
+  //     left: (@tablet-width - 27px)/2;
+  //     top: (350px - 27px)/2;
+  //   }
+  //
+  //   @media (min-width: @desktop-width) {
+  //     left: (@desktop-width - 27px)/2;
+  //   }
+  // }
 }

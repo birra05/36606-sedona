@@ -2073,43 +2073,19 @@ img {
 }
 .map {
   position: relative;
-  background: #81b3d2 url("../img/img-map.jpg") no-repeat;
   width: 320px;
   height: 350px;
   margin-bottom: 35px;
 }
 @media (min-width: 768px) {
   .map {
-    background: #81b3d2 url("../img/img-map-tablet.jpg");
     width: 768px;
     margin-bottom: 38px;
   }
 }
 @media (min-width: 1200px) {
   .map {
-    background: #81b3d2 url("../img/img-map-desktop.jpg") no-repeat;
     width: 1200px;
-  }
-}
-.map:before {
-  content: "";
-  display: block;
-  position: absolute;
-  background: url("../img/map-marker.svg") no-repeat;
-  width: 27px;
-  height: 27px;
-  left: 145px;
-  top: 160px;
-}
-@media (min-width: 768px) {
-  .map:before {
-    left: 370.5px;
-    top: 161.5px;
-  }
-}
-@media (min-width: 1200px) {
-  .map:before {
-    left: 586.5px;
   }
 }
 .blog-posts {
