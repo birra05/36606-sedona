@@ -21,20 +21,80 @@
 'use strict';
 
 (function() {
-  if(!('FormData' in window)) {
+  if(!('FormData' in window) || !('FileReader' in window)) {
     return;
   };
 
-  var form = document.querySelector('.review-form');
+  var form = document.querySelector('#form');
   var uploadBtn = form.querySelector('#review-img-upload');
   var area = document.querySelector('#review-gallery');
   var template = document.querySelector('#image-template').innerHTML;
   var pictures = [];
   var numberElements = document.querySelectorAll('.review-form-quantity');
-  console.log(numberElements);
+  var dateElements = document.querySelectorAll('.js-travel-dates');
+  var start = $('#date-arrival');
+  var end = $('#date-departure');
+
+  start.datepicker({
+    closeText: 'Закрыть',
+  	prevText: '&#x3C;Предыдущий',
+  	nextText: 'Следующий&#x3E;',
+  	currentText: 'Сегодня',
+  	monthNames: [ 'Январь','Февраль','Март','Апрель','Май','Июнь',
+  	'Июль','Август','Сентябрь','Октябрь','Ноябрь','Декабрь' ],
+  	monthNamesShort: [ 'января','февраля','марта','апреля','мая','июня',
+  	'июля','августа','сентября','октября','ноября','декабря' ],
+  	dayNames: [ 'воскресенье','понедельник','вторник','среда','четверг','пятница','суббота' ],
+  	dayNamesShort: [ 'вск','пнд','втр','срд','чтв','птн','сбт' ],
+  	dayNamesMin: [ 'Вс','Пн','Вт','Ср','Чт','Пт','Сб' ],
+  	weekHeader: 'Нед',
+  	dateFormat: 'd M yy',
+  	firstDay: 1,
+  	isRTL: false,
+  	showMonthAfterYear: false,
+  	yearSuffix: '',
+    minDate: 0,
+    onSelect: function() {
+      var startDate = $(this).datepicker('getDate');
+      var parsedDate = new Date(Date.parse(startDate));
+      parsedDate.setDate(parsedDate.getDate() + 1);
+      var newDate = parsedDate.toDateString();
+      newDate = new Date(Date.parse(newDate));
+      end.datepicker('option', {minDate: newDate});
+    }
+  });
+
+  end.datepicker({
+    closeText: 'Закрыть',
+  	prevText: '&#x3C;Предыдущий',
+  	nextText: 'Следующий&#x3E;',
+  	currentText: 'Сегодня',
+  	monthNames: [ 'Январь','Февраль','Март','Апрель','Май','Июнь',
+  	'Июль','Август','Сентябрь','Октябрь','Ноябрь','Декабрь' ],
+  	monthNamesShort: [ 'января','февраля','марта','апреля','мая','июня',
+  	'июля','августа','сентября','октября','ноября','декабря' ],
+  	dayNames: [ 'воскресенье','понедельник','вторник','среда','четверг','пятница','суббота' ],
+  	dayNamesShort: [ 'вск','пнд','втр','срд','чтв','птн','сбт' ],
+  	dayNamesMin: [ 'Вс','Пн','Вт','Ср','Чт','Пт','Сб' ],
+  	weekHeader: 'Нед',
+  	dateFormat: 'd M yy',
+  	firstDay: 1,
+  	isRTL: false,
+  	showMonthAfterYear: false,
+  	yearSuffix: '',
+    minDate: 0,
+    onSelect: function() {
+      var endDate = $(this).datepicker('getDate');
+      var parsedDate = new Date(Date.parse(endDate));
+      parsedDate.setDate(parsedDate.getDate() - 1);
+      var newDate = parsedDate.toDateString();
+      newDate = new Date(Date.parse(newDate));
+      start.datepicker('option', {maxDate: newDate});
+    }
+  });
 
   for(var i = 0; i < numberElements.length; i++) {
-    initNumberField(numberElements[i])
+    initNumberField(numberElements[i]);
   };
 
   function initNumberField(parent) {
@@ -42,6 +102,8 @@
     var input = parent.querySelector('input');
     var minus = parent.querySelector('.review-form-button__minus');
     var plus = parent.querySelector('.review-form-button__plus');
+    var startDate = start.datepicker('getDate');
+    var endDate = end.datepicker('getDate');
 
     minus.addEventListener('click', function(event) {
       event.preventDefault();

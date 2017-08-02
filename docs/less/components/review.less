@@ -446,18 +446,18 @@
       }
     }
 
-    &-box {
+    &__box {
       @media (min-width: @tablet-width) {
         display: flex;
         justify-content: space-between;
       }
-      &-impress {
+      &--impress {
         @media (min-width: @desktop-width) {
           justify-content: flex-start; // подогнано по макету
           padding-left: 170px; // подогнано по макету
         }
       }
-      &-sight {
+      &--sight {
         margin-top: -8px; // подогнано по макету
 
         @media (min-width: @tablet-width) {
@@ -503,6 +503,7 @@
     &__send-btn {
       width: @wrapper-mobile-width;
       margin: 0 auto;
+      margin-top: 50px - 35px;
       // .mixin_for-big-btn;
       // margin-bottom: 116px;
 

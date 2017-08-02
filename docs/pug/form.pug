@@ -12,11 +12,11 @@ html(lang='ru')
       include includes/intro.pug
       section.review
         //Review's form
-        form.review-form(action='/server', method='post', enctype='multipart/form-data')
+        form.review-form#form(action='/server', method='post', enctype='multipart/form-data')
           // Traveler's data
           fieldset.review-form__fieldset
             h2.review-form__title Представьтесь, пожалуйста
-            .review-form-box
+            .review-form__box
               .review-form__item
                 label(for='surname')
                   | Фамилия:
@@ -38,7 +38,7 @@ html(lang='ru')
           //Radiobuttons_General impression
           fieldset.review-form__fieldset 
             h2.review-form__title Ваше впечатление:
-            .review-form-box.review-form-box-impress
+            .review-form__box.review-form__box--impress
               .review-form__item.review-form__item-impress
                 input#radio-positive(type='radio', name='radio', checked='')
                 |  
@@ -50,13 +50,13 @@ html(lang='ru')
           // Travelling's dates
           fieldset.review-form__fieldset
             h2.review-form__title Даты вашей поездки:
-            .review-form-box
-              .review-form__item
+            .review-form__box
+              .review-form__item.js-travel-dates
                 label(for='date-arrival')
                   | Дата приезда:
                   sup *
                 |  
-                input#date-arrival(type='text', name='date-arrival', value='4 июля 2015', required='')
+                input#date-arrival(type='text', name='date-arrival', placeholder='Выберите дату приезда', readonly='', required='')
               .review-form__item
                 label.for-mobile(for='duration')
                   | Длительность пребывания:
@@ -68,14 +68,14 @@ html(lang='ru')
                 .review-form-quantity
                   a.review-form-button.review-form-button__minus(href='#')
                   .review-form-quantity__days
-                    input#duration(type='text', name='duration', value='14', required='')
+                    input#duration(type='text', name='duration', placeholder='дней', value='0' required='', disabled)
                   a.review-form-button.review-form-button__plus(href='#')
-              .review-form__item
+              .review-form__item.js-travel-dates
                 label(for='date-departure')
                   | Дата отъезда:
                   sup *
                 |  
-                input#date-departure(type='text', name='date-departure', value='28 июля 2015', required='')
+                input#date-departure(type='text', name='date-departure', placeholder='Выберите дату отъезда', readonly='', required='')
           // Traveller's questionnaire
           fieldset.review-form__fieldset
             h2.review-form__title Кол-во путешественников:
@@ -148,23 +148,23 @@ html(lang='ru')
               | Посещенные
               br
               | достопримечательности
-            .review-form-box.review-form-box-sight
+            .review-form__box.review-form__box--sight
               .review-form__item
-                input#check1(type='checkbox', name='check1', checked='')
+                input#sight-1(type='checkbox', name='check1', checked='')
                 |  
-                label(for='check1') Мост Дьявола
+                label(for='sight-1') Мост Дьявола
               .review-form__item
-                input#check2(type='checkbox', name='check2')
+                input#sight-2(type='checkbox', name='check2')
                 |  
-                label(for='check2') Слайд-парк
+                label(for='sight-2') Слайд-парк
               .review-form__item
-                input#check3(type='checkbox', name='check3', checked='')
+                input#sight-3(type='checkbox', name='check3', checked='')
                 |  
-                label(for='check3') Гора-Колокол
+                label(for='sight-3') Гора-Колокол
               .review-form__item
-                input#check4(type='checkbox', name='check4', checked='')
+                input#sight-4(type='checkbox', name='check4', checked='')
                 |  
-                label(for='check4') Красные скалы
+                label(for='sight-4') Красные скалы
           // Uploading photos
           fieldset.review-gallery
             h2.review-form__title Загрузите фотографии
@@ -210,6 +210,9 @@ html(lang='ru')
       img(src='{{image}}', alt='{{name}}', width='140', height='140')
       a.review-gallery__delete-btn(href='')
       p {{name}}
-    script(src='../bower_components/mustache.js/mustache.min.js')
-    script(src='docs/../js/script.js')
+    script(src='../bower_components/mustache.js/mustache.min.js' async) 
+    script(src='../bower_components/jquery/dist/jquery.min.js') 
+    script(src='../bower_components/jquery-ui/jquery-ui.min.js') 
+    script(src='../bower_components/moment/min/moment-with-locales.min.js')
+    script(src='docs/../js/script.js') 
     
