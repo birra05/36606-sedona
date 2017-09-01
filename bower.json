@@ -13,5 +13,13 @@
     "bower_components",
     "test",
     "tests"
-  ]
+  ],
+  "install": {
+    "path": "bower",
+    "sources": {
+      "jquery": "bower_components/jquery/dist/jquery.min.js",
+      "jquery-ui": "bower_components/jquery-ui/jquery-ui.min.js",
+      "mustache": "bower_components/mustache.js/mustache.min.js"
+    }
+  }
 }
