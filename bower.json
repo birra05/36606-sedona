@@ -15,13 +15,16 @@
     "tests"
   ],
   "install": {
-    "path": "docs/bower",
+    "path": "docs/libs",
     "sources": {
       "jquery": "bower_components/jquery/dist/jquery.min.js",
-      "jquery-ui": [
-        "bower_components/jquery-ui/jquery-ui.min.js",
-        "bower_components/jquery-ui/themes/smoothness/jquery-ui.min.css"
-      ],
+      "jquery-ui": {
+        "mapping": [
+          {"bower_components/jquery-ui/themes/smoothness/images/**": "images"},
+          {"bower_components/jquery-ui/jquery-ui.min.js": "jquery-ui.min.js"},
+          {"bower_components/jquery-ui/themes/smoothness/jquery-ui.min.css": "jquery-ui.min.css"}
+        ]
+      },
       "mustache": "bower_components/mustache.js/mustache.min.js"
     }
   }
