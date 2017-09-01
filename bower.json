@@ -1,0 +1,17 @@
+{
+  "name": "36606-sedona",
+  "description": "Обучающий проект «sedona» от HTML Academy",
+  "main": "Gruntfile.js",
+  "authors": [
+    "Алена Горюшина"
+  ],
+  "license": "MIT",
+  "homepage": "https://github.com/birra05/sedona",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ]
+}

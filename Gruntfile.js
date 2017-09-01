@@ -85,17 +85,6 @@ module.exports = function(grunt) {
       }
     },
 
-    // requirejs: {
-    //   compile: {
-    //     options: {
-    //       baseUrl: 'docs/js/src',
-    //       mainConfigFile: 'docs/js/src/main.js',
-    //       include: 'main.js',
-    //       out: 'docs/js/script.js'
-    //     }
-    //   }
-    // },
-
     copy: {
       build: {
         files: [{
