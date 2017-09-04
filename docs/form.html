@@ -85,13 +85,13 @@
               <div class="review-form__item">
                 <label class="for-mobile" for="duration">Длительность пребывания:<sup>*</sup></label> 
                 <label class="for-tablet" for="duration">Дней пребывания:<sup>*</sup></label>
-                <div class="review-form-quantity"><a class="review-form-button review-form-button__minus" href="#"></a>
-                  <div class="review-form-quantity__days">
-                    <input id="duration" type="text" name="duration" placeholder="дней" value="0" required="" disabled>
-                  </div><a class="review-form-button review-form-button__plus" href="#"></a>
+                <div class="review-form__quantity js-dates-travel disabled"><a class="review-form__button review-form__button--minus" href="#" id="dates-travel-minus"></a>
+                  <div class="review-form__quantity-days">
+                    <input id="duration" type="text" name="duration" placeholder="дней" value="1" required="" disabled>
+                  </div><a class="review-form__button review-form__button--plus" href="#" id="dates-travel-plus"></a>
                 </div>
               </div>
-              <div class="review-form__item js-travel-dates">
+              <div class="review-form__item">
                 <label for="date-departure">Дата отъезда:<sup>*</sup></label> 
                 <input id="date-departure" type="text" name="date-departure" placeholder="Выберите дату отъезда" readonly="" required="">
               </div>
@@ -103,10 +103,10 @@
             <div class="review-form__item">
               <label class="for-mobile" for="quantity">Количество путешественников:<sup>*</sup></label> 
               <label class="for-tablet" for="quantity">Кол-во путешественников:<sup>*</sup></label>
-              <div class="review-form-quantity"><a class="review-form-button review-form-button__minus" href="#"></a>
-                <div class="review-form-quantity__number">
+              <div class="review-form__quantity"><a class="review-form__button review-form__button--minus" href="#"></a>
+                <div class="review-form__quantity-number">
                   <input id="quantity" type="text" name="quantity" value="2" required="">
-                </div><a class="review-form-button review-form-button__plus" href="#"></a>
+                </div><a class="review-form__button review-form__button--plus" href="#"></a>
               </div>
             </div>
             <!-- Traveller 1-->

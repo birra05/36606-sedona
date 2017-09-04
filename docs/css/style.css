@@ -1507,7 +1507,7 @@ img {
     width: 365px;
   }
 }
-.review-form-button {
+.review-form__button {
   display: inline-block;
   vertical-align: baseline;
   position: relative;
@@ -1515,13 +1515,13 @@ img {
   height: 58px;
   background: #f2f2f2;
 }
-.review-form-button:hover {
+.review-form__button:hover {
   background: #e5e5e5;
 }
-.review-form-button:active {
+.review-form__button:active {
   background: #d5d5d5;
 }
-.review-form-button__minus:before {
+.review-form__button--minus:before {
   content: "";
   display: block;
   position: absolute;
@@ -1533,7 +1533,7 @@ img {
   left: 21px;
   opacity: 0.3;
 }
-.review-form-button__plus:before {
+.review-form__button--plus:before {
   content: "";
   display: block;
   position: absolute;
@@ -1545,22 +1545,22 @@ img {
   left: 21px;
   opacity: 0.3;
 }
-.review-form-button__minus:hover:before,
-.review-form-button__plus:hover:before {
+.review-form__button--minus:hover:before,
+.review-form__button--plus:hover:before {
   opacity: 0.5;
 }
-.review-form-button__minus:active:before,
-.review-form-button__plus:active:before {
+.review-form__button--minus:active:before,
+.review-form__button--plus:active:before {
   opacity: 0.1;
 }
-.review-form-quantity {
+.review-form__quantity {
   display: -ms-flexbox;
   display: flex;
   -ms-flex-pack: justify;
       justify-content: space-between;
 }
 @media (min-width: 768px) {
-  .review-form-quantity {
+  .review-form__quantity {
     width: 175px;
     -ms-flex-pack: start;
         justify-content: flex-start;
@@ -1568,7 +1568,7 @@ img {
   }
 }
 @media (min-width: 1200px) {
-  .review-form-quantity {
+  .review-form__quantity {
     width: 280px;
     -ms-flex-pack: justify;
         justify-content: space-between;
@@ -1576,7 +1576,7 @@ img {
     margin: 0;
   }
 }
-.review-form-quantity__number:before {
+.review-form__quantity-number:before {
   content: "чел.";
   display: block;
   position: absolute;
@@ -1586,7 +1586,7 @@ img {
   opacity: 0.3;
   text-transform: lowercase;
 }
-.review-form-quantity__days:before {
+.review-form__quantity-days:before {
   content: "дн.";
   display: block;
   position: absolute;
@@ -1596,40 +1596,40 @@ img {
   opacity: 0.3;
   text-transform: lowercase;
 }
-.review-form-quantity__number,
-.review-form-quantity__days {
+.review-form__quantity-number,
+.review-form__quantity-days {
   position: relative;
   width: 145px;
 }
 @media (min-width: 768px) {
-  .review-form-quantity__number,
-  .review-form-quantity__days {
+  .review-form__quantity-number,
+  .review-form__quantity-days {
     width: auto;
   }
 }
 @media (min-width: 768px) {
-  .review-form-quantity__number:before,
-  .review-form-quantity__days:before {
+  .review-form__quantity-number:before,
+  .review-form__quantity-days:before {
     display: none;
   }
 }
 @media (min-width: 1200px) {
-  .review-form-quantity__number:before,
-  .review-form-quantity__days:before {
+  .review-form__quantity-number:before,
+  .review-form__quantity-days:before {
     display: block;
   }
 }
 @media (min-width: 768px) {
-  .review-form-quantity__number input,
-  .review-form-quantity__days input {
+  .review-form__quantity-number input,
+  .review-form__quantity-days input {
     width: 55px;
     padding: 0;
     text-align: center;
   }
 }
 @media (min-width: 1200px) {
-  .review-form-quantity__number input,
-  .review-form-quantity__days input {
+  .review-form__quantity-number input,
+  .review-form__quantity-days input {
     width: 148px;
     text-align: left;
     padding-left: 22px;

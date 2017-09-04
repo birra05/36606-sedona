@@ -30,8 +30,7 @@
   var area = document.querySelector('#review-gallery');
   var template = document.querySelector('#image-template').innerHTML;
   var pictures = [];
-  var numberElements = document.querySelectorAll('.review-form-quantity');
-  var dateElements = document.querySelectorAll('.js-travel-dates');
+  var datesTravel = document.querySelectorAll('.js-dates-travel');
   var start = $('#date-arrival');
   var end = $('#date-departure');
 
@@ -53,14 +52,25 @@
   	isRTL: false,
   	showMonthAfterYear: false,
   	yearSuffix: '',
-    minDate: 0,
+    minDate: -365,
+    maxDate: -2,
     onSelect: function() {
-      var startDate = $(this).datepicker('getDate');
+      var startDate = start.datepicker('getDate');
+      var endDate = end.datepicker('getDate');
       var parsedDate = new Date(Date.parse(startDate));
       parsedDate.setDate(parsedDate.getDate() + 1);
       var newDate = parsedDate.toDateString();
       newDate = new Date(Date.parse(newDate));
       end.datepicker('option', {minDate: newDate});
+      var duration = document.querySelector('#duration');
+      if(endDate === null) {
+        duration.value = 1;
+        end.datepicker('setDate', newDate);
+        start.datepicker('option', {maxDate: startDate});
+        return;
+      }
+      duration.value = daysBetween(startDate, endDate);
+      // console.log('startDate on START', startDate, 'endDate on START', endDate);
     }
   });
 
@@ -82,41 +92,57 @@
   	isRTL: false,
   	showMonthAfterYear: false,
   	yearSuffix: '',
-    minDate: 0,
+    maxDate: -1,
     onSelect: function() {
-      var endDate = $(this).datepicker('getDate');
+      var startDate = start.datepicker('getDate');
+      var endDate = end.datepicker('getDate');
       var parsedDate = new Date(Date.parse(endDate));
       parsedDate.setDate(parsedDate.getDate() - 1);
       var newDate = parsedDate.toDateString();
       newDate = new Date(Date.parse(newDate));
       start.datepicker('option', {maxDate: newDate});
+
+      var duration = document.querySelector('#duration');
+      if(startDate === null) {
+        duration.value = 1;
+        start.datepicker('setDate', newDate);
+        end.datepicker('option', {minDate: newDate});
+        return;
+      }
+      duration.value = daysBetween(startDate, endDate);
+      // console.log('startDate on END', startDate, 'endDate on END', endDate);
     }
   });
 
-  for(var i = 0; i < numberElements.length; i++) {
-    initNumberField(numberElements[i]);
+  for(var i = 0; i < datesTravel.length; i++) {
+    initDatesTravelField(datesTravel[i]);
   };
 
-  function initNumberField(parent) {
-    var parent = numberElements[i];
-    var input = parent.querySelector('input');
-    var minus = parent.querySelector('.review-form-button__minus');
-    var plus = parent.querySelector('.review-form-button__plus');
-    var startDate = start.datepicker('getDate');
-    var endDate = end.datepicker('getDate');
+  function initDatesTravelField(parent) {
+    var parent = datesTravel[i];
+    var input = parent.querySelector('#duration');
+    var minus = parent.querySelector('#dates-travel-minus');
+    var plus = parent.querySelector('#dates-travel-plus');
 
     minus.addEventListener('click', function(event) {
       event.preventDefault();
       changeNumber(false);
     });
 
-    plus.addEventListener('click', function() {
+    plus.addEventListener('click', function(event) {
       event.preventDefault();
       changeNumber(true);
     });
 
     function changeNumber(operation) {
       var value = Number(input.value);
+      var startDate = start.datepicker('getDate');
+      var endDate = end.datepicker('getDate');
+
+      function startDateReturn() {
+        console.log(startDate);
+        return startDate;
+      };
 
       if(isNaN(value)) {
         value = 0;
@@ -124,14 +150,36 @@
 
       if(operation) {
         input.value = value + 1;
-      } else {
-        input.value = value - 1;
-      }
+        // console.log(startDate, 'startDate changeNumber true');
 
-      if(input.value < 0) {
-        input.value = 0;
+        var parsedDate = new Date(Date.parse(startDate));
+        parsedDate.setDate(parsedDate.getDate() + Number(input.value));
+        var newDate = parsedDate.toDateString();
+        newDate = new Date(Date.parse(newDate));
+        end.datepicker('setDate', newDate);
+      } else if(value > 1){
+        input.value = value - 1;
+        // console.log(startDate, 'startDate changeNumber false');
+
+        var parsedDate = new Date(Date.parse(endDate));
+        parsedDate.setDate(parsedDate.getDate() - 1);
+        var newDate = parsedDate.toDateString();
+        newDate = new Date(Date.parse(newDate));
+        end.datepicker('setDate', newDate);
       }
     };
+  };
+
+  function daysBetween(date1, date2) {
+    var ONE_DAY = 24 * 60 * 60 * 1000;
+    if(date1 == null || date2 == null) {
+
+    }
+    var firstDate = date1.getTime();
+    var secondDate = date2.getTime();
+
+    var difference = secondDate - firstDate;
+    return Math.round(difference/ONE_DAY);
   };
 
   function preview(file) {

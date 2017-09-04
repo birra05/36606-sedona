@@ -65,12 +65,12 @@ html(lang='ru')
                 label.for-tablet(for='duration')
                   | Дней пребывания:
                   sup *
-                .review-form-quantity
-                  a.review-form-button.review-form-button__minus(href='#')
-                  .review-form-quantity__days
-                    input#duration(type='text', name='duration', placeholder='дней', value='0' required='', disabled)
-                  a.review-form-button.review-form-button__plus(href='#')
-              .review-form__item.js-travel-dates
+                .review-form__quantity.js-dates-travel.disabled
+                  a.review-form__button.review-form__button--minus(href='#')#dates-travel-minus
+                  .review-form__quantity-days
+                    input#duration(type='text', name='duration', placeholder='дней', value='1' required='', disabled)
+                  a.review-form__button.review-form__button--plus(href='#')#dates-travel-plus
+              .review-form__item
                 label(for='date-departure')
                   | Дата отъезда:
                   sup *
@@ -87,11 +87,11 @@ html(lang='ru')
               label.for-tablet(for='quantity')
                 | Кол-во путешественников:
                 sup *
-              .review-form-quantity
-                a.review-form-button.review-form-button__minus(href='#')
-                .review-form-quantity__number
+              .review-form__quantity
+                a.review-form__button.review-form__button--minus(href='#')
+                .review-form__quantity-number
                   input#quantity(type='text', name='quantity', value='2', required='')
-                a.review-form-button.review-form-button__plus(href='#')
+                a.review-form__button.review-form__button--plus(href='#')
             // Traveller 1
             .review-form-traveler
               .review-form__item.review-form-traveler__number
