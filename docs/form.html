@@ -80,12 +80,12 @@
             <div class="review-form__box">
               <div class="review-form__item js-travel-dates">
                 <label for="date-arrival">Дата приезда:<sup>*</sup></label> 
-                <input id="date-arrival" type="text" name="date-arrival" placeholder="Выберите дату приезда" readonly="" required="">
+                <input id="date-arrival" type="text" name="date-arrival" placeholder="Выберите дату" readonly="" required="">
               </div>
               <div class="review-form__item">
                 <label class="for-mobile" for="duration">Длительность пребывания:<sup>*</sup></label> 
                 <label class="for-tablet" for="duration">Дней пребывания:<sup>*</sup></label>
-                <div class="review-form__quantity js-dates-travel disabled"><a class="review-form__button review-form__button--minus" href="#" id="dates-travel-minus"></a>
+                <div class="review-form__quantity js-dates-travel"><a class="review-form__button review-form__button--minus" href="#" id="dates-travel-minus"></a>
                   <div class="review-form__quantity-days">
                     <input id="duration" type="text" name="duration" placeholder="дней" value="1" required="" disabled>
                   </div><a class="review-form__button review-form__button--plus" href="#" id="dates-travel-plus"></a>
@@ -93,64 +93,45 @@
               </div>
               <div class="review-form__item">
                 <label for="date-departure">Дата отъезда:<sup>*</sup></label> 
-                <input id="date-departure" type="text" name="date-departure" placeholder="Выберите дату отъезда" readonly="" required="">
+                <input id="date-departure" type="text" name="date-departure" placeholder="Выберите дату" readonly="" required="">
               </div>
             </div>
           </fieldset>
-          <!-- Traveller's questionnaire-->
+          <!-- Traveler's questionnaire-->
           <fieldset class="review-form__fieldset">
             <h2 class="review-form__title">Кол-во путешественников:</h2>
             <div class="review-form__item">
               <label class="for-mobile" for="quantity">Количество путешественников:<sup>*</sup></label> 
               <label class="for-tablet" for="quantity">Кол-во путешественников:<sup>*</sup></label>
-              <div class="review-form__quantity"><a class="review-form__button review-form__button--minus" href="#"></a>
+              <div class="review-form__quantity js-travelers"><a class="review-form__button review-form__button--minus" href="#" id="travelers-minus"></a>
                 <div class="review-form__quantity-number">
-                  <input id="quantity" type="text" name="quantity" value="2" required="">
-                </div><a class="review-form__button review-form__button--plus" href="#"></a>
+                  <input id="quantity" type="text" name="quantity" value="1" required="" disabled="">
+                </div><a class="review-form__button review-form__button--plus" href="#" id="travelers-plus"></a>
               </div>
             </div>
-            <!-- Traveller 1-->
-            <div class="review-form-traveler">
-              <div class="review-form__item review-form-traveler__number">
-                <label for="traveler-1">№</label> 
-                <input id="traveler-1" type="text" name="traveler-1" value="1" readonly="" disabled="">
-              </div>
-              <div class="review-form-traveler__data">
-                <div class="review-form__item"> 
-                  <label for="travel-surname-1">Фамилия: <sup>*</sup></label> 
-                  <input id="travel-surname-1" type="text" name="surname-1" value="Иванов" required="">
+            <ul class="review-form__travelers" id="review-travelers">
+              <!-- Traveler 1-->
+              <li class="review-form__traveler">
+                <div class="review-form__item review-form__traveler-number">
+                  <label for="traveler-1">№</label> 
+                  <input id="traveler-1" type="text" name="traveler-1" value="1" readonly="" disabled="">
                 </div>
-                <div class="review-form__item">
-                  <label for="travel-name-1">Имя:<sup>*</sup></label> 
-                  <input id="travel-name-1" type="text" name="name-1" value="Петр" required="">
+                <div class="review-form__traveler-data">
+                  <div class="review-form__item"> 
+                    <label for="travel-surname-1">Фамилия: <sup>*</sup></label> 
+                    <input id="travel-surname-1" type="text" name="surname-1" value="" required="">
+                  </div>
+                  <div class="review-form__item">
+                    <label for="travel-name-1">Имя:<sup>*</sup></label> 
+                    <input id="travel-name-1" type="text" name="name-1" value="" required="">
+                  </div>
+                  <div class="review-form__item">
+                    <label for="travel-patronymic-1">Отчество:<sup>* </sup></label> 
+                    <input id="travel-patronymic-1" type="text" name="patronymic-1" value="">
+                  </div>
                 </div>
-                <div class="review-form__item">
-                  <label for="travel-patronymic-1">Отчество:<sup>* </sup></label> 
-                  <input id="travel-patronymic-1" type="text" name="patronymic-1" value="Александрович">
-                </div>
-              </div>
-            </div>
-            <!-- Traveller 2-->
-            <div class="review-form-traveler">
-              <div class="review-form__item review-form-traveler__number">
-                <label for="traveler-2">№</label> 
-                <input id="traveler-2" type="text" name="traveler-2" value="2" readonly="" disabled="">
-              </div>
-              <div class="review-form-traveler__data">
-                <div class="review-form__item">
-                  <label for="travel-surname-2">Фамилия:<sup>*</sup></label> 
-                  <input id="travel-surname-2" type="text" name="surname-2" value="Иванов" required="">
-                </div>
-                <div class="review-form__item">
-                  <label for="travel-name-2">Имя:<sup>*</sup></label> 
-                  <input id="travel-name-2" type="text" name="name-2" value="Петр" required="">
-                </div>
-                <div class="review-form__item">
-                  <label for="travel-patronymic-2">Отчество:<sup>*</sup></label> 
-                  <input id="travel-patronymic-2" type="text" name="patronymic-2" value="Александрович">
-                </div>
-              </div>
-            </div>
+              </li>
+            </ul>
           </fieldset>
           <!-- Checkboxes_Visited sights-->
           <fieldset class="review-form__fieldset">
@@ -255,6 +236,26 @@
     </div>
     <script type="text/html" id="image-template"><img src="{{image}}" alt="{{name}}" width="140" height="140"><a class="review-gallery__delete-btn" href=""></a>
       <p>{{name}}</p>
+    </script>
+    <script type="text/html" id="traveler-template">
+      <div class="review-form__item review-form__traveler-number">
+        <label for="traveler-{{number}}">№</label> 
+        <input id="traveler-{{number}}" type="text" name="traveler-{{number}}" value="{{number}}" readonly="" disabled="">
+      </div>
+      <div class="review-form__traveler-data">
+        <div class="review-form__item">
+          <label for="travel-surname-{{number}}">Фамилия:<sup>*</sup></label> 
+          <input id="travel-surname-{{number}}" type="text" name="surname-{{number}}" value="" required="">
+        </div>
+        <div class="review-form__item">
+          <label for="travel-name-{{number}}">Имя:<sup>*</sup></label> 
+          <input id="travel-name-{{number}}" type="text" name="name-{{number}}" value="" required="">
+        </div>
+        <div class="review-form__item">
+          <label for="travel-patronymic-{{number}}">Отчество:<sup>*</sup></label> 
+          <input id="travel-patronymic-{{number}}" type="text" name="patronymic-{{number}}" value="">
+        </div>
+      </div>
     </script>
     <script src="docs/../libs/mustache.js/mustache.js"> </script>
     <script src="docs/../libs/jquery/jquery.min.js"> </script>

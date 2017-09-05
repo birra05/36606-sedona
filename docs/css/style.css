@@ -1635,37 +1635,37 @@ img {
     padding-left: 22px;
   }
 }
-.review-form-traveler {
+.review-form__traveler {
   display: -ms-flexbox;
   display: flex;
   -ms-flex-pack: justify;
       justify-content: space-between;
   margin-top: 25px;
 }
-.review-form-traveler__number {
+.review-form__traveler-number {
   width: 60px;
   height: 58px;
 }
 @media (min-width: 768px) {
-  .review-form-traveler__number {
+  .review-form__traveler-number {
     margin-right: 6px;
   }
 }
 @media (min-width: 768px) {
-  .review-form-traveler__number input {
+  .review-form__traveler-number input {
     width: 60px;
   }
 }
-.review-form-traveler__number label,
-.review-form-traveler__number input {
+.review-form__traveler-number label,
+.review-form__traveler-number input {
   padding: 0;
   text-align: center;
 }
-.review-form-traveler__data {
+.review-form__traveler-data {
   width: 210px;
 }
 @media (min-width: 768px) {
-  .review-form-traveler__data {
+  .review-form__traveler-data {
     display: -ms-flexbox;
     display: flex;
     -ms-flex-pack: justify;
@@ -1674,17 +1674,17 @@ img {
   }
 }
 @media (min-width: 1200px) {
-  .review-form-traveler__data .review-form__item:first-child input {
+  .review-form__traveler-data .review-form__item:first-child input {
     width: 210px;
   }
 }
 @media (min-width: 768px) {
-  .review-form-traveler__data input {
+  .review-form__traveler-data input {
     width: 190px;
   }
 }
 @media (min-width: 1200px) {
-  .review-form-traveler__data input {
+  .review-form__traveler-data input {
     width: 280px;
   }
 }

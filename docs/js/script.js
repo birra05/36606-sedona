@@ -27,12 +27,17 @@
 
   var form = document.querySelector('#form');
   var uploadBtn = form.querySelector('#review-img-upload');
-  var area = document.querySelector('#review-gallery');
-  var template = document.querySelector('#image-template').innerHTML;
+  var picturesArea = document.querySelector('#review-gallery');
+  var travelersArea = document.querySelector('#review-travelers');
+  var picturesTemplate = document.querySelector('#image-template').innerHTML;
+  var travelersTemplate = document.querySelector('#traveler-template').innerHTML;
   var pictures = [];
+  // var travelers = [];
   var datesTravel = document.querySelectorAll('.js-dates-travel');
+  var numberTravelers = document.querySelectorAll('.js-travelers');
   var start = $('#date-arrival');
   var end = $('#date-departure');
+  // console.log(travelersArea);
 
   start.datepicker({
     closeText: 'Закрыть',
@@ -116,6 +121,7 @@
 
   for(var i = 0; i < datesTravel.length; i++) {
     initDatesTravelField(datesTravel[i]);
+    initTravelersField(numberTravelers[i]);
   };
 
   function initDatesTravelField(parent) {
@@ -170,6 +176,54 @@
     };
   };
 
+  function initTravelersField(parent) {
+    var parent = numberTravelers[i];
+    var input = parent.querySelector('#quantity');
+    var minus = parent.querySelector('#travelers-minus');
+    var plus = parent.querySelector('#travelers-plus');
+
+    minus.addEventListener('click', function() {
+      event.preventDefault();
+      changeTravelNumber(false);
+    });
+
+    plus.addEventListener('click', function() {
+      event.preventDefault();
+      changeTravelNumber(true);
+    });
+
+    function changeTravelNumber(operation) {
+      var value = Number(input.value);
+
+      if(isNaN(value)) {
+        value = 0;
+      }
+
+      if(operation) {
+        input.value = value + 1;
+        addTraveler();
+      } else if(value > 1){
+        input.value = value - 1;
+        removeTraveler();
+      }
+    };
+
+    function addTraveler() {
+      var html = Mustache.render(travelersTemplate, {
+        'number': input.value
+      });
+      var li = document.createElement('li');
+      li.classList.add('review-form__traveler');
+      li.innerHTML += html;
+
+      travelersArea.appendChild(li);
+    };
+
+    function removeTraveler() {
+      travelersArea.removeChild(travelersArea.lastChild);
+    };
+  };
+
   function daysBetween(date1, date2) {
     var ONE_DAY = 24 * 60 * 60 * 1000;
     if(date1 == null || date2 == null) {
@@ -187,10 +241,7 @@
       var reader = new FileReader();
 
       reader.addEventListener('load', function(event) {
-        // var html = template.replace('{{image}}', event.target.result);
-        // html.replace('{{name}}', file.name);
-        // area.innerHTML += html;
-        var html = Mustache.render(template, {
+        var html = Mustache.render(picturesTemplate, {
           'image': event.target.result,
           'name': file.name
         });
@@ -198,7 +249,7 @@
         li.classList.add('review-gallery__item');
         li.innerHTML += html;
 
-        area.appendChild(li);
+        picturesArea.appendChild(li);
 
         var deleteBtn = li.querySelector('.review-gallery__delete-btn');
         // console.log(deleteBtn);
@@ -211,7 +262,8 @@
           'file': file,
           'li': li
         });
-        // console.log(pictures);
+
+        console.log(pictures);
       });
 
       reader.readAsDataURL(file);
@@ -224,7 +276,6 @@
     });
 
     li.parentNode.removeChild(li);
-    // console.log(pictures);
   };
 
   uploadBtn.addEventListener('change', function() {
@@ -239,7 +290,7 @@
     event.preventDefault();
     var data = new FormData(form);
 
-    // // Adding pics
+    // Adding pics
     pictures.forEach(function(element) {
       data.append('images', element.file);
     });
