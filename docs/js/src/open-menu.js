@@ -1,4 +1,3 @@
-'use strict';
 
 (function() {
   var buttonMenu = document.querySelector('#button-menu');

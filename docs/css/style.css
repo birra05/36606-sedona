@@ -1515,6 +1515,9 @@ img {
   height: 58px;
   background: #f2f2f2;
 }
+.review-form__button.disabled {
+  pointer-events: none;
+}
 .review-form__button:hover {
   background: #e5e5e5;
 }
@@ -2423,38 +2426,38 @@ img {
   }
 }
 @media (min-width: 768px) {
-  .modal .wrapper-success {
+  .modal .wrapper--success {
     width: 430px;
   }
 }
-.modal-failure {
+.modal--failure {
   position: absolute;
   bottom: 602px;
 }
 @media (min-width: 768px) {
-  .modal-failure {
+  .modal--failure {
     padding: 58px 0 48px;
     left: 184px;
   }
 }
 @media (min-width: 1200px) {
-  .modal-failure {
+  .modal--failure {
     left: 400px;
   }
 }
-.modal-success {
+.modal--success {
   position: absolute;
   bottom: 230px;
   padding-bottom: 0;
 }
 @media (min-width: 768px) {
-  .modal-success {
+  .modal--success {
     width: 640px;
     left: 64px;
   }
 }
 @media (min-width: 1200px) {
-  .modal-success {
+  .modal--success {
     left: 280px;
   }
 }
@@ -2467,12 +2470,13 @@ img {
   .modal__title {
     font: bold 30px/40px "PT Sans", Arial, sans-serif;
   }
-  .modal__title-failure {
+  .modal__title--failure {
     width: 220px;
   }
 }
 .modal__text {
   margin-bottom: 26px;
+  font: normal 14px/24px "PT Sans", Arial, sans-serif;
 }
 .modal__btn {
   display: block;
@@ -2484,11 +2488,11 @@ img {
     width: 458px;
   }
 }
-.modal__btn-failure {
+.modal__btn--failure {
   width: 180px;
 }
 @media (min-width: 768px) {
-  .modal__btn-failure {
+  .modal__btn--failure {
     width: 270px;
   }
 }

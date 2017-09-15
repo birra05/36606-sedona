@@ -22,19 +22,19 @@ html(lang='ru')
                   | Фамилия:
                   sup *
                 |  
-                input#surname(type='text', name='surname', value='Иванов', autofocus='', required='')
+                input#surname(type='text', name='surname', placeholder='Фамилия' autofocus='', required='')
               .review-form__item
                 label(for='name')
                   | Имя:
                   sup *
                 |  
-                input#name(type='text', name='name', value='Петр', required='')
+                input#name(type='text', name='name', placeholder='Имя', required='')
               .review-form__item
                 label(for='patronymic')
                   | Отчество:
-                  sup *
+                  sup * 
                 |  
-                input#patronymic(type='text', name='patronymic', value='Александрович', required='')
+                input#patronymic(type='text', name='patronymic', placeholder='Отчество', required='')
           //Radiobuttons_General impression
           fieldset.review-form__fieldset 
             h2.review-form__title Ваше впечатление:
@@ -66,10 +66,10 @@ html(lang='ru')
                   | Дней пребывания:
                   sup *
                 .review-form__quantity.js-dates-travel
-                  a.review-form__button.review-form__button--minus(href='#')#dates-travel-minus
+                  a.review-form__button.review-form__button--minus.disabled(href='#')#dates-travel-minus
                   .review-form__quantity-days
                     input#duration(type='text', name='duration', placeholder='дней', value='1' required='', disabled)
-                  a.review-form__button.review-form__button--plus(href='#')#dates-travel-plus
+                  a.review-form__button.review-form__button--plus.disabled(href='#')#dates-travel-plus
               .review-form__item
                 label(for='date-departure')
                   | Дата отъезда:
@@ -152,33 +152,6 @@ html(lang='ru')
               label.btn.btn--blue.for-desktop(for='review-img-upload') Перетащите фотографии сюда
             // Preview
             ul.review-gallery__list#review-gallery
-              li.review-gallery__item
-                img(src='img/img-tablet-preview-1.jpg', alt='preview-1', width='140', height='140')
-                a.review-gallery__delete-btn(href='')
-                p img-686.jpg
-              li.review-gallery__item
-                img(src='img/img-tablet-preview-2.jpg', alt='preview-2', width='140', height='140')
-                a.review-gallery__delete-btn(href='')
-                p img-687.jpg
-              li.review-gallery__item
-                img(src='img/img-tablet-preview-3.jpg', alt='preview-3', width='140', height='140')
-                a.review-gallery__delete-btn(href='')
-                p img-688.jpg
-              li.review-gallery__item
-                img(src='img/img-tablet-preview-4.jpg', alt='preview-4', width='140', height='140')
-                a.review-gallery__delete-btn(href='')
-                p img-689.jpg
-              li.review-gallery__item
-                img(src='img/img-tablet-preview-5.jpg', alt='preview-5', width='140', height='140')
-                a.review-gallery__delete-btn(href='')
-                p img-690.jpg
-              li.review-gallery__item
-                img(src='img/img-tablet-preview-6.jpg', alt='preview-6', width='140', height='140')
-                a.review-gallery__delete-btn(href='')
-                p img-691.jpg
-              li.review-gallery__item
-                img(src='img/img-preview-7.jpg', alt='preview-7', width='70', height='70')
-                a.review-gallery__delete-btn(href='')
           button.btn.btn--blue.review-form__send-btn(type="submit") Отправить отзыв
       include includes/page-footer.pug
       include includes/modal.pug
@@ -210,6 +183,8 @@ html(lang='ru')
             sup *
           |  
           input(id='travel-patronymic-{{number}}', type='text', name='patronymic-{{number}}', value='')
+    script.
+      console.log(!{JSON.stringify(error)});
     script(src='docs/../libs/mustache.js/mustache.js') 
     script(src='docs/../libs/jquery/jquery.min.js') 
     script(src='docs/../libs/jquery-ui/jquery-ui.min.js')  

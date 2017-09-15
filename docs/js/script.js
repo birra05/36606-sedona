@@ -1,5 +1,4 @@
 
-'use strict';
 
 (function() {
   var buttonMenu = document.querySelector('#button-menu');
@@ -18,7 +17,6 @@
   buttonMenu.addEventListener('click', toggleMenu);
 })();
 
-'use strict';
 
 (function() {
   if(!('FormData' in window) || !('FileReader' in window)) {
@@ -32,12 +30,14 @@
   var picturesTemplate = document.querySelector('#image-template').innerHTML;
   var travelersTemplate = document.querySelector('#traveler-template').innerHTML;
   var pictures = [];
-  // var travelers = [];
   var datesTravel = document.querySelectorAll('.js-dates-travel');
+  var datesButtons = datesTravel[0].querySelectorAll('.review-form__button');
   var numberTravelers = document.querySelectorAll('.js-travelers');
   var start = $('#date-arrival');
   var end = $('#date-departure');
-  // console.log(travelersArea);
+  var modalFail = document.querySelector('#modal-fail');
+  var modalSuccess = document.querySelector('#modal-success');
+  var MEGABYTE = 1048576;
 
   start.datepicker({
     closeText: 'Закрыть',
@@ -67,6 +67,11 @@
       var newDate = parsedDate.toDateString();
       newDate = new Date(Date.parse(newDate));
       end.datepicker('option', {minDate: newDate});
+
+      for(var i = 0; i < datesButtons.length; i++) {
+        datesButtons[i].classList.remove('disabled');
+      };
+
       var duration = document.querySelector('#duration');
       if(endDate === null) {
         duration.value = 1;
@@ -75,7 +80,7 @@
         return;
       }
       duration.value = daysBetween(startDate, endDate);
-      // console.log('startDate on START', startDate, 'endDate on START', endDate);
+      console.log('startDate is open', duration.value);
     }
   });
 
@@ -106,6 +111,12 @@
       var newDate = parsedDate.toDateString();
       newDate = new Date(Date.parse(newDate));
       start.datepicker('option', {maxDate: newDate});
+      //Finally we can find maxDate!!! But only in the onSelect function
+      // console.log(start.datepicker('option', 'maxDate'));
+
+      for(var i = 0; i < datesButtons.length; i++) {
+        datesButtons[i].classList.remove('disabled');
+      };
 
       var duration = document.querySelector('#duration');
       if(startDate === null) {
@@ -115,7 +126,6 @@
         return;
       }
       duration.value = daysBetween(startDate, endDate);
-      // console.log('startDate on END', startDate, 'endDate on END', endDate);
     }
   });
 
@@ -144,34 +154,66 @@
       var value = Number(input.value);
       var startDate = start.datepicker('getDate');
       var endDate = end.datepicker('getDate');
-
-      function startDateReturn() {
-        console.log(startDate);
-        return startDate;
-      };
+      var today = new Date();
 
       if(isNaN(value)) {
         value = 0;
       }
 
+      function newDate(date, operation) {
+        var parsedDate = new Date(Date.parse(date));
+        if(operation) {
+          parsedDate.setDate(parsedDate.getDate() + Number(input.value));
+        } else if(value > 1) {
+          parsedDate.setDate(parsedDate.getDate() - 1);
+        }
+        var newDate = parsedDate.toDateString();
+        newDate = new Date(Date.parse(newDate));
+        return newDate;
+      };
+
+      function maxDate(date) {
+        var parsedNewDate = new Date(Date.parse(date));
+        parsedNewDate.setDate(parsedNewDate.getDate() - 1);
+        var maxDate = parsedNewDate.toDateString();
+        maxDate = new Date(Date.parse(maxDate));
+        return maxDate;
+      };
+
       if(operation) {
         input.value = value + 1;
-        // console.log(startDate, 'startDate changeNumber true');
 
-        var parsedDate = new Date(Date.parse(startDate));
-        parsedDate.setDate(parsedDate.getDate() + Number(input.value));
-        var newDate = parsedDate.toDateString();
-        newDate = new Date(Date.parse(newDate));
+        var newDate = newDate(startDate, true);
         end.datepicker('setDate', newDate);
+
+        var maxStartDate = maxDate(newDate);
+        start.datepicker('option', {maxDate: maxStartDate});
+
+        var maxDate = maxDate(today);
+        var diffDates = daysBetween(newDate, maxDate);
+
+        if(diffDates === 0) {
+          datesButtons[i].classList.add('disabled');
+        } else {
+          datesButtons[i].classList.remove('disabled');
+        }
       } else if(value > 1){
         input.value = value - 1;
-        // console.log(startDate, 'startDate changeNumber false');
 
-        var parsedDate = new Date(Date.parse(endDate));
-        parsedDate.setDate(parsedDate.getDate() - 1);
-        var newDate = parsedDate.toDateString();
-        newDate = new Date(Date.parse(newDate));
+        var newDate = newDate(endDate, false);
         end.datepicker('setDate', newDate);
+
+        var maxStartDate = maxDate(newDate);
+        start.datepicker('option', {maxDate: maxStartDate});
+
+        var maxDate = maxDate(today);
+        var diffDates = daysBetween(newDate, maxDate);
+
+        if(diffDates === 0) {
+          datesButtons[i].classList.add('disabled');
+        } else {
+          datesButtons[i].classList.remove('disabled');
+        }
       }
     };
   };
@@ -236,6 +278,44 @@
     return Math.round(difference/ONE_DAY);
   };
 
+  function showModal(status, type, names) {
+    if(status = 'error') {
+      modalFail.style.display = 'block';
+      var text;
+      var filesNames = names.join(', ');
+      if(type = 'picture') {
+        if(names.length > 1) {
+          text = 'Файлы ' + filesNames + ' не были загружены. Размер каждого файла не должен превышать 2Мб';
+        } else {
+          text = 'Файл ' + filesNames + ' не был загружен. Размер файла не должен превышать 2Мб';
+        }
+        modalFail.querySelector('.modal__text').appendChild(document.createTextNode(text));
+        // console.log('when open ', modalFail.querySelector('.modal__text').textContent);
+        modalFail.querySelector('.modal__btn').addEventListener('click', hideModal);
+      }
+    } else if(status = 'success') {
+      modalSuccess.style.display = 'block';
+    }
+  };
+
+  function hideModal(status) {
+    if(status = 'error') {
+      modalFail.style.display = '';
+      modalFail.querySelector('.modal__text').textContent = '';
+      pictures.length = 0;
+    } else if(status = 'success') {
+      modalSuccess.style.display = '';
+    }
+  };
+
+  function getValues(array) {
+    var values = [];
+    array.forEach(function(pic) {
+      values.push(pic.name);
+    });
+    return values;
+  };
+
   function preview(file) {
     if(file.type.match(/image.*/)) {
       var reader = new FileReader();
@@ -252,7 +332,6 @@
         picturesArea.appendChild(li);
 
         var deleteBtn = li.querySelector('.review-gallery__delete-btn');
-        // console.log(deleteBtn);
         deleteBtn.addEventListener('click', function(event) {
           event.preventDefault();
           removePreview(li);
@@ -262,8 +341,6 @@
           'file': file,
           'li': li
         });
-
-        console.log(pictures);
       });
 
       reader.readAsDataURL(file);
@@ -280,10 +357,21 @@
 
   uploadBtn.addEventListener('change', function() {
     var files = this.files;
+    var errorFiles = [];
+    var errorFilesNames;
 
     for(var i = 0; i < files.length; i++) {
-      preview(files[i]);
-    }
+      if(files[i].size/MEGABYTE > 2) {
+        errorFiles.push(files[i]);
+      } else {
+        preview(files[i]);
+      }
+    };
+
+    errorFilesNames = getValues(errorFiles);
+    if(errorFiles.length > 0) {
+      showModal('error', 'picture', errorFilesNames);
+    };
   });
 
   form.addEventListener('submit', function(event) {

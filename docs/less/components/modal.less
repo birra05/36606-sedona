@@ -2,7 +2,6 @@
 
 .modal {
   display: none;
-  // display: block;
   width: @mobile-width;
   padding: 42px 0 35px;
   text-align: center;
@@ -30,14 +29,14 @@
         padding: 45px 0;
       }
     }
-    &-success {
+    &--success {
       @media (min-width: @tablet-width) {
         width: 430px;
       }
     }
   }
 
-  &-failure {
+  &--failure {
     position: absolute;
     bottom: 602px;
     @media (min-width: @tablet-width)  {
@@ -49,7 +48,7 @@
     }
   }
 
-  &-success {
+  &--success {
     position: absolute;
     bottom: 230px;
     padding-bottom: 0;
@@ -69,7 +68,7 @@
     @media (min-width: @tablet-width) {
       font: bold 30px/40px @font-family;
 
-      &-failure {
+      &--failure {
         width: 220px;
       }
     }
@@ -77,11 +76,10 @@
 
   &__text {
     margin-bottom: 26px;
+    font: @font-intro;
   }
 
   &__btn {
-    // .mixin_for-big-btn;
-    // .blue-btn-hover-active;
     display: block;
     width: @wrapper-mobile-width;
     margin: 0 auto;
@@ -89,7 +87,7 @@
       width: @wrapper-tablet-btn-width;
     }
 
-    &-failure {
+    &--failure {
       width: 180px;
       @media (min-width: @tablet-width) {
         width: 270px;

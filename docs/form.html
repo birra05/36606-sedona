@@ -48,15 +48,15 @@
             <div class="review-form__box">
               <div class="review-form__item">
                 <label for="surname">Фамилия:<sup>*</sup></label> 
-                <input id="surname" type="text" name="surname" value="Иванов" autofocus="" required="">
+                <input id="surname" type="text" name="surname" placeholder="Фамилия" autofocus="" required="">
               </div>
               <div class="review-form__item">
                 <label for="name">Имя:<sup>*</sup></label> 
-                <input id="name" type="text" name="name" value="Петр" required="">
+                <input id="name" type="text" name="name" placeholder="Имя" required="">
               </div>
               <div class="review-form__item">
-                <label for="patronymic">Отчество:<sup>*</sup></label> 
-                <input id="patronymic" type="text" name="patronymic" value="Александрович" required="">
+                <label for="patronymic">Отчество:<sup>* </sup></label> 
+                <input id="patronymic" type="text" name="patronymic" placeholder="Отчество" required="">
               </div>
             </div>
           </fieldset>
@@ -85,10 +85,10 @@
               <div class="review-form__item">
                 <label class="for-mobile" for="duration">Длительность пребывания:<sup>*</sup></label> 
                 <label class="for-tablet" for="duration">Дней пребывания:<sup>*</sup></label>
-                <div class="review-form__quantity js-dates-travel"><a class="review-form__button review-form__button--minus" href="#" id="dates-travel-minus"></a>
+                <div class="review-form__quantity js-dates-travel"><a class="review-form__button review-form__button--minus disabled" href="#" id="dates-travel-minus"></a>
                   <div class="review-form__quantity-days">
                     <input id="duration" type="text" name="duration" placeholder="дней" value="1" required="" disabled>
-                  </div><a class="review-form__button review-form__button--plus" href="#" id="dates-travel-plus"></a>
+                  </div><a class="review-form__button review-form__button--plus disabled" href="#" id="dates-travel-plus"></a>
                 </div>
               </div>
               <div class="review-form__item">
@@ -164,27 +164,7 @@
               <label class="btn btn--blue for-desktop" for="review-img-upload">Перетащите фотографии сюда</label>
             </div>
             <!-- Preview-->
-            <ul class="review-gallery__list" id="review-gallery">
-              <li class="review-gallery__item"><img src="img/img-tablet-preview-1.jpg" alt="preview-1" width="140" height="140"><a class="review-gallery__delete-btn" href=""></a>
-                <p>img-686.jpg</p>
-              </li>
-              <li class="review-gallery__item"><img src="img/img-tablet-preview-2.jpg" alt="preview-2" width="140" height="140"><a class="review-gallery__delete-btn" href=""></a>
-                <p>img-687.jpg</p>
-              </li>
-              <li class="review-gallery__item"><img src="img/img-tablet-preview-3.jpg" alt="preview-3" width="140" height="140"><a class="review-gallery__delete-btn" href=""></a>
-                <p>img-688.jpg</p>
-              </li>
-              <li class="review-gallery__item"><img src="img/img-tablet-preview-4.jpg" alt="preview-4" width="140" height="140"><a class="review-gallery__delete-btn" href=""></a>
-                <p>img-689.jpg</p>
-              </li>
-              <li class="review-gallery__item"><img src="img/img-tablet-preview-5.jpg" alt="preview-5" width="140" height="140"><a class="review-gallery__delete-btn" href=""></a>
-                <p>img-690.jpg</p>
-              </li>
-              <li class="review-gallery__item"><img src="img/img-tablet-preview-6.jpg" alt="preview-6" width="140" height="140"><a class="review-gallery__delete-btn" href=""></a>
-                <p>img-691.jpg</p>
-              </li>
-              <li class="review-gallery__item"><img src="img/img-preview-7.jpg" alt="preview-7" width="70" height="70"><a class="review-gallery__delete-btn" href=""></a></li>
-            </ul>
+            <ul class="review-gallery__list" id="review-gallery"></ul>
           </fieldset>
           <button class="btn btn--blue review-form__send-btn" type="submit">Отправить отзыв</button>
         </form>
@@ -219,19 +199,22 @@
         </div>
       </footer>
       <!-- Modal window_Failure-->
-      <div class="modal modal-failure">
-        <div class="wrapper wrapper-failure">
-          <h3 class="modal__title modal__title-failure">Что-то пошло не так!</h3>
-          <p class="modal__text">Проверьте поля, выделенные красным, скорее всего, вы забыли их заполнить.</p>
-        </div> <a class="modal__btn modal__btn-failure" href="">ОК</a>
+      <div class="modal modal--failure" id="modal-fail">
+        <div class="wrapper wrapper--failure">
+          <h3 class="modal__title modal__title--failure">Что-то пошло не так! </h3>
+          <p class="modal__text"></p>
+        </div> 
+        <button class="btn btn--blue modal__btn modal__btn--failure" type="button">ОК</button>
       </div>
       <!-- Modal window_Success-->
-      <div class="modal modal-success">
-        <div class="wrapper wrapper-success">
+      <div class="modal modal--success" id="modal-success">
+        <div class="wrapper wrapper--success">
           <h3 class="modal__title">Ваш отзыв отправлен!</h3>
           <p class="modal__text">Спасибо за ваше участие, ваш отзыв уже поступил к нам. В ближайшее время мы опубликуем его на сайте.</p>
         </div>
-        <div class="wrapper-btn"><a class="modal__btn modal__btn-success" href="">Закрыть окно</a></div>
+        <div class="wrapper-btn">
+          <button class="btn btn--blue modal__btn" type="button">Закрыть окно</button>
+        </div>
       </div>
     </div>
     <script type="text/html" id="image-template"><img src="{{image}}" alt="{{name}}" width="140" height="140"><a class="review-gallery__delete-btn" href=""></a>
@@ -257,6 +240,7 @@
         </div>
       </div>
     </script>
+    <script>console.log();</script>
     <script src="docs/../libs/mustache.js/mustache.js"> </script>
     <script src="docs/../libs/jquery/jquery.min.js"> </script>
     <script src="docs/../libs/jquery-ui/jquery-ui.min.js"> </script>
