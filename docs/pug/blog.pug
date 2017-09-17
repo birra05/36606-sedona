@@ -65,14 +65,14 @@ html(lang='ru')
     .container 
       include includes/page-header.pug
       include includes/intro.pug
-      section.blog-posts
+      div.blog-posts
         for blog in blogPosts
           +blog-post(blog)
-      section.page-nav
-        p.page-nav__text Страница: 
+      div.page-nav
+        span.page-nav__text Страница: 
         ul.page-nav__list
           each page in pagingItems
             li.page-nav__item
               a(href='#' class=page.active ? 'page-nav__link page-nav__link--active' : 'page-nav__link')= page.number
       include includes/page-footer.pug
-    script(src='docs/../js/script.js')
+    script(src='docs/../js/src/open-menu.js')

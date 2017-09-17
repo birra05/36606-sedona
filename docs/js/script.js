@@ -80,7 +80,6 @@
         return;
       }
       duration.value = daysBetween(startDate, endDate);
-      console.log('startDate is open', duration.value);
     }
   });
 
@@ -111,8 +110,6 @@
       var newDate = parsedDate.toDateString();
       newDate = new Date(Date.parse(newDate));
       start.datepicker('option', {maxDate: newDate});
-      //Finally we can find maxDate!!! But only in the onSelect function
-      // console.log(start.datepicker('option', 'maxDate'));
 
       for(var i = 0; i < datesButtons.length; i++) {
         datesButtons[i].classList.remove('disabled');
@@ -290,7 +287,6 @@
           text = 'Файл ' + filesNames + ' не был загружен. Размер файла не должен превышать 2Мб';
         }
         modalFail.querySelector('.modal__text').appendChild(document.createTextNode(text));
-        // console.log('when open ', modalFail.querySelector('.modal__text').textContent);
         modalFail.querySelector('.modal__btn').addEventListener('click', hideModal);
       }
     } else if(status = 'success') {

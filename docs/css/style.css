@@ -742,7 +742,7 @@ img {
   position: absolute;
   background: url("../img/intro-triangle.svg") no-repeat;
   background-size: 100%;
-  width: 1202px;
+  width: 1200px;
   height: 57px;
   top: 101px;
   left: -441px;
@@ -2495,4 +2495,18 @@ img {
   .modal__btn--failure {
     width: 270px;
   }
+}
+.ui-datepicker {
+  width: 280px !important;
+}
+.ui-widget {
+  font-family: "PT Sans", Arial, sans-serif !important;
+}
+.ui-widget-header {
+  background: #81b3d2 !important;
+  background-image: none !important;
+  border: none !important;
+}
+.ui-state-default {
+  background: #f2f2f2 !important;
 }

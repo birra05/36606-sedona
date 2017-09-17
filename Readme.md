@@ -2,7 +2,7 @@
 
 ### О проекте
 * Вёрстка: адаптивная (mobile, tablet, desktop).
-* Технологии: HTML5, CSS3, Javascript, jQuery, Pug, LESS, Bower, Git, npm.
+* Технологии: HTML5, CSS3, БЭМ, Javascript, jQuery, Pug, LESS, Bower, Git, npm.
 * Поддержка:  IE11+.
 
 ### Содержание
