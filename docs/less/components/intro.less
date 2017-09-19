@@ -11,26 +11,30 @@
 
   &-img {
     position: relative;
-    background: @blue url("../img/photo-background@1x.jpg") no-repeat 0 -55px;
-    background-size: cover;
+    background-color: @blue;
+    background-image:
+      url(../img/intro-triangle.svg),
+      url("../img/photo-background@1x.jpg");
+    background-repeat: no-repeat;
+    background-size: auto, cover;
+    background-position:
+      bottom, 0 50%;
     width: 100%;
     height: 157px;
     padding-top: 48px;
+    margin-bottom: 70px;
     overflow: hidden;
 
     @media (min-width: @tablet-width) {
-      position: relative;
-      background: @blue url("../img/photo-background@1x.jpg") no-repeat 0 -180px;
-      background-size: cover;
       height: 290px;
       padding-top: 102px;
-      // margin-bottom: 75px; // подогнано по макету
       overflow: hidden;
+      background-size: 102%, cover;
     }
 
     @media (min-width: @desktop-width) {
       height: 300px; // подогнано по макету
-      margin-bottom: 113px; // подогнано по макету
+      // margin-bottom: 113px; // подогнано по макету
     }
 
     @media (min-resolution: 144dpi), (min-resolution: 1.5dppx) {
@@ -87,49 +91,18 @@
       }
     }
 
-    &:after {
-      .pseudo;
-      background: url("../img/intro-triangle.svg") no-repeat;
-      background-size: 100%;
-      width: 1200px;
-      height: 57px;
-      top: 157 - 56px;
-      left: -(1202px/2 - @mobile-width/2);
-
-      @media (min-width: @tablet-width) {
-        .pseudo;
-        background: url("../img/intro-triangle.svg") no-repeat;
-        background-size: cover;
-        width: 100%;
-        height: 37px;
-        top: 290px - 36px;
-        left: 0;
-      }
-
-      @media (min-width: @desktop-width) {
-        height: 57px;
-        top: 243px; // подогнано по макету
-      }
-    }
-
     &--index {
-      background: @blue url("../img/photo-background@1x.jpg") no-repeat;
-      background-size: cover;
       height: 390px;
-      padding-top: 47px;
-      // margin-bottom: 38px;
+      margin-bottom: 55px; // подогнано по макету
+      background-position: bottom, 0 25%;
 
       @media (min-width: @tablet-width) {
-        background: @blue url("../img/photo-background@1x.jpg") no-repeat 0 28%;
-        background-size: cover;
         height: 512px;
         padding-top: 76px;
-        margin-bottom: 55px; // подогнано по макету
       }
 
       @media (min-width: @desktop-width) {
         height: 512px;
-        margin-bottom: 55px;
       }
 
       &__sedona {
@@ -159,7 +132,7 @@
     width: @wrapper-mobile-width;
     position: relative;
     margin: 0 auto 20px;
-    padding-top: 74px;
+    // padding-top: 74px;
 
     @media (min-width: @tablet-width) {
       width: 440px; // подогнано по макету
@@ -198,7 +171,6 @@
     &--index {
       width: @wrapper-mobile-width - 20px;
       margin: 0 auto;
-      padding-top: 38px;
 
       @media (min-width: @tablet-width) {
         width: 500px;
@@ -217,7 +189,7 @@
 
   &--blog {
     .intro-describe {
-      padding-top: 48px;
+      // padding-top: 48px;
       margin-bottom: 30px;
       &__title {
         margin-bottom: 40px;

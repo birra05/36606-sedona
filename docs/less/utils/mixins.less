@@ -22,38 +22,17 @@
   height: 56px;
   background: @light-gray-input;
   cursor: pointer;
+  .transition(all, ease, 0.5s);
 }
-
-// Оформление больших кнопок Найти гостиницу и Отправить отзыв
-// .mixin_for-big-btn {
-//   width: 100%;
-//   text-align: center;
-//   background: @blue;
-//   color: @color-font-white;
-//   font: @font-btn;
-//   text-decoration: none;
-// }
 
 // Оформление различных состояний :hover, :active
 
-// Прозрачность 10%
-.opacity-10 {
-  opacity: 0.1;
+.opacity(@value) {
+  opacity: @value;
 }
 
-// Прозрачность 30%
-.opacity-30 {
-  opacity: 0.3;
-}
-
-// Прозрачность 50%
-.opacity-50 {
-  opacity: 0.5;
-}
-
-// Прозрачность 60%
-.opacity-60 {
-  opacity: 0.6;
+.transition(@property, @form, @time) {
+  transition: @property @form @time;
 }
 
 // Для кнопок в модальных окнах, Найти гостиницу, Перетащить фотографии (десктоп), Отправить отзыв

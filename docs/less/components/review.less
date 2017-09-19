@@ -162,6 +162,7 @@
         background: @light-gray-input;
         border: 0;
         text-transform: none;
+        .transition(all, ease, 0.5s);
 
         @media (min-width: @tablet-width) {
           width: 175px;
@@ -195,6 +196,7 @@
             line-height: 56px;
             text-transform: none;
             cursor: pointer;
+
           }
         }
 
@@ -202,6 +204,7 @@
           & + label:before {
             .mixin_for-radio-checkbox-label-before;
             border-radius: 50%;
+            .transition(all, ease, 0.5s);
           }
 
           .gray-radio-check-hover-active;
@@ -219,7 +222,7 @@
             }
 
             & + label:active:after {
-              .opacity-30;
+              .opacity(0.3);
             }
           }
         }
@@ -248,7 +251,7 @@
             }
 
             & + label:active:after {
-              .opacity-30;
+              .opacity(0.3);
             }
           }
         }
@@ -276,6 +279,7 @@
       width: 60px;
       height: 58px;
       background: @light-gray-input;
+      .transition(all, ease, 0.5s);
 
       &.disabled {
         pointer-events: none;
@@ -297,7 +301,8 @@
         height: 4px;
         top: 27px;
         left: 21px;
-        .opacity-30;
+        .opacity(0.3);
+        .transition(all, ease, 0.5s);
       }
 
       &--plus:before {
@@ -308,15 +313,16 @@
         height: 20px;
         top: 19px;
         left: 21px;
-        .opacity-30;
+        .opacity(0.3);
+        .transition(all, ease, 0.5s);
       }
 
       &--minus:hover:before, &--plus:hover:before {
-        .opacity-50;
+        .opacity(0.5);
       }
 
       &--minus:active:before, &--plus:active:before {
-        .opacity-10;
+        .opacity(0.1);
       }
     }
 
@@ -345,7 +351,7 @@
           top: (58px - 26px)/2;
           left: 93px;
           font: @font-title;
-          .opacity-30;
+          .opacity(0.3);
           text-transform: lowercase;
         }
       }
@@ -358,7 +364,7 @@
           top: (58px - 26px)/2;
           left: 100px;
           font: @font-title;
-          .opacity-30;
+          .opacity(0.3);
           text-transform: lowercase;
         }
       }

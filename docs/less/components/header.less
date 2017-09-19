@@ -73,23 +73,6 @@
       background: url("../img/icon-cross.svg") no-repeat transparent;
     }
 
-    // &:before {
-    //   .pseudo;
-    //   background: url("../img/icon-menu.svg") no-repeat;
-    //   width: 23px;
-    //   height: 22px;
-    //   top: 240px;
-    //   right: 20px;
-    // }
-
-    // &:after {
-    //   .pseudo;
-    //   background: url("../img/icon-cross.svg") no-repeat;
-    //   width: 22px;
-    //   height: 22px;
-    //   top: 16px;
-    //   right: 20px;
-    // }
     @media (min-width: @tablet-width) {
       display: none;
     }
@@ -104,6 +87,7 @@
     box-shadow:
       inset 0 1px 0 0 rgba(255, 255, 255, 0.2),
       0 -1px 0 0 rgba(0, 0, 0, 0.2);
+    .transition(all, ease, 0.5s);
 
     &:hover {
       background: @blue-hover;
@@ -138,7 +122,7 @@
         }
 
         &:active {
-          .opacity-30;
+          .opacity(0.3);
         }
       }
     }
@@ -147,8 +131,9 @@
   &__logo {
     width: @logo-width;
     position: absolute;
-    left: (@mobile-width - 67px)/2;
-    z-index: 1000;
+    left: ((@mobile-width - @logo-width)/2)/@mobile-width*100%;
+    // left: ((@tablet-width - @logo-width)/2)/@tablet-width*100%;
+    z-index: 100;
 
     &:after {
       content: url("../img/form-logo-triangle.svg");
@@ -158,15 +143,12 @@
       height: 71px;
       top: 0;
       left: -(@logo-bg-width - @logo-width)/2;
-      z-index: -1000;
+      z-index: -100;
     }
     @media (min-width: @tablet-width) {
       position: absolute;
       top: 0;
-      left: (@tablet-width - @logo-width)/2;
-    }
-    @media (min-width: @desktop-width) {
-      left: (@desktop-width - @logo-width)/2;
+      left: ((@desktop-width - @logo-width)/2)/@desktop-width*100%;
     }
   }
 }

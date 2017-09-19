@@ -26,18 +26,20 @@ img {
 
 .container {
   position: relative;
-  width: @mobile-width;
+  // width: @mobile-width;
+  width: 100%;
   margin: 0 auto;
   overflow: hidden;
 
   @media (min-width: @tablet-width) {
-    width: @tablet-width;
+    // width: @tablet-width;
     margin: 0 auto;
     overflow: hidden;
   }
 
   @media (min-width: @desktop-width)  {
-    width: @desktop-width;
+    // width: @desktop-width;
+    max-width: @desktop-width;
     background: @color-font-white;
     margin: 0 auto;
     overflow: hidden;

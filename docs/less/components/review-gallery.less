@@ -17,7 +17,7 @@
   .for-mobile-tablet {
     display: block;
     cursor: pointer;
-    .opacity-30;
+    .opacity(0.3);
 
     @media (min-width: @desktop-width) {
       display: none;
@@ -25,7 +25,7 @@
 
     &:hover {
       background: @gray-hover;
-      .opacity-60;
+      .opacity(0.6);
     }
 
     &:active {
@@ -142,7 +142,7 @@
       height: 12px;
       top: (30px - 12px)/2;
       left: (30px - 12px)/2;
-      .opacity-30;
+      .opacity(0.3);
       z-index: 1000;
 
       @media (min-width: @tablet-width) {
@@ -154,11 +154,11 @@
     }
 
     &:hover:before {
-      .opacity-50;
+      .opacity(0.5);
     }
 
     &:active:before {
-      .opacity-10;
+      .opacity(0.1);
     }
 
     &:hover {

@@ -35,6 +35,10 @@
       }
     }
 
+    &__img {
+
+    }
+
     &__title {
       margin: 0 auto;
       margin-bottom: 6px;
@@ -60,6 +64,7 @@
     img {
       display: block;
     }
+
     &--1, &--2 {
       position: relative;
       background: @blue;
@@ -83,31 +88,30 @@
       }
     }
     &--1 {
-      @media (max-width: @tablet-width) {
-        padding-top: 77px; // подогнано по макету
-        margin-top: 5px; // подогнано по макету
+      padding-top: 50px; // подогнано по макету
+      margin-top: 5px; // подогнано по макету
+
+      @media (min-width: @tablet-width) {
+        padding-top: 0;
+        margin-top: 0;
       }
 
       &__bg {
-        background: @blue url("../img/photo-city@1x.jpg") no-repeat -100px 0;
+        background: @blue url("../img/photo-city@1x.jpg") no-repeat;
         background-size: cover;
-
-        @media (min-width: @tablet-width) {
-          background: @blue url("../img/photo-city@1x.jpg") no-repeat;
-          // background-size: cover;
-        }
 
         @media (min-resolution: 144dpi), (min-resolution: 1.5dppx) {
           background: @blue url("../img/photo-city@2x.jpg") no-repeat;
-          // background-size: cover;
+          background-size: cover;
         }
       }
 
       &:before {
-        content: url("../img/img-bg-white-2.png");
+        content: url("../img/bg-triangle.svg");
         display: block;
         position: absolute;
-        top: 0;
+        top: -1px;
+        width: 100%;
         @media (min-width: @tablet-width) {
           display: none;
         }
@@ -120,17 +124,16 @@
       }
 
       &__bg {
-        background: @blue url("../img/photo-bridge@1x.jpg") no-repeat -100px 0;
+        background: @blue url("../img/photo-bridge@1x.jpg") no-repeat;
         background-size: cover;
 
         @media (min-width: @tablet-width) {
           order: -1;
-          background: @blue url("../img/photo-bridge@1x.jpg") no-repeat;
-          // background-size: cover;
         }
 
         @media (min-resolution: 144dpi), (min-resolution: 1.5dppx) {
           background: @blue url("../img/photo-bridge@2x.jpg") no-repeat;
+          background-size: cover;
         }
       }
 
@@ -157,11 +160,11 @@
 
       &:after {
         .pseudo;
-        width: @wrapper-mobile-width;
+        width: @wrapper-mobile-width/@mobile-width*100%;
         height: 1px;
         background: @gray-line;
         bottom: 0px;
-        left: 20px;
+        left: 20px/@mobile-width*100%;
 
         @media (min-width: @tablet-width) {
           display: none;
@@ -178,117 +181,85 @@
  // Блок с дополнительными причинами
 
   .reason-list {
-    position: relative;
+    // position: relative;
     text-align: left;
-    padding-top: 40px; // подогнано по макету
-    margin-bottom: 38px;
+    padding-top: 30px;
+    margin: 0 7%;
 
     @media (min-width: @tablet-width) {
       display: flex;
       justify-content: space-between;
       text-align: center;
-      padding-top: 0;
-      margin-bottom: 0;
+      padding-top: 55px;
+      padding-bottom: 60px;
+      margin: 0;
+    }
+
+    &__img {
+      position: relative;
+      top: -10px;
+      width: 42px;
+      @media (min-width: @tablet-width) {
+        height: 75px;
+      }
     }
 
     &__item {
-      position: relative;
-      margin-left: 70px;
-      margin-bottom: 28px; // подогнано по макету
+      display: flex;
+      margin-bottom: 30px; // подогнано по макету
 
       @media (min-width: @tablet-width) {
-        position: relative;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
         width: 33%;
-        margin-left: 0;
         margin-bottom: 0;
-        padding: 0 45px; // подогнано по макету
-        padding-top: 160px;
-        padding-bottom: 62px;
+        padding: 0 5%;
         font: @font-reason;
       }
 
-      @media (min-width: @desktop-width) {
-        padding: 0 (@desktop-width/3 - 270px)/2;
-        padding-top: 160px;
-        padding-bottom: 85px;
-      }
-    }
-
-    &__item--1:before {
-      .pseudo;
-      background: transparent url("../img/icon-house.svg") no-repeat;
-      background-size: cover;
-      width: 38px;
-      height: 37px;
-      top: -10px;
-      left: -47px; // подогнано по макету
-
-      @media (min-width: @tablet-width) {
-        // .pseudo;
-        // background: transparent url("../img/icon-house.svg") no-repeat;
-        // background-size: cover;
-        width: 74px;
-        height: 72px;
-        top: 60px; // подогнано по макету
-        left: 90px; // подогнано по макету
+      &--1 {
+        .reason-list__img {
+          // width: 38px;
+          height: 37px;
+          @media (min-width: @tablet-width)  {
+            width: 74px;
+            height: 72px;
+          }
+        }
       }
 
-      @media (min-width: @desktop-width) {
-        left: (@desktop-width/3 - 74px)/2;
-      }
-    }
-
-    &__item--2 {
-      @media (min-width: @tablet-width)  {
-        order: 3;
-      }
-
-      &:before {
-        .pseudo;
-        background: transparent url("../img/icon-gift.svg") no-repeat;
-        background-size: cover;
-        width: 32px;
-        height: 38px;
-        top: -10px;
-        left: -44px; // подогнано по макету
-
+      &--2 {
         @media (min-width: @tablet-width)  {
-          // .pseudo;
-          // background: transparent url("../img/icon-gift.svg") no-repeat;
-          // background-size: cover;
-          width: 63px;
-          height: 75px;
-          top: 58px; // подогнано по макету
-          left: 92px; // подогнано по макету
+          order: 3;
         }
+        .reason-list__img {
+          // width: 32px;
+          height: 38px;
+          @media (min-width: @tablet-width)  {
+            width: 63px;
+            height: 75px;
+          }
+        }
+      }
 
-        @media (min-width: @desktop-width) {
-          left: (@desktop-width/3 - 63px)/2;
+      &--3 {
+        .reason-list__img {
+          // width: 41px;
+          height: 37px;
+          @media (min-width: @tablet-width)  {
+            width: 76px;
+            height: 69px;
+          }
         }
       }
     }
 
-    &__item--3:before {
-      .pseudo;
-      background: transparent url("../img/icon-burger.svg") no-repeat;
-      background-size: cover;
-      width: 41px;
-      height: 37px;
-      top: -5px; // подогнано по макету
-      left: -51px; // подогнано по макету
-
+    &__describe {
+      margin-left: 10px;
       @media (min-width: @tablet-width) {
-        // .pseudo;
-        // background: transparent url("../img/icon-burger.svg") no-repeat;
-        // background-size: cover;
-        width: 77px;
-        height: 70px;
-        top: 64px; // подогнано по макету
-        left: 85px; // подогнано по макету
-      }
-
-      @media (min-width: @desktop-width) {
-        left: (@desktop-width/3 - 76px)/2;
+        margin-top: 20px;
+        margin-left: 0;
       }
     }
 
